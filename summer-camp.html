@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Camp Beatmakers — FL Studio · Levitation Beats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #DA2028;
+  --black: #000000;
+  --surface: #0e0e0e;
+  --surface2: #161616;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.14);
+  --text: #ffffff;
+  --muted: #888888;
+  --muted2: #444444;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ── */
+.wrap { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+/* ── Nav ── */
+nav {
+  padding: 22px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border2);
+  position: sticky; top: 0; z-index: 100;
+  background: var(--black);
+}
+.nav-brand {
+  font-size: 13px; font-weight: 900;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text);
+}
+.nav-brand span { color: var(--red); }
+.nav-cta {
+  display: inline-block;
+  background: var(--red); color: #fff;
+  padding: 10px 20px; border-radius: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: opacity .2s;
+}
+.nav-cta:hover { opacity: .85; }
+
+/* ── Eyebrow ── */
+.eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--red);
+  margin-bottom: 24px;
+}
+.eyebrow-dash { color: var(--red); letter-spacing: 0; }
+
+/* ── Hero ── */
+.hero {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 72px;
+}
+.hero h1 {
+  font-size: clamp(48px, 9vw, 80px);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 .accent { color: var(--red); display: block; }
+.hero-fl {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--border2);
+  padding: 6px 12px; margin-bottom: 20px;
+}
+.hero-fl span { color: #FF6B00; }
+.hero-desc {
+  font-size: 16px; color: var(--muted);
+  line-height: 1.75; max-width: 520px; margin-bottom: 40px;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-block; background: var(--red); color: #fff;
+  padding: 14px 28px; border-radius: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .85; }
+.btn-secondary {
+  display: inline-block; background: transparent; color: #fff;
+  padding: 13px 28px; border-radius: 0;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-family: 'Lato', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
+
+/* ── Stats ── */
+.stats {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border: 1px solid var(--border2);
+  margin-bottom: 72px;
+}
+.stat { padding: 20px 16px; text-align: center; border-right: 1px solid var(--border2); }
+.stat:last-child { border-right: none; }
+.stat-n { font-size: 28px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 5px; }
+.stat-n.red { color: var(--red); }
+.stat-l { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ── Section ── */
+.section { margin-bottom: 72px; }
+
+.section-title {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 900; text-transform: uppercase;
+  letter-spacing: -0.01em; line-height: 1.05;
+  margin-bottom: 20px;
+}
+.section-title .dim { color: rgba(255,255,255,0.5); }
+.section-body { font-size: 15px; color: var(--muted); line-height: 1.8; }
+
+/* ── Audience ── */
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border2); border: 1px solid var(--border2); }
+.audience-card { background: var(--surface); padding: 28px; }
+.audience-tag {
+  font-size: 10px; font-weight: 700; color: var(--red);
+  text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 12px;
+}
+.audience-title { font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.02em; }
+.audience-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── Conditions ── */
+.conditions {
+  border-left: 3px solid var(--red);
+  padding: 24px 28px;
+  background: var(--surface);
+}
+.conditions-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px; }
+.conditions ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.conditions ul li {
+  font-size: 14px; color: var(--muted); line-height: 1.6;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.conditions ul li::before { content: '—'; color: var(--red); flex-shrink: 0; font-weight: 700; }
+
+/* ── Sessions ── */
+.sessions { display: flex; flex-direction: column; border: 1px solid var(--border2); }
+.session-item { border-bottom: 1px solid var(--border2); }
+.session-item:last-child { border-bottom: none; }
+
+.session-header { display: flex; gap: 20px; align-items: flex-start; padding: 24px 28px; }
+.session-num {
+  font-size: 10px; font-weight: 700; color: var(--red);
+  background: rgba(218,32,40,.1); padding: 5px 9px;
+  letter-spacing: 0.08em; flex-shrink: 0; line-height: 1.4; margin-top: 2px;
+}
+.session-main { flex: 1; }
+.session-title { font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+.session-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* Accordion */
+details {}
+details summary {
+  list-style: none; cursor: pointer;
+  padding: 12px 28px 16px 68px;
+  font-size: 10px; font-weight: 700;
+  color: var(--muted2); letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; align-items: center;
+  border-top: 1px solid var(--border);
+  transition: color .15s; user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: 'VOIR LE DÉTAIL'; flex: 1; }
+details summary::after { content: '+'; color: var(--red); font-size: 18px; font-weight: 300; line-height: 1; }
+details[open] summary::before { content: 'MASQUER'; }
+details[open] summary::after { content: '−'; }
+details summary:hover { color: var(--muted); }
+
+.detail-body { padding: 4px 28px 24px 68px; }
+.detail-body ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.detail-body ul li {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+  display: flex; gap: 10px;
+}
+.detail-body ul li::before { content: '—'; color: var(--muted2); flex-shrink: 0; }
+.detail-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin: 14px 0 8px; }
+.detail-section:first-child { margin-top: 0; }
+.detail-bonus {
+  margin-top: 14px; padding: 10px 14px;
+  background: rgba(218,32,40,.08); border-left: 2px solid var(--red);
+  font-size: 12px; color: var(--red); font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+/* ── FAQ ── */
+.faq { display: flex; flex-direction: column; border: 1px solid var(--border2); }
+.faq-item { border-bottom: 1px solid var(--border2); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item details summary {
+  padding: 18px 24px; font-size: 14px; font-weight: 700;
+  color: var(--text); letter-spacing: 0.02em; text-transform: none;
+  border-top: none;
+}
+.faq-item details summary::before { display: none; }
+.faq-item details summary::after { content: '+'; font-size: 20px; color: var(--red); }
+.faq-item details[open] summary::after { content: '−'; }
+.faq-answer { padding: 0 24px 18px; font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+/* ── Form ── */
+.form-section {
+  background: var(--surface); border: 1px solid var(--border2);
+  padding: 40px; margin-bottom: 72px;
+  border-top: 3px solid var(--red);
+}
+.form-title { font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 6px; }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.form-sub span { color: var(--red); font-weight: 700; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.form-field { margin-bottom: 12px; }
+.form-label {
+  display: block; font-size: 10px; font-weight: 700;
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 7px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 12px 14px;
+  background: var(--surface2); border: 1px solid var(--border2);
+  border-radius: 0; color: var(--text);
+  font-family: 'Lato', sans-serif;
+  font-size: 14px; outline: none;
+  transition: border-color .15s;
+  -webkit-appearance: none; appearance: none;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted2); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--red); }
+.form-textarea { height: 100px; resize: none; line-height: 1.6; }
+.form-select { cursor: pointer; }
+.form-select option { background: #1a1a1a; }
+.form-error { font-size: 11px; color: var(--red); margin-top: 4px; display: none; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.field-invalid .form-input, .field-invalid .form-select, .field-invalid .form-textarea { border-color: var(--red); }
+.field-invalid .form-error { display: block; }
+.form-btn {
+  width: 100%; padding: 16px; background: var(--red); color: #fff; border: none;
+  border-radius: 0; cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-top: 10px; transition: opacity .2s;
+}
+.form-btn:hover { opacity: .85; }
+.success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.success-icon {
+  font-size: 28px; color: var(--red); font-weight: 900;
+  letter-spacing: 0.04em; margin-bottom: 16px;
+  display: block; text-transform: uppercase;
+}
+.success-title { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+.success-sub { font-size: 14px; color: var(--muted); }
+
+/* ── Divider ── */
+.divider { border: none; border-top: 1px solid var(--border2); margin: 0 0 72px; }
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 32px 0 48px;
+  border-top: 1px solid var(--border2);
+}
+.footer-brand {
+  font-size: 12px; font-weight: 900;
+  letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px;
+}
+.footer-brand span { color: var(--red); }
+.footer-info { font-size: 12px; color: var(--muted); line-height: 2; }
+.footer-info a { color: var(--muted); text-decoration: none; }
+.footer-info a:hover { color: var(--red); }
+
+/* ── Animations ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
+.hero .eyebrow{animation:fadeUp .4s ease both}
+.hero h1{animation:fadeUp .4s .07s ease both}
+.hero-fl{animation:fadeUp .4s .12s ease both}
+.hero-desc{animation:fadeUp .4s .17s ease both}
+.hero-btns{animation:fadeUp .4s .22s ease both}
+.stats{animation:fadeUp .4s .3s ease both}
+
+/* ── Responsive ── */
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(3){border-top:1px solid var(--border2);border-right:1px solid var(--border2)}
+  .stat:nth-child(4){border-top:1px solid var(--border2)}
+  .form-row{grid-template-columns:1fr}
+  .audience-grid{grid-template-columns:1fr}
+  .form-section{padding:24px 20px}
+  .hero{padding:48px 0}
+  .session-header{padding:20px}
+  details summary{padding-left:20px}
+  .detail-body{padding-left:20px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Nav -->
+<nav>
+  <div class="nav-brand">LEVITATION <span>BEATS</span></div>
+  <a href="#candidature" class="nav-cta">Candidater</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Juillet 2026 · En ligne · Gratuit</div>
+  <h1>
+    Summer Camp<br>
+    <span class="accent">Beatmakers.</span>
+  </h1>
+  <div class="hero-fl">Masterclass <span>FL Studio</span></div>
+  <p class="hero-desc">
+    4 sessions de 1h30 pour passer de zéro à une instrumentale complète. Un producteur actif depuis 15 ans. 15 places. Zéro bullshit.
+  </p>
+  <div class="hero-btns">
+    <a href="#candidature" class="btn-primary">Candidater maintenant</a>
+    <a href="#programme" class="btn-secondary">Voir le programme</a>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">Sessions</div></div>
+  <div class="stat"><div class="stat-n">1h30</div><div class="stat-l">Par session</div></div>
+  <div class="stat"><div class="stat-n">15</div><div class="stat-l">Places max</div></div>
+  <div class="stat"><div class="stat-n red">Free</div><div class="stat-l">Zéro frais</div></div>
+</div>
+
+<!-- Pour qui -->
+<div class="section">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Pour qui</div>
+  <div class="section-title">Deux profils.<br><span class="dim">Une même ambition.</span></div>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-tag">Débutant</div>
+      <div class="audience-title">Jamais fait d'instru</div>
+      <p class="audience-desc">Tu veux apprendre à produire de zéro avec FL Studio, comprendre les bases, et finir ta première beat.</p>
+    </div>
+    <div class="audience-card">
+      <div class="audience-tag">Intermédiaire</div>
+      <div class="audience-title">Tu bloques sur FL</div>
+      <p class="audience-desc">Tu es dans le logiciel depuis un moment, mais tu n'arrives pas à produire un son cohérent de A à Z.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Conditions -->
+<div class="section">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Conditions minimales</div>
+  <div class="conditions">
+    <div class="conditions-title">Ce qu'il te faut avant de commencer</div>
+    <ul>
+      <li>FL Studio installé. La version Trial suffit pour suivre, mais elle ne permet pas de sauvegarder. Pour garder ton travail, une licence payante est recommandée.</li>
+      <li>Un casque ou des enceintes. Pas de production sérieuse sans bonne écoute.</li>
+      <li>Une connexion internet stable pour les sessions Zoom.</li>
+      <li>Être présent sur les 4 sessions sans exception.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Programme -->
+<div class="section" id="programme">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Programme</div>
+  <div class="section-title">4 sessions.<br><span class="dim">Une beat complète.</span></div>
+  <div class="sessions">
+
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 01</span>
+        <div class="session-main">
+          <div class="session-title">Découverte & Template FL Studio</div>
+          <div class="session-desc">Naviguer dans FL Studio et construire un template de travail personnalisé pour démarrer chaque session rapidement.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <div class="detail-section">Session Découverte</div>
+          <ul>
+            <li>Navigation : Playlist, Channel Rack, Mixer, Browser.</li>
+            <li>Présentation de productions terminées pour illustrer les capacités du logiciel.</li>
+            <li>Exemples Avant/Après sur des instrumentales d'élèves.</li>
+            <li>Objectifs personnalisés : identifier les attentes de chaque participant.</li>
+          </ul>
+          <div class="detail-section">Création du Template</div>
+          <ul>
+            <li>Organisation du Mixer : routages par groupes (drums, basses, mélodies, voix).</li>
+            <li>Création de patterns de base pour démarrer une prod rapidement.</li>
+            <li>Raccourcis clavier essentiels et presets pour gagner du temps.</li>
+          </ul>
+          <div class="detail-bonus">Bonus : template FL Studio offert.</div>
+        </div>
+      </details>
+    </div>
+
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 02</span>
+        <div class="session-main">
+          <div class="session-title">Les Mélodies</div>
+          <div class="session-desc">Composer des mélodies accrocheuses en comprenant les gammes, les accords, et les plugins qui font le son.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <ul>
+            <li>Gammes majeures, mineures et pentatoniques appliquées à la production.</li>
+            <li>Accords et comment les utiliser sans théorie excessive.</li>
+            <li>Synthétiseurs et plugins : Sytrus, Omnisphere, Nexus.</li>
+            <li>Exercice pratique : créer une mélodie en 4 mesures, l'étendre et ajouter des variations.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 03</span>
+        <div class="session-main">
+          <div class="session-title">Les Drums</div>
+          <div class="session-desc">Créer des rythmes solides avec du groove et de la dynamique, en utilisant le Step Sequencer et le Piano Roll.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <ul>
+            <li>Step Sequencer et Piano Roll : deux approches pour programmer des drums.</li>
+            <li>Groove et variations : comment donner de la dynamique et éviter la répétition.</li>
+            <li>Choix des sons : sélectionner des samples adaptés à ton style.</li>
+            <li>Exercice pratique : 3 patterns différents avec variations (intro, couplet, refrain).</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 04</span>
+        <div class="session-main">
+          <div class="session-title">Structure, Mix & Export</div>
+          <div class="session-desc">Assembler une instrumentale complète, donner de la clarté au mix, et l'exporter dans les bons formats.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <div class="detail-section">Structure</div>
+          <ul>
+            <li>Organisation de la Playlist : intro, couplet, refrain, outro.</li>
+            <li>Transitions et fills pour lier les sections de façon naturelle.</li>
+            <li>Exercice : structurer un beat avec au moins 3 sections distinctes.</li>
+          </ul>
+          <div class="detail-section">Mixage de base</div>
+          <ul>
+            <li>Réglage des volumes pour équilibrer l'écoute.</li>
+            <li>EQ et compression : introduction aux fondamentaux.</li>
+            <li>Reverb et delay pour donner de la profondeur et de l'espace.</li>
+          </ul>
+          <div class="detail-section">Export</div>
+          <ul>
+            <li>Formats : WAV, MP3, stems — quoi choisir selon l'usage.</li>
+            <li>Paramètres de qualité et organisation professionnelle des fichiers.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> FAQ</div>
+  <div class="section-title">Les questions<br><span class="dim">les plus fréquentes.</span></div>
+  <div class="faq">
+
+    <div class="faq-item">
+      <details>
+        <summary>Est-ce vraiment gratuit ?</summary>
+        <div class="faq-answer">Oui, totalement. Le Summer Camp est gratuit parce que c'est la première étape. L'objectif est de te donner des bases solides et de te préparer à la formation complète 3R si tu veux aller plus loin.</div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>Faut-il acheter FL Studio ?</summary>
+        <div class="faq-answer">La version Trial suffit pour suivre les sessions. Par contre, elle ne permet pas de sauvegarder ton travail. Si tu veux garder ce que tu crées, tu auras besoin d'une licence payante. FL Studio propose une licence à vie — c'est un investissement unique.</div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>Je suis débutant complet, c'est pour moi ?</summary>
+        <div class="faq-answer">Oui. La session S01 commence de zéro : navigation dans le logiciel, compréhension de l'interface, création d'un template. Tu n'as besoin d'aucune base préalable, juste d'une vraie motivation.</div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>Combien de personnes par session ?</summary>
+        <div class="faq-answer">15 maximum. L'objectif est de garder un format interactif où tout le monde peut poser des questions et recevoir du feedback direct. Ce n'est pas une conférence, c'est un atelier.</div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>Est-ce que les sessions sont enregistrées ?</summary>
+        <div class="faq-answer">Les sessions ne sont pas redistribuées publiquement. Un replay pourra être partagé aux participants inscrits, mais la priorité reste d'être présent en direct pour bénéficier des échanges.</div>
+      </details>
+    </div>
+
+  </div>
+</div>
+
+<!-- Formulaire -->
+<div class="form-section" id="candidature">
+  <div id="form-wrap">
+    <div class="eyebrow"><span class="eyebrow-dash">——</span> Candidature</div>
+    <div class="form-title">Candidater</div>
+    <p class="form-sub"><span>15 places disponibles</span> · Réponse sous 48h · Juillet 2026</p>
+
+    <form action="https://formsubmit.co/levitation.beats@gmail.com" method="POST" id="camp-form">
+      <input type="hidden" name="_subject" value="🎹 Nouvelle candidature — Summer Camp Beatmakers">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://levitationbeats.com/merci.html">
+
+      <div class="form-row">
+        <div class="form-field" id="field-name">
+          <label class="form-label">Prénom *</label>
+          <input type="text" name="prenom" class="form-input" id="f-name" placeholder="Ton prénom" required />
+          <div class="form-error">Ce champ est requis.</div>
+        </div>
+        <div class="form-field" id="field-email">
+          <label class="form-label">Email *</label>
+          <input type="email" name="email" class="form-input" id="f-email" placeholder="ton@email.com" required />
+          <div class="form-error">Adresse invalide.</div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Instagram</label>
+        <input type="text" name="instagram" class="form-input" id="f-ig" placeholder="@tonhandle" />
+      </div>
+
+      <div class="form-field" id="field-level">
+        <label class="form-label">Ton niveau *</label>
+        <select name="niveau" class="form-select" id="f-level" required>
+          <option value="">Choisis ton profil...</option>
+          <option value="Débutant — jamais fait d'instru">Débutant — je n'ai jamais fait d'instru</option>
+          <option value="Intermédiaire — je connais FL mais je bloque">Intermédiaire — je connais FL mais je bloque</option>
+        </select>
+        <div class="form-error">Ce champ est requis.</div>
+      </div>
+
+      <div class="form-field" id="field-why">
+        <label class="form-label">Pourquoi cette session ? *</label>
+        <textarea name="motivation" class="form-textarea" id="f-why" placeholder="En 2-3 phrases, dis-moi où t'en es et ce que tu cherches." required></textarea>
+        <div class="form-error">Ce champ est requis.</div>
+      </div>
+
+      <button type="submit" class="form-btn">Envoyer ma candidature</button>
+    </form>
+  </div>
+
+  <div class="success" id="form-success">
+    <span class="success-icon">✓ Reçu.</span>
+    <div class="success-title">Candidature envoyée.</div>
+    <p class="success-sub">On revient vers toi sous 48h à l'adresse que tu as indiquée.<br>Garde un œil sur tes spams.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-brand">LEVITATION <span>BEATS</span></div>
+  <div class="footer-info">
+    @levitationbeats · OnTheStage Records · Montréal, QC<br>
+    <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// Show success message if redirected back with ?merci=1
+if (new URLSearchParams(window.location.search).get('merci') === '1') {
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('candidature').scrollIntoView({behavior:'smooth'});
+}
+
+// Client-side validation before submit
+document.getElementById('camp-form').addEventListener('submit', function(e) {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const level = document.getElementById('f-level').value;
+  const why   = document.getElementById('f-why').value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  function validate(id, ok) {
+    const f = document.getElementById('field-' + id);
+    if (f) f.classList.toggle('field-invalid', !ok);
+    return ok;
+  }
+
+  const v = [
+    validate('name',  name.length > 0),
+    validate('email', emailOk),
+    validate('level', level !== ''),
+    validate('why',   why.length > 10)
+  ];
+
+  if (v.includes(false)) e.preventDefault();
+});
+</script>
+
+</body>
+</html>
