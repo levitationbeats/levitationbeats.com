@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer Camp Beatmakers — FL Studio · Levitation Beats</title>
+<title>Summer Camp Beatmakers — Formation FL Studio · Levitation Beats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -61,6 +61,18 @@ nav {
 }
 .nav-cta:hover { opacity: .85; }
 
+/* ── Cross-link ── */
+.cross-link {
+  display: block; text-align: center; padding: 14px 0;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border2);
+  transition: color .15s;
+}
+.cross-link span { color: var(--red); }
+.cross-link:hover { color: var(--text); }
+
 /* ── Eyebrow ── */
 .eyebrow {
   display: flex; align-items: center; gap: 8px;
@@ -69,6 +81,9 @@ nav {
   margin-bottom: 24px;
 }
 .eyebrow-dash { color: var(--red); letter-spacing: 0; }
+
+/* ── Accent ── */
+.accent { color: var(--red); }
 
 /* ── Hero ── */
 .hero {
@@ -95,6 +110,7 @@ nav {
   font-size: 16px; color: var(--muted);
   line-height: 1.75; max-width: 520px; margin-bottom: 40px;
 }
+.hero-desc a { color: var(--text); text-decoration: underline; text-decoration-color: var(--red); }
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ── Buttons ── */
@@ -154,7 +170,7 @@ nav {
 .audience-title { font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.02em; }
 .audience-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-/* ── Conditions ── */
+/* ── Conditions / Organisation ── */
 .conditions {
   border-left: 3px solid var(--red);
   padding: 24px 28px;
@@ -215,6 +231,30 @@ details summary:hover { color: var(--muted); }
   background: rgba(218,32,40,.08); border-left: 2px solid var(--red);
   font-size: 12px; color: var(--red); font-weight: 700;
   letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+/* ── Pricing ── */
+.price-block {
+  background: var(--surface); border: 1px solid var(--border2);
+  border-top: 3px solid var(--red);
+  padding: 40px; text-align: center; margin-bottom: 32px;
+}
+.price-amount { font-size: 56px; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+.price-amount span { color: var(--red); }
+.price-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 8px 0 28px; }
+.price-btn-paypal {
+  display: inline-block; background: #FFC439; color: #000;
+  padding: 16px 40px; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 0.1em; font-size: 13px; text-decoration: none;
+  border: none; transition: opacity .2s;
+}
+.price-btn-paypal:hover { opacity: .85; }
+.price-note { font-size: 12px; color: var(--muted); margin-top: 24px; line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto; }
+.price-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; text-align: left; max-width: 420px; margin-left: auto; margin-right: auto; }
+.price-step { display: flex; gap: 14px; align-items: flex-start; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.price-step-n {
+  flex-shrink: 0; width: 24px; height: 24px; border: 1px solid var(--red); color: var(--red);
+  font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center;
 }
 
 /* ── FAQ ── */
@@ -282,9 +322,6 @@ details summary:hover { color: var(--muted); }
 .success-title { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
 .success-sub { font-size: 14px; color: var(--muted); }
 
-/* ── Divider ── */
-.divider { border: none; border-top: 1px solid var(--border2); margin: 0 0 72px; }
-
 /* ── Footer ── */
 footer {
   text-align: center; padding: 32px 0 48px;
@@ -318,6 +355,8 @@ footer {
   .form-row{grid-template-columns:1fr}
   .audience-grid{grid-template-columns:1fr}
   .form-section{padding:24px 20px}
+  .price-block{padding:28px 20px}
+  .price-amount{font-size:44px}
   .hero{padding:48px 0}
   .session-header{padding:20px}
   details summary{padding-left:20px}
@@ -331,32 +370,34 @@ footer {
 <!-- Nav -->
 <nav>
   <div class="nav-brand">LEVITATION <span>BEATS</span></div>
-  <a href="#candidature" class="nav-cta">Candidater</a>
+  <a href="#inscription" class="nav-cta">S'inscrire</a>
 </nav>
+
+<a href="decouverte.html" class="cross-link">Pas encore prêt ? <span>→ Session découverte gratuite</span></a>
 
 <!-- Hero -->
 <div class="hero">
-  <div class="eyebrow"><span class="eyebrow-dash">——</span> Juin · Juillet 2026 · En ligne · Gratuit</div>
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Formation complète · 6 semaines · En ligne</div>
   <h1>
     Summer Camp<br>
     <span class="accent">Beatmakers.</span>
   </h1>
   <div class="hero-fl">Masterclass <span>FL Studio</span></div>
   <p class="hero-desc">
-    4 sessions de 1h30 pour passer de zéro à une instrumentale complète. Un producteur actif depuis 15 ans. 15 places. Zéro bullshit.
+    6 sessions de 1h30 à 2h pour transformer tes instrus en catalogue. Un producteur actif depuis 15 ans, une vingtaine d'élèves déjà accompagnés. 10 places. Groupe restreint.
   </p>
   <div class="hero-btns">
-    <a href="#candidature" class="btn-primary">Candidater maintenant</a>
+    <a href="#inscription" class="btn-primary">Réserver ma place</a>
     <a href="#programme" class="btn-secondary">Voir le programme</a>
   </div>
 </div>
 
 <!-- Stats -->
 <div class="stats">
-  <div class="stat"><div class="stat-n">4</div><div class="stat-l">Sessions</div></div>
-  <div class="stat"><div class="stat-n">1h30</div><div class="stat-l">Par session</div></div>
-  <div class="stat"><div class="stat-n">15</div><div class="stat-l">Places max</div></div>
-  <div class="stat"><div class="stat-n red">Free</div><div class="stat-l">Zéro frais</div></div>
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Sessions</div></div>
+  <div class="stat"><div class="stat-n">1h30-2h</div><div class="stat-l">Par session</div></div>
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Places max</div></div>
+  <div class="stat"><div class="stat-n red">347$</div><div class="stat-l">USD · Paiement unique</div></div>
 </div>
 
 <!-- Pour qui -->
@@ -367,7 +408,7 @@ footer {
     <div class="audience-card">
       <div class="audience-tag">Débutant</div>
       <div class="audience-title">Jamais fait d'instru</div>
-      <p class="audience-desc">Tu veux apprendre à produire de zéro avec FL Studio, comprendre les bases, et finir ta première beat.</p>
+      <p class="audience-desc">Tu veux apprendre à produire de zéro avec FL Studio, comprendre les bases, et construire un vrai catalogue.</p>
     </div>
     <div class="audience-card">
       <div class="audience-tag">Intermédiaire</div>
@@ -377,16 +418,17 @@ footer {
   </div>
 </div>
 
-<!-- Conditions -->
+<!-- Organisation -->
 <div class="section">
-  <div class="eyebrow"><span class="eyebrow-dash">——</span> Conditions minimales</div>
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Organisation</div>
   <div class="conditions">
-    <div class="conditions-title">Ce qu'il te faut avant de commencer</div>
+    <div class="conditions-title">Comment ça fonctionne</div>
     <ul>
-      <li>FL Studio installé. La version Trial suffit pour suivre, mais elle ne permet pas de sauvegarder. Pour garder ton travail, une licence payante est recommandée.</li>
-      <li>Un casque ou des enceintes. Pas de production sérieuse sans bonne écoute.</li>
-      <li>Une connexion internet stable pour les sessions Zoom.</li>
-      <li>Être présent sur les 4 sessions sans exception.</li>
+      <li>6 sessions hebdomadaires de 1h30 à 2h, en direct sur Zoom.</li>
+      <li>Démarrage : semaine du 15 septembre 2026, jusqu'à fin octobre 2026.</li>
+      <li>Groupe de 10 personnes maximum pour garder un format interactif.</li>
+      <li>FL Studio requis. La version Trial fonctionne pour suivre, mais une licence payante est recommandée pour sauvegarder ton travail.</li>
+      <li>Un replay est partagé aux participants inscrits après chaque session.</li>
     </ul>
   </div>
 </div>
@@ -394,12 +436,12 @@ footer {
 <!-- Programme -->
 <div class="section" id="programme">
   <div class="eyebrow"><span class="eyebrow-dash">——</span> Programme</div>
-  <div class="section-title">4 sessions.<br><span class="dim">Un beat complet.</span></div>
+  <div class="section-title">6 sessions.<br><span class="dim">Un catalogue complet.</span></div>
   <div class="sessions">
 
     <div class="session-item">
       <div class="session-header">
-        <span class="session-num">S 01</span>
+        <span class="session-num">S 01 · 1H30</span>
         <div class="session-main">
           <div class="session-title">Découverte & Template FL Studio</div>
           <div class="session-desc">Naviguer dans FL Studio et construire un template de travail personnalisé pour démarrer chaque session rapidement.</div>
@@ -408,15 +450,8 @@ footer {
       <details>
         <summary></summary>
         <div class="detail-body">
-          <div class="detail-section">Session Découverte</div>
           <ul>
             <li>Navigation : Playlist, Channel Rack, Mixer, Browser.</li>
-            <li>Présentation de productions terminées pour illustrer les capacités du logiciel.</li>
-            <li>Exemples Avant/Après sur des instrumentales d'élèves.</li>
-            <li>Objectifs personnalisés : identifier les attentes de chaque participant.</li>
-          </ul>
-          <div class="detail-section">Création du Template</div>
-          <ul>
             <li>Organisation du Mixer : routages par groupes (drums, basses, mélodies, voix).</li>
             <li>Création de patterns de base pour démarrer une prod rapidement.</li>
             <li>Raccourcis clavier essentiels et presets pour gagner du temps.</li>
@@ -428,10 +463,10 @@ footer {
 
     <div class="session-item">
       <div class="session-header">
-        <span class="session-num">S 02</span>
+        <span class="session-num">S 02 · 2H</span>
         <div class="session-main">
-          <div class="session-title">Les Mélodies</div>
-          <div class="session-desc">Composer des mélodies accrocheuses en comprenant les gammes, les accords, et les plugins qui font le son.</div>
+          <div class="session-title">Mélodies & Harmonie</div>
+          <div class="session-desc">Composer des mélodies accrocheuses et les faire évoluer en progressions harmoniques complètes, sans tomber dans la répétition.</div>
         </div>
       </div>
       <details>
@@ -439,9 +474,10 @@ footer {
         <div class="detail-body">
           <ul>
             <li>Gammes majeures, mineures et pentatoniques appliquées à la production.</li>
-            <li>Accords et comment les utiliser sans théorie excessive.</li>
+            <li>Accords, progressions et substitutions simples — sans théorie excessive.</li>
             <li>Synthétiseurs et plugins : Sytrus, Omnisphere, Nexus.</li>
-            <li>Exercice pratique : créer une mélodie en 4 mesures, l'étendre et ajouter des variations.</li>
+            <li>Créer des dialogues entre mélodies (call & response) et techniques de layering.</li>
+            <li>Exercice : transformer une mélodie de 4 mesures en intro, couplet et refrain distincts.</li>
           </ul>
         </div>
       </details>
@@ -449,10 +485,10 @@ footer {
 
     <div class="session-item">
       <div class="session-header">
-        <span class="session-num">S 03</span>
+        <span class="session-num">S 03 · 2H</span>
         <div class="session-main">
-          <div class="session-title">Les Drums</div>
-          <div class="session-desc">Créer des rythmes solides avec du groove et de la dynamique, en utilisant le Step Sequencer et le Piano Roll.</div>
+          <div class="session-title">Drums & Groove</div>
+          <div class="session-desc">Créer des rythmes solides, leur donner du groove, et structurer leur arrangement sur l'ensemble du morceau.</div>
         </div>
       </div>
       <details>
@@ -460,9 +496,10 @@ footer {
         <div class="detail-body">
           <ul>
             <li>Step Sequencer et Piano Roll : deux approches pour programmer des drums.</li>
-            <li>Groove et variations : comment donner de la dynamique et éviter la répétition.</li>
-            <li>Choix des sons : sélectionner des samples adaptés à ton style.</li>
-            <li>Exercice pratique : 3 patterns différents avec variations (intro, couplet, refrain).</li>
+            <li>Choix des sons et sélection de samples adaptés à ton style.</li>
+            <li>Humanisation : vélocité, swing, micro-décalages.</li>
+            <li>Construire des breaks, transitions et variations rythmiques.</li>
+            <li>Exercice pratique : arranger les drums sur une structure complète (intro, couplet, refrain).</li>
           </ul>
         </div>
       </details>
@@ -470,36 +507,82 @@ footer {
 
     <div class="session-item">
       <div class="session-header">
-        <span class="session-num">S 04</span>
+        <span class="session-num">S 04 · 1H30</span>
         <div class="session-main">
-          <div class="session-title">Structure, Mix & Export</div>
-          <div class="session-desc">Assembler une instrumentale complète, donner de la clarté au mix, et l'exporter dans les bons formats.</div>
+          <div class="session-title">Structure complète</div>
+          <div class="session-desc">Assembler une instrumentale complète avec une structure claire de A à Z.</div>
         </div>
       </div>
       <details>
         <summary></summary>
         <div class="detail-body">
-          <div class="detail-section">Structure</div>
           <ul>
             <li>Organisation de la Playlist : intro, couplet, refrain, outro.</li>
             <li>Transitions et fills pour lier les sections de façon naturelle.</li>
-            <li>Exercice : structurer un beat avec au moins 3 sections distinctes.</li>
-          </ul>
-          <div class="detail-section">Mixage de base</div>
-          <ul>
-            <li>Réglage des volumes pour équilibrer l'écoute.</li>
-            <li>EQ et compression : introduction aux fondamentaux.</li>
-            <li>Reverb et delay pour donner de la profondeur et de l'espace.</li>
-          </ul>
-          <div class="detail-section">Export</div>
-          <ul>
-            <li>Formats : WAV, MP3, stems — quoi choisir selon l'usage.</li>
-            <li>Paramètres de qualité et organisation professionnelle des fichiers.</li>
+            <li>Exercice : structurer un beat avec au moins 4 sections distinctes.</li>
           </ul>
         </div>
       </details>
     </div>
 
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 05 · 2H</span>
+        <div class="session-main">
+          <div class="session-title">Mix & Traitement</div>
+          <div class="session-desc">Donner de la clarté à ton mix avec l'EQ, la compression et les effets spatiaux.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <ul>
+            <li>Réglage des volumes pour équilibrer l'écoute.</li>
+            <li>EQ et compression : fondamentaux appliqués à une instrumentale complète.</li>
+            <li>Reverb et delay pour donner de la profondeur et de l'espace.</li>
+            <li>Exercice : mixer ton instrumentale de A à Z.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="session-item">
+      <div class="session-header">
+        <span class="session-num">S 06 · 2H</span>
+        <div class="session-main">
+          <div class="session-title">Export, Q&A & Graduation</div>
+          <div class="session-desc">Exporter ton catalogue dans les bons formats, poser tes dernières questions, et célébrer la fin du parcours.</div>
+        </div>
+      </div>
+      <details>
+        <summary></summary>
+        <div class="detail-body">
+          <ul>
+            <li>Formats : WAV, MP3, stems — quoi choisir selon l'usage.</li>
+            <li>Organisation professionnelle de tes fichiers et de ton catalogue.</li>
+            <li>Comment présenter ton travail à des artistes.</li>
+            <li>Q&A ouvert : toutes tes questions, sur ton projet ou sur la suite.</li>
+            <li>Graduation : bilan du parcours et prochaines étapes pour continuer à progresser.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tarif -->
+<div class="section">
+  <div class="eyebrow"><span class="eyebrow-dash">——</span> Tarif</div>
+  <div class="section-title">347$ pour 6 semaines.<br><span class="dim">10 places, pas une de plus.</span></div>
+  <div class="price-block">
+    <div class="price-amount">347<span>$</span> USD</div>
+    <div class="price-label">Par personne · paiement unique · 6 sessions</div>
+    <div class="price-steps">
+      <div class="price-step"><span class="price-step-n">1</span> Remplis le formulaire d'inscription ci-dessous.</div>
+      <div class="price-step"><span class="price-step-n">2</span> Tu es redirigé vers PayPal pour compléter ton paiement.</div>
+      <div class="price-step"><span class="price-step-n">3</span> Ta place est confirmée dès réception du paiement.</div>
+    </div>
   </div>
 </div>
 
@@ -511,8 +594,8 @@ footer {
 
     <div class="faq-item">
       <details>
-        <summary>Est-ce vraiment gratuit ?</summary>
-        <div class="faq-answer">Oui, totalement. Le Summer Camp est gratuit parce que c'est la première étape. L'objectif est de te donner des bases solides et de te préparer à la formation complète 3R si tu veux aller plus loin.</div>
+        <summary>Je dois avoir suivi la session découverte avant ?</summary>
+        <div class="faq-answer">Non, ce n'est pas obligatoire. Mais c'est recommandé si tu veux d'abord me poser tes questions et voir si la formation est faite pour toi avant de t'engager.</div>
       </details>
     </div>
 
@@ -532,22 +615,22 @@ footer {
 
     <div class="faq-item">
       <details>
-        <summary>Combien de personnes par session ?</summary>
-        <div class="faq-answer">15 maximum. L'objectif est de garder un format interactif où tout le monde peut poser des questions et recevoir du feedback direct. Ce n'est pas une conférence, c'est un atelier.</div>
-      </details>
-    </div>
-
-    <div class="faq-item">
-      <details>
         <summary>Est-ce que les sessions sont enregistrées ?</summary>
-        <div class="faq-answer">Les sessions ne sont pas redistribuées publiquement. Un replay pourra être partagé aux participants inscrits, mais la priorité reste d'être présent en direct pour bénéficier des échanges.</div>
+        <div class="faq-answer">Les sessions ne sont pas redistribuées publiquement. Un replay est partagé aux participants inscrits après chaque session, mais la priorité reste d'être présent en direct pour bénéficier des échanges.</div>
       </details>
     </div>
 
     <div class="faq-item">
       <details>
         <summary>C'est quand exactement ?</summary>
-        <div class="faq-answer">Les dates sont confirmées directement aux participants sélectionnés. Candidature ouverte maintenant, réponse sous 48h.</div>
+        <div class="faq-answer">La formation démarre la semaine du 15 septembre 2026 et se déroule sur 6 semaines, à raison d'une session par semaine. Le jour et l'heure exacts sont confirmés par email après ton inscription.</div>
+      </details>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary>Politique de remboursement ?</summary>
+        <div class="faq-answer">Si tu changes d'avis avant le début de la formation, écris-moi et on trouve une solution. Une fois la formation commencée, les paiements ne sont pas remboursables.</div>
       </details>
     </div>
 
@@ -555,17 +638,17 @@ footer {
 </div>
 
 <!-- Formulaire -->
-<div class="form-section" id="candidature">
+<div class="form-section" id="inscription">
   <div id="form-wrap">
-    <div class="eyebrow"><span class="eyebrow-dash">——</span> Candidature</div>
-    <div class="form-title">Candidater</div>
-    <p class="form-sub"><span>15 places disponibles</span> · Réponse sous 48h · Juin · Juillet 2026</p>
+    <div class="eyebrow"><span class="eyebrow-dash">——</span> Inscription</div>
+    <div class="form-title">Réserver ma place</div>
+    <p class="form-sub"><span>10 places disponibles</span> · 347$ USD · Démarrage 15 septembre 2026 · Paiement à l'étape suivante</p>
 
     <form action="https://formsubmit.co/levitation.beats@gmail.com" method="POST" id="camp-form">
-      <input type="hidden" name="_subject" value="🎹 Nouvelle candidature — Summer Camp Beatmakers">
+      <input type="hidden" name="_subject" value="🎹 Inscription Summer Camp Beatmakers — Levitation Beats">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://levitationbeats.com/merci.html">
+      <input type="hidden" name="_next" value="https://levitationbeats.com/merci-paiement.html">
 
       <div class="form-row">
         <div class="form-field" id="field-name">
@@ -595,21 +678,10 @@ footer {
         <div class="form-error">Ce champ est requis.</div>
       </div>
 
-      <div class="form-field" id="field-why">
-        <label class="form-label">Pourquoi cette session ? *</label>
-        <textarea name="motivation" class="form-textarea" id="f-why" placeholder="En 2-3 phrases, dis-moi où t'en es et ce que tu cherches." required></textarea>
-        <div class="form-error">Ce champ est requis.</div>
-      </div>
-
-      <button type="submit" class="form-btn">Envoyer ma candidature</button>
+      <button type="submit" class="form-btn">Continuer vers le paiement</button>
     </form>
   </div>
 
-  <div class="success" id="form-success">
-    <span class="success-icon">✓ Reçu.</span>
-    <div class="success-title">Candidature envoyée.</div>
-    <p class="succest-sub">On revient vers toi sous 48h à l'adresse que tu as indiquée.<br>Garde un œil sur tes spams.</p>
-  </div>
 </div>
 
 <!-- Footer -->
@@ -624,19 +696,11 @@ footer {
 </div>
 
 <script>
-// Show success message if redirected back with ?merci=1
-if (new URLSearchParams(window.location.search).get('merci') === '1') {
-  document.getElementById('form-wrap').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-  document.getElementById('candidature').scrollIntoView({behavior:'smooth'});
-}
-
 // Client-side validation before submit
 document.getElementById('camp-form').addEventListener('submit', function(e) {
-  const name  = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const level = document.getElementById('f-level').value;
-  const why   = document.getElementById('f-why').value.trim();
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const level   = document.getElementById('f-level').value;
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   function validate(id, ok) {
@@ -648,8 +712,7 @@ document.getElementById('camp-form').addEventListener('submit', function(e) {
   const v = [
     validate('name',  name.length > 0),
     validate('email', emailOk),
-    validate('level', level !== ''),
-    validate('why',   why.length > 10)
+    validate('level', level !== '')
   ];
 
   if (v.includes(false)) e.preventDefault();
