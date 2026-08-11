@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ta template est là — Levitation Beats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0A0A0A;
+    --black2:#141414;
+    --red:#DA2028;
+    --offwhite:#F2F0EC;
+    --grey:#8D8D8D;
+    --line: rgba(242,240,236,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--offwhite);
+    font-family:'Lato',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:100px 0 70px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;
+    top:-20%; right:-10%;
+    width:70vw; max-width:600px;
+    aspect-ratio:1;
+    background:radial-gradient(circle, rgba(218,32,40,0.16) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-weight:900;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:12.5px;
+    color:var(--red);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1.5px;
+    background:var(--red);
+    display:inline-block;
+  }
+  h1{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    line-height:0.98;
+    font-size:clamp(40px, 8vw, 68px);
+    letter-spacing:0.005em;
+    max-width:11ch;
+  }
+  h1 span{color:var(--red);}
+  .hero-sub{
+    margin-top:26px;
+    font-size:18px;
+    line-height:1.6;
+    color:var(--offwhite);
+    opacity:0.82;
+    max-width:46ch;
+  }
+
+  /* ---------- PROGRESS STEPS ---------- */
+  .steps{
+    padding:60px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:22px;
+    padding:26px 0;
+  }
+  .step + .step{border-top:1px solid var(--line);}
+  .step-num{
+    font-family:'Anton',sans-serif;
+    font-size:15px;
+    width:56px; height:56px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:1.5px solid var(--red);
+    color:var(--offwhite);
+  }
+  .step.done .step-num{
+    background:var(--red);
+    border-color:var(--red);
+  }
+  .step.pending .step-num{
+    border-color:var(--line);
+    color:var(--grey);
+  }
+  .step-title{
+    font-family:'Anton',sans-serif;
+    font-size:19px;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin-bottom:8px;
+  }
+  .step-body{
+    color:var(--offwhite);
+    opacity:0.78;
+    font-size:15.5px;
+    line-height:1.6;
+    max-width:52ch;
+  }
+  .status-tag{
+    display:inline-block;
+    margin-top:14px;
+    font-size:11.5px;
+    font-weight:900;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    color:var(--grey);
+  }
+  .status-tag.ready{
+    color:var(--red);
+    border-color:var(--red);
+  }
+
+  .dl-btn{
+    margin-top:18px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    font-family:'Anton',sans-serif;
+    letter-spacing:0.03em;
+    font-size:15px;
+    text-transform:uppercase;
+    padding:15px 26px;
+    transition:opacity .15s ease;
+  }
+  .dl-btn:hover{opacity:0.85;}
+  .dl-btn::after{content:"↓";font-size:16px;}
+
+  /* ---------- VIDEO ---------- */
+  .video-box{
+    margin-top:18px;
+    border:1px solid var(--line);
+    background:var(--black2);
+    aspect-ratio:16/9;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-align:center;
+    padding:20px;
+  }
+  .video-box iframe{
+    width:100%; height:100%; border:0; display:none;
+  }
+  .video-box.is-ready{padding:0;}
+  .video-box.is-ready .placeholder{display:none;}
+  .video-box.is-ready iframe{display:block;}
+  .placeholder-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1.5px solid var(--grey);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--grey);
+    font-size:16px;
+  }
+  .placeholder-text{
+    font-size:13.5px;
+    color:var(--grey);
+    max-width:32ch;
+  }
+
+  /* ---------- WHY SECTION ---------- */
+  .why{
+    padding:60px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .why h2{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(24px,4vw,30px);
+    margin-bottom:22px;
+    max-width:20ch;
+  }
+  .why p{
+    font-size:16px;
+    line-height:1.75;
+    color:var(--offwhite);
+    opacity:0.8;
+    max-width:56ch;
+  }
+  .why p + p{margin-top:16px;}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    padding:70px 0 90px;
+    text-align:left;
+  }
+  .cta h2{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(26px,4.5vw,34px);
+    margin-bottom:16px;
+    max-width:16ch;
+  }
+  .cta h2 span{color:var(--red);}
+  .cta p{
+    font-size:15.5px;
+    color:var(--grey);
+    max-width:48ch;
+    margin-bottom:26px;
+    line-height:1.6;
+  }
+  .cta-btn{
+    display:inline-block;
+    border:1.5px solid var(--offwhite);
+    color:var(--offwhite);
+    text-decoration:none;
+    font-family:'Anton',sans-serif;
+    letter-spacing:0.03em;
+    font-size:14px;
+    text-transform:uppercase;
+    padding:14px 24px;
+  }
+  .cta-btn:hover{background:var(--offwhite);color:var(--black);}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:34px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .brand-mark{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:0.04em;
+  }
+  .brand-mark span{color:var(--red);}
+  footer .socials{
+    font-size:12.5px;
+    color:var(--grey);
+    letter-spacing:0.04em;
+  }
+
+  @media(max-width:560px){
+    .hero{padding:70px 0 50px;}
+    .step{grid-template-columns:44px 1fr; gap:16px;}
+    .step-num{width:44px;height:44px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="eyebrow">Levitation Beats</div>
+    <h1>Ta template<br>est <span>en route</span></h1>
+    <p class="hero-sub">Merci de m'avoir fait confiance. Voici où t'en es dans le process, étape par étape.</p>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+
+    <div class="step done">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">Télécharge ta template FL Studio</div>
+        <div class="step-body">Le fichier est prêt. Clique ci-dessous pour le récupérer, tu peux l'importer directement dans FL Studio.</div>
+        <!-- Remplacer le href par le lien Google Drive / Dropbox du fichier .zip une fois exporté -->
+        <a href="#" class="dl-btn">Télécharger la template</a>
+      </div>
+    </div>
+
+    <div class="step pending">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">Regarde la vidéo d'explication</div>
+        <div class="step-body">Une template sans explication sert à rien. Cette vidéo te montre exactement comment elle est construite et comment t'en servir dès ta prochaine session.</div>
+        <span class="status-tag">Vidéo en préparation</span>
+
+        <!-- Une fois la vidéo tournée : ajouter class="is-ready" à .video-box,
+             remplacer le src de l'iframe par le lien YouTube (non répertorié) ou Google Drive -->
+        <div class="video-box">
+          <div class="placeholder">
+            <div class="placeholder-icon">▶</div>
+            <div class="placeholder-text">La vidéo arrive très bientôt. Reste connecté, tu la reçois directement dès qu'elle est prête.</div>
+          </div>
+          <iframe src="" title="Vidéo d'explication de la template" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>Pourquoi cette template change ta façon de produire</h2>
+    <p>Une template, c'est pas juste un fichier FL Studio avec des couleurs. C'est tout ce qui te fait perdre du temps à chaque session, retiré une fois pour toutes : les bons drums déjà en place, une chaîne de mix qui sonne dès le départ, un workflow qui te laisse te concentrer sur la musique plutôt que sur la configuration.</p>
+    <p>Mets-la à jour au fil de ta progression, elle est faite pour évoluer avec toi, pas pour t'enfermer dans une seule façon de produire.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Envie d'aller <span>plus loin</span> ?</h2>
+    <p>Que ce soit pour travailler ta polyvalence, avoir un retour sur une prod, poser une question précise sur le beatmaking, débloquer un problème sur un morceau ou simplement savoir par où commencer, réserve un appel gratuit de 15 à 30 minutes, on regarde ensemble où tu en es et comment avancer.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2MFc1lA3uYWJG4BR0D9MjaOVCrUHpYaCYtqk6lyB6JRZjnfmZFMYGr_pwEaJDU-QQIQnXf" class="cta-btn">Réserver mon appel gratuit</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
+    <div class="brand-mark">LEVITATION<span>BEATS</span></div>
+    <div class="socials">@levitationbeats · levitationbeats.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
