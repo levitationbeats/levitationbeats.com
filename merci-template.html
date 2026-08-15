@@ -151,6 +151,8 @@
     background:var(--red);
     color:#fff;
     text-decoration:none;
+    border:none;
+    cursor:pointer;
     font-family:'Anton',sans-serif;
     letter-spacing:0.03em;
     font-size:15px;
@@ -160,6 +162,43 @@
   }
   .dl-btn:hover{opacity:0.85;}
   .dl-btn::after{content:"↓";font-size:16px;}
+
+  /* ---------- EMAIL GATE ---------- */
+  .gate{margin-top:18px;}
+  .gate-form{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .gate-form input[type="email"]{
+    flex:1 1 220px;
+    background:var(--black2);
+    border:1px solid var(--line);
+    color:var(--offwhite);
+    font-family:'Lato',sans-serif;
+    font-size:15px;
+    padding:14px 16px;
+  }
+  .gate-form input[type="email"]::placeholder{color:var(--grey);}
+  .gate-form input[type="email"]:focus{outline:none;border-color:var(--red);}
+  .gate-note{
+    margin-top:10px;
+    font-size:12.5px;
+    color:var(--grey);
+    line-height:1.5;
+  }
+  .gate.is-sent .gate-form,
+  .gate.is-sent .gate-note{display:none;}
+  .gate-success{
+    display:none;
+    align-items:center;
+    gap:10px;
+    color:var(--red);
+    font-size:14px;
+    margin-bottom:12px;
+  }
+  .gate.is-sent .gate-success{display:flex;}
+  .gate:not(.is-sent) .dl-btn-wrap{display:none;}
 
   /* ---------- VIDEO ---------- */
   .video-box{
@@ -296,33 +335,70 @@
       <div class="step-num">01</div>
       <div>
         <div class="step-title">Télécharge ta template FL Studio</div>
-        <div class="step-body">Le fichier est prêt. Clique ci-dessous pour le récupérer, tu peux l'importer directement dans FL Studio.</div>
-        <!-- Remplacer le href par le lien Google Drive / Dropbox du fichier .zip une fois exporté -->
-        <a href="#" class="dl-btn">Télécharger la template</a>
+        <div class="step-body">Laisse ton email pour débloquer le téléchargement, tu peux ensuite l'importer directement dans FL Studio.</div>
+
+        <div class="gate" id="emailGate">
+          <div class="gate-success">✓ Merci ! Ton téléchargement est prêt.</div>
+          <form class="gate-form" id="gateForm">
+            <input type="email" id="gateEmail" placeholder="Ton adresse email" required>
+            <button type="submit" class="dl-btn">Débloquer</button>
+          </form>
+          <div class="gate-note">Ton email sert uniquement à t'envoyer la template et du contenu Levitation Beats. Désinscription possible à tout moment.</div>
+          <div class="dl-btn-wrap">
+            <a href="https://levitationbeats.com/LevitationBeats-Template.zip" download class="dl-btn">Télécharger la template</a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="step pending">
+    <div class="step done">
       <div class="step-num">02</div>
       <div>
         <div class="step-title">Regarde la vidéo d'explication</div>
         <div class="step-body">Une template sans explication sert à rien. Cette vidéo te montre exactement comment elle est construite et comment t'en servir dès ta prochaine session.</div>
-        <span class="status-tag">Vidéo en préparation</span>
 
-        <!-- Une fois la vidéo tournée : ajouter class="is-ready" à .video-box,
-             remplacer le src de l'iframe par le lien YouTube (non répertorié) ou Google Drive -->
-        <div class="video-box">
+        <div class="video-box is-ready">
           <div class="placeholder">
             <div class="placeholder-icon">▶</div>
             <div class="placeholder-text">La vidéo arrive très bientôt. Reste connecté, tu la reçois directement dès qu'elle est prête.</div>
           </div>
-          <iframe src="" title="Vidéo d'explication de la template" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/4EShCaZJnDo" title="Vidéo d'explication de la template" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+  const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdMDeX7mEIMbOJlCX0191qTLIfLrxJSk_3cFQf1bab9G3a_jQ/formResponse";
+  const GOOGLE_FORM_EMAIL_FIELD = "entry.1644233983";
+
+  const gate = document.getElementById('emailGate');
+  const form = document.getElementById('gateForm');
+
+  // Si l'email a déjà été soumis sur cet appareil, on saute directement au téléchargement
+  if (localStorage.getItem('lb_template_unlocked') === '1') {
+    gate.classList.add('is-sent');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('gateEmail').value;
+
+    const data = new FormData();
+    data.append(GOOGLE_FORM_EMAIL_FIELD, email);
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: data
+    }).catch(function(){ /* no-cors: on ne peut pas lire la réponse, on continue quand même */ });
+
+    localStorage.setItem('lb_template_unlocked', '1');
+    gate.classList.add('is-sent');
+  });
+</script>
 
 <section class="why">
   <div class="wrap">
@@ -336,7 +412,7 @@
   <div class="wrap">
     <h2>Envie d'aller <span>plus loin</span> ?</h2>
     <p>Que ce soit pour travailler ta polyvalence, avoir un retour sur une prod, poser une question précise sur le beatmaking, débloquer un problème sur un morceau ou simplement savoir par où commencer, réserve un appel gratuit de 15 à 30 minutes, on regarde ensemble où tu en es et comment avancer.</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2MFc1lA3uYWJG4BR0D9MjaOVCrUHpYaCYtqk6lyB6JRZjnfmZFMYGr_pwEaJDU-QQIQnXf" class="cta-btn">Réserver mon appel gratuit</a>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2MFc1lA3uYWJG4BR0D9MjaOVCrUHpYaCYtqk6lyB6KZzNqQYqnfmZFMYGr_pwEaJDU-QQIQnXf" class="cta-btn">Réserver mon appel gratuit</a>
   </div>
 </section>
 
