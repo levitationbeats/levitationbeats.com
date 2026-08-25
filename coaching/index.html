@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coaching beatmaking 1-on-1 | Levitation Beats</title>
+<meta name="description" content="Coaching individuel en production musicale sur FL Studio. Quatre modules, un diagnostic, une méthode. Par Levitation Beats, producteur à Montréal, 20 ans sur FL Studio, 10 placements Sirius XM.">
+<meta property="og:title" content="Coaching beatmaking 1-on-1 | Levitation Beats">
+<meta property="og:description" content="Une méthode, tous les styles, des morceaux finis. Coaching individuel sur FL Studio.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POLICE DE MARQUE
+   Quand tu as le fichier GONZI, décommente ce bloc, dépose le
+   .woff2 à côté de cette page, et le display bascule dessus.
+   ------------------------------------------------------------
+   @font-face {
+     font-family: "GONZI";
+     src: url("gonzi.woff2") format("woff2");
+     font-weight: 400 900;
+     font-display: swap;
+   }
+   ------------------------------------------------------------
+   IMAGES ATTENDUES à côté de cette page :
+     hero.jpg            (392A7683 · portrait casque noir et blanc)
+     davis.jpg           (IMG_6385 · portrait sweat noir)
+     studio.jpg          (IMG_8757 · écran Levitation Beats)
+     polyvalence-1.mp4 + polyvalence-1.jpg
+     polyvalence-2.mp4 + polyvalence-2.jpg
+   ============================================================ */
+
+:root{
+  --noir:#0B0B0C;
+  --surface:#141418;
+  --surface-2:#1C1C22;
+  --ligne:#2A2A32;
+  --blanc:#FFFFFF;
+  --gris:#9A9AA4;
+  --rouge:#DA2028;
+  --rouge-sombre:#8E1219;
+
+  --display:"GONZI","Archivo Black",Impact,sans-serif;
+  --corps:"Lato",system-ui,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,monospace;
+
+  --max:1120px;
+  --pad:clamp(20px,5vw,48px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--noir);color:var(--blanc);
+  font-family:var(--corps);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- typographie ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:0.98;letter-spacing:-0.02em;margin:0;text-transform:uppercase}
+h1{font-size:clamp(38px,7vw,78px)}
+h2{font-size:clamp(28px,4.4vw,52px)}
+h3{font-size:clamp(19px,2.2vw,26px);letter-spacing:-0.01em}
+p{margin:0 0 18px}
+.lede{font-size:clamp(17px,2vw,21px);color:var(--gris);max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rouge);margin:0 0 18px}
+
+/* ---------- bandeau ---------- */
+.ticker{background:var(--rouge);color:var(--blanc);overflow:hidden;white-space:nowrap;position:relative;z-index:60}
+.ticker-piste{display:inline-block;animation:defile 30s linear infinite}
+.ticker span{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;padding:11px 22px;display:inline-block}
+@keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- en-tête ---------- */
+.entete{position:sticky;top:0;z-index:55;background:rgba(11,11,12,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--ligne)}
+.entete-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px}
+.marque{font-family:var(--display);font-size:17px;text-transform:uppercase;text-decoration:none}
+.marque i{color:var(--rouge);font-style:normal}
+.nav-liens{display:flex;gap:26px;align-items:center}
+.nav-liens a{font-size:14px;color:var(--gris);text-decoration:none;transition:color .15s}
+.nav-liens a:hover{color:var(--blanc)}
+@media(max-width:940px){.nav-liens{display:none}}
+
+/* ---------- boutons ---------- */
+.btn{
+  display:inline-block;font-family:var(--corps);font-weight:900;font-size:14px;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:15px 28px;
+  background:var(--rouge);color:var(--blanc);border:2px solid var(--rouge);
+  transition:background .16s,color .16s,transform .16s;cursor:pointer;
+}
+.btn:hover{background:transparent;color:var(--rouge);transform:translateY(-2px)}
+.btn-fantome{background:transparent;color:var(--blanc);border-color:rgba(255,255,255,.35)}
+.btn-fantome:hover{background:var(--blanc);color:var(--noir);border-color:var(--blanc)}
+.btn-petit{padding:11px 20px;font-size:12.5px}
+
+/* ---------- sections ---------- */
+.section{padding-top:clamp(60px,8.5vw,110px);padding-bottom:clamp(60px,8.5vw,110px)}
+.section-bordee{border-top:1px solid var(--ligne)}
+.titre-bloc{max-width:70ch;margin-bottom:clamp(34px,4.6vw,56px)}
+.titre-bloc p{margin-top:20px}
+
+/* ---------- hero avec photo ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--ligne)}
+.hero-fond{position:absolute;inset:0;z-index:0}
+.hero-fond img{width:100%;height:100%;object-fit:cover;object-position:65% 35%;filter:grayscale(100%) contrast(1.08)}
+.hero-voile{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(11,11,12,.96) 0%,rgba(11,11,12,.88) 42%,rgba(11,11,12,.35) 78%,rgba(11,11,12,.6) 100%),
+    linear-gradient(180deg,rgba(11,11,12,.7) 0%,transparent 30%,rgba(11,11,12,.9) 100%);
+}
+.hero-contenu{position:relative;z-index:1;padding-top:clamp(64px,10vw,132px);padding-bottom:clamp(52px,7vw,96px)}
+.hero h1{margin-bottom:22px;max-width:15ch}
+.hero-accroche{font-size:clamp(19px,2.4vw,26px);font-weight:700;margin-bottom:18px;max-width:26ch}
+.hero .lede{margin-bottom:32px;max-width:54ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-note{font-family:var(--mono);font-size:12px;color:var(--gris)}
+
+/* ---------- séquenceur ---------- */
+.seq{border:1px solid var(--ligne);background:var(--surface)}
+.seq-onglets{display:flex;border-bottom:1px solid var(--ligne);flex-wrap:wrap}
+.seq-onglet{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  background:none;border:none;border-right:1px solid var(--ligne);color:var(--gris);
+  padding:13px 22px;cursor:pointer;transition:color .15s,background .15s;
+}
+.seq-onglet:hover{color:var(--blanc)}
+.seq-onglet[aria-selected="true"]{background:var(--rouge);color:var(--blanc)}
+.seq-corps{padding:clamp(16px,2.2vw,24px)}
+.seq-bpm{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin:0 0 16px}
+.seq-ligne{display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;align-items:center;margin-bottom:6px}
+.seq-ligne:last-child{margin-bottom:0}
+.seq-nom{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seq-pas{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:6px;min-width:0}
+.pas{aspect-ratio:1;background:#17171C;border-radius:2px}
+.pas.on{background:var(--rouge)}
+.pas.tete{box-shadow:inset 0 0 0 2px var(--blanc)}
+.seq-legende{margin:22px 0 0;font-size:15px;color:var(--gris);border-left:2px solid var(--rouge);padding-left:14px;max-width:62ch}
+@media(max-width:640px){
+  .seq-ligne{grid-template-columns:52px minmax(0,1fr);gap:8px}
+  .seq-pas{gap:3px}
+  .seq-nom{font-size:9px;letter-spacing:.02em}
+  .seq-onglet{padding:11px 14px;font-size:10px}
+}
+
+/* ---------- méthode en trois temps ---------- */
+.methode{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.temps{background:var(--noir);padding:30px 26px;display:flex;flex-direction:column}
+.temps-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--rouge);margin-bottom:14px}
+.temps h3{font-size:22px;margin-bottom:14px}
+.temps p{color:var(--gris);font-size:15.5px;margin:0 0 16px}
+.temps ul{list-style:none;margin:0;padding:0;margin-top:auto;border-top:1px solid var(--ligne);padding-top:14px}
+.temps li{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
+.temps li:last-child{margin-bottom:0}
+@media(max-width:860px){.methode{grid-template-columns:1fr}}
+.methode-cle{
+  margin-top:26px;border-left:2px solid var(--rouge);padding-left:18px;
+  font-size:clamp(18px,2.2vw,24px);font-weight:700;max-width:52ch;
+}
+
+/* ---------- scénario du problème ---------- */
+.scenario{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.bulle{background:var(--noir);padding:30px 28px}
+.bulle-qui{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);margin-bottom:16px}
+.bulle p{font-size:clamp(18px,2.2vw,23px);font-weight:700;margin:0;line-height:1.35}
+.bulle-toi p{color:var(--rouge)}
+@media(max-width:760px){.scenario{grid-template-columns:1fr}}
+.scenario-suite{
+  margin-top:26px;border-left:2px solid var(--rouge);padding-left:18px;
+  font-size:clamp(17px,2vw,21px);max-width:60ch;
+}
+.scenario-suite b{color:var(--blanc)}
+
+/* ---------- checklist ---------- */
+.checklist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--ligne)}
+.checklist li{
+  padding:20px 30px 20px 0;border-bottom:1px solid var(--ligne);
+  display:flex;gap:16px;align-items:flex-start;font-size:16.5px;
+}
+.checklist li::before{content:"✓";color:var(--rouge);font-weight:900;font-size:17px;line-height:1.55}
+@media(max-width:760px){.checklist{grid-template-columns:1fr}}
+
+/* ---------- bénéfice principal ---------- */
+.benefice-fort{
+  border:1px solid var(--rouge);background:linear-gradient(180deg,rgba(218,32,40,.12),transparent);
+  padding:clamp(26px,3.4vw,40px);margin-bottom:34px;
+}
+.benefice-fort .avant{font-size:clamp(17px,2vw,20px);color:var(--gris);margin:0 0 10px;text-decoration:line-through}
+.benefice-fort .apres{font-family:var(--display);font-size:clamp(24px,3.6vw,42px);line-height:1.05;text-transform:uppercase;margin:0}
+.benefice-fort .contexte{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rouge);margin:0 0 20px}
+
+/* ---------- preuves ---------- */
+.preuves{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ligne);background:var(--surface)}
+.preuve{padding:26px 22px;border-right:1px solid var(--ligne)}
+.preuve:last-child{border-right:none}
+.preuve b{display:block;font-family:var(--display);font-size:clamp(26px,3.4vw,40px);line-height:1;margin-bottom:9px}
+.preuve span{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gris)}
+@media(max-width:760px){
+  .preuves{grid-template-columns:repeat(2,1fr)}
+  .preuve{border-bottom:1px solid var(--ligne)}
+  .preuve:nth-child(2n){border-right:none}
+  .preuve:nth-child(n+3){border-bottom:none}
+}
+
+/* ---------- pour qui ---------- */
+.cibles{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.cible{background:var(--noir);padding:28px 26px}
+.cible h3{font-size:18px;margin-bottom:12px}
+.cible p{color:var(--gris);font-size:15.5px;margin:0}
+@media(max-width:860px){.cibles{grid-template-columns:1fr}}
+.pas-pour{margin-top:26px;border-left:2px solid var(--ligne);padding-left:18px;color:var(--gris);font-size:15.5px;max-width:70ch}
+.pas-pour b{color:var(--blanc)}
+
+/* ---------- témoignages ---------- */
+.temoins{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.temoin{border:1px solid var(--ligne);background:var(--surface);padding:26px 24px;margin:0;display:flex;flex-direction:column}
+.temoin q{display:block;font-style:italic;font-size:16.5px;margin-bottom:20px;quotes:none}
+.temoin footer{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gris);margin-top:auto;border-top:1px solid var(--ligne);padding-top:14px}
+.temoin footer b{color:var(--rouge);font-weight:500;display:block;margin-bottom:4px;font-size:12px}
+@media(max-width:860px){.temoins{grid-template-columns:1fr}}
+
+/* ---------- problèmes ---------- */
+.problemes{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.probleme{background:var(--noir);padding:28px 26px}
+.probleme-tete{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.probleme-num{font-family:var(--display);font-size:30px;line-height:1;color:var(--rouge)}
+.probleme-nom{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris)}
+.probleme-competence{font-size:17px;font-weight:700;margin:0 0 18px;line-height:1.4;color:var(--blanc)}
+.probleme ul{list-style:none;margin:0;padding:0}
+.probleme li{font-style:italic;font-size:16px;line-height:1.5;padding:9px 0 9px 15px;border-left:2px solid var(--rouge-sombre);margin-bottom:8px}
+.probleme li:last-child{margin-bottom:0}
+@media(max-width:760px){.problemes{grid-template-columns:1fr}}
+
+/* ---------- bénéfices ---------- */
+.benefices{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--ligne)}
+.benefice{padding:24px 30px 24px 0;border-bottom:1px solid var(--ligne);display:flex;gap:16px;align-items:flex-start}
+.benefice::before{content:"";flex:0 0 8px;height:8px;background:var(--rouge);margin-top:11px}
+.benefice p{margin:0;font-size:16.5px}
+@media(max-width:760px){.benefices{grid-template-columns:1fr}}
+
+/* ---------- preuve vidéo ---------- */
+.demo{position:relative;overflow:hidden}
+.demo-fond{position:absolute;inset:0;z-index:0}
+.demo-fond img{width:100%;height:100%;object-fit:cover;opacity:.18;filter:grayscale(100%)}
+.demo-voile{position:absolute;inset:0;background:linear-gradient(180deg,var(--noir) 0%,rgba(11,11,12,.55) 45%,var(--noir) 100%)}
+.demo-contenu{position:relative;z-index:1}
+.videos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.video-carte{border:1px solid var(--ligne);background:var(--surface)}
+.video-carte video{width:100%;background:#000;aspect-ratio:9/16;object-fit:cover}
+.video-legende{padding:18px 20px;font-size:15.5px;color:var(--gris);margin:0}
+.video-legende b{color:var(--blanc);display:block;margin-bottom:5px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+@media(max-width:760px){.videos{grid-template-columns:1fr}}
+
+/* ---------- étapes ---------- */
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.etape{background:var(--noir);padding:30px 26px}
+.etape-num{font-family:var(--display);font-size:42px;line-height:1;color:var(--rouge);margin-bottom:16px}
+.etape h3{font-size:19px;margin-bottom:12px}
+.etape p{color:var(--gris);font-size:15.5px;margin:0}
+@media(max-width:860px){.etapes{grid-template-columns:1fr}}
+
+/* ---------- modules ---------- */
+.modules{display:grid;gap:2px;background:var(--ligne);border:1px solid var(--ligne)}
+.module{background:var(--noir);padding:clamp(26px,3.4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,48px)}
+.module-tete{display:flex;flex-direction:column}
+.module-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--rouge);margin-bottom:14px}
+.module-tete h3{margin-bottom:16px}
+.module-promesse{font-size:16.5px;margin:0 0 20px}
+.module-meta{margin-top:auto;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);border-top:1px solid var(--ligne);padding-top:16px}
+.module-meta b{color:var(--blanc);font-weight:500}
+.module-corps h4{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);margin:0 0 14px}
+.pourqui{list-style:none;margin:0 0 24px;padding:0}
+.pourqui li{font-size:15.5px;line-height:1.5;padding:9px 0 9px 15px;border-left:2px solid var(--rouge-sombre);margin-bottom:8px}
+.contenu{list-style:none;margin:0;padding:0;color:var(--gris);font-size:15.5px}
+.contenu li{padding-left:18px;position:relative;margin-bottom:7px}
+.contenu li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;background:var(--rouge)}
+@media(max-width:860px){.module{grid-template-columns:1fr;gap:26px}}
+
+/* ---------- à propos ---------- */
+.apropos{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,56px);align-items:start}
+.apropos-photo{border:1px solid var(--ligne);background:var(--surface);overflow:hidden}
+.apropos-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+@media(max-width:860px){.apropos{grid-template-columns:1fr}}
+
+/* ---------- bonus ---------- */
+.bonus{border:1px solid var(--rouge);background:linear-gradient(180deg,rgba(218,32,40,.09),transparent);padding:clamp(26px,3.4vw,42px)}
+.bonus h3{margin-bottom:16px}
+.bonus-liste{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:24px}
+.bonus-liste div{border-top:1px solid var(--ligne);padding-top:16px}
+.bonus-liste b{display:block;margin-bottom:6px}
+.bonus-liste span{color:var(--gris);font-size:15.5px}
+@media(max-width:760px){.bonus-liste{grid-template-columns:1fr}}
+
+/* ---------- tarifs ---------- */
+.tarifs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.tarif{border:1px solid var(--ligne);background:var(--surface);padding:30px 26px;display:flex;flex-direction:column}
+.tarif-vedette{border-color:var(--rouge);background:var(--surface-2);position:relative}
+.tarif-etiquette{position:absolute;top:-1px;right:-1px;background:var(--rouge);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px}
+.tarif h3{font-size:20px;margin-bottom:8px}
+.tarif-volume{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-bottom:22px}
+.tarif-prix{font-family:var(--display);font-size:clamp(34px,4.4vw,48px);line-height:1;margin-bottom:6px}
+.tarif-prix em{font-family:var(--corps);font-style:normal;font-size:15px;color:var(--gris);letter-spacing:0}
+.tarif-apres{font-size:13.5px;color:var(--gris);margin-bottom:22px}
+.tarif-desc{font-size:15.5px;color:var(--gris);margin-bottom:24px}
+.tarif .btn{margin-top:auto;text-align:center}
+@media(max-width:900px){.tarifs{grid-template-columns:1fr}}
+.tarif-notes{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tarif-notes div{border-top:1px solid var(--ligne);padding-top:14px;font-size:14.5px;color:var(--gris)}
+.tarif-notes b{color:var(--blanc);display:block;margin-bottom:5px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);font-weight:500}
+@media(max-width:760px){.tarif-notes{grid-template-columns:1fr}}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--ligne)}
+.faq details{border-bottom:1px solid var(--ligne)}
+.faq summary{cursor:pointer;list-style:none;padding:22px 40px 22px 0;position:relative;font-weight:700;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:19px;color:var(--rouge);font-family:var(--mono);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq-rep{padding:0 40px 24px 0;color:var(--gris);max-width:78ch}
+.faq-rep p:last-child{margin-bottom:0}
+
+/* ---------- cta ---------- */
+.cta{border:1px solid var(--rouge);padding:clamp(34px,5vw,64px);text-align:center;background:linear-gradient(180deg,rgba(218,32,40,.11),transparent)}
+.cta h2{margin-bottom:20px}
+.cta .lede{margin:0 auto 32px}
+.cta-note{font-family:var(--mono);font-size:12px;color:var(--gris);margin:20px 0 0}
+
+/* ---------- pied ---------- */
+.pied{border-top:1px solid var(--ligne);padding-top:36px;padding-bottom:44px;color:var(--gris);font-size:14px}
+.pied-inner{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.pied a{color:var(--gris);text-decoration:none}
+.pied a:hover{color:var(--blanc)}
+.pied-liens{display:flex;gap:20px}
+
+a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visible{outline:2px solid var(--blanc);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-piste">
+    <span>Tarif de lancement</span><span>◆</span><span>Coaching 1-on-1 en visio</span><span>◆</span>
+    <span>Montréal · partout dans le monde</span><span>◆</span>
+    <span>Tarif de lancement</span><span>◆</span><span>Coaching 1-on-1 en visio</span><span>◆</span>
+    <span>Montréal · partout dans le monde</span><span>◆</span>
+    <span>Tarif de lancement</span><span>◆</span><span>Coaching 1-on-1 en visio</span><span>◆</span>
+    <span>Montréal · partout dans le monde</span><span>◆</span>
+    <span>Tarif de lancement</span><span>◆</span><span>Coaching 1-on-1 en visio</span><span>◆</span>
+    <span>Montréal · partout dans le monde</span><span>◆</span>
+  </div>
+</div>
+
+<header class="entete">
+  <div class="wrap entete-inner">
+    <a class="marque" href="/">Levitation<i>.</i>Beats</a>
+    <nav class="nav-liens">
+      <a href="#probleme">Le problème</a>
+      <a href="#methode">La méthode</a>
+      <a href="#modules">Les modules</a>
+      <a href="#apropos">Qui je suis</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-petit" href="#reserver">Réserver l'appel</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 01. HERO -->
+  <section class="hero">
+    <div class="hero-fond">
+      <img src="hero.jpg" alt="">
+      <div class="hero-voile"></div>
+    </div>
+    <div class="wrap hero-contenu">
+      <p class="eyebrow">Coaching individuel · FL Studio</p>
+      <h1>Tu sais produire, mais toujours le même style ?</h1>
+      <p class="hero-accroche">Apprends à en produire d'autres. Arrête de perdre des artistes.</p>
+      <p class="lede">
+        Une méthode pour décoder et produire un style que tu ne maîtrises pas, sans repartir
+        de zéro à chaque fois. En tête à tête, sur tes propres morceaux.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#reserver">Réserver l'appel découverte</a>
+        <a class="btn btn-fantome" href="#modules">Voir les 4 modules</a>
+        <span class="hero-note">30 minutes · offert · sans engagement</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. LE PROBLÈME -->
+  <section class="wrap section" id="probleme">
+    <div class="titre-bloc">
+      <p class="eyebrow">Le problème</p>
+      <h2>Quand l'artiste demande autre chose, tu fais quoi ?</h2>
+    </div>
+    <div class="scenario">
+      <div class="bulle">
+        <p class="bulle-qui">L'artiste, en DM</p>
+        <p>« Frérot, tu peux me faire un afro ? »</p>
+      </div>
+      <div class="bulle bulle-toi">
+        <p class="bulle-qui">Toi</p>
+        <p>« Euh… je fais surtout de la trap. »</p>
+      </div>
+    </div>
+    <p class="scenario-suite">
+      Il va voir quelqu'un d'autre. Et tu viens de perdre une opportunité, pas parce que tu es
+      mauvais, mais parce que ton champ de production est trop étroit.
+      <b>Le problème n'est pas que tu ne sais pas produire. C'est que tu n'as pas encore de méthode
+      pour entrer dans un style que tu ne maîtrises pas.</b>
+    </p>
+  </section>
+
+  <!-- 03. LE SÉQUENCEUR -->
+  <section class="wrap section section-bordee">
+    <!-- Patterns modifiables dans MOTIFS (script en bas de page).
+         0 = vide · 1 = actif · 2 = accentué -->
+    <div class="seq">
+      <div class="seq-onglets" role="tablist" aria-label="Choisir un style">
+        <button class="seq-onglet" type="button" role="tab" aria-selected="true" data-style="trap">Trap</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="afro">Afro</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="drill">Drill</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="rnb">R&amp;B</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="house">House</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="pop">Pop</button>
+      </div>
+      <div class="seq-corps">
+        <p class="seq-bpm" id="seq-bpm">Trap · 140 BPM · mêmes sons</p>
+        <div id="seq-lignes"></div>
+      </div>
+    </div>
+    <p class="seq-legende">
+      Mêmes sons, même kit. C'est le placement qui fait le style, pas les plugins.
+      Le jour où tu comprends ça, tu arrêtes de refuser des artistes.
+    </p>
+  </section>
+
+  <!-- 04. LA MÉTHODE -->
+  <section class="wrap section section-bordee" id="methode">
+    <div class="titre-bloc">
+      <p class="eyebrow">Le mécanisme</p>
+      <h2>Comment on entre dans un style qu'on ne connaît pas</h2>
+      <p class="lede">
+        La plupart des beatmakers pensent qu'il faut tout réapprendre à chaque nouveau style :
+        d'autres plugins, d'autres sons, d'autres techniques. C'est faux, et c'est ce qui les
+        garde bloqués. Il y a une méthode, et elle tient en trois temps.
+      </p>
+    </div>
+    <div class="methode">
+      <div class="temps">
+        <p class="temps-num">Temps 01</p>
+        <h3>Décoder</h3>
+        <p>Tu prends une référence dans le style demandé et tu identifies ce qui change vraiment. Pas au feeling : avec une grille de lecture que tu appliques à n'importe quel morceau, seul.</p>
+        <ul>
+          <li>Tempo et grille rythmique</li>
+          <li>Placement des drums</li>
+          <li>Rapport kick et basse</li>
+          <li>Sound selection</li>
+          <li>Structure</li>
+        </ul>
+      </div>
+      <div class="temps">
+        <p class="temps-num">Temps 02</p>
+        <h3>Reproduire</h3>
+        <p>Tu montes le squelette du style, sans chercher à cloner. Le but n'est pas la copie, c'est de vérifier que tu as compris les codes et que tu sais les poser toi-même.</p>
+        <ul>
+          <li>Le squelette rythmique</li>
+          <li>La basse dans les codes du genre</li>
+          <li>L'arrangement type</li>
+          <li>Validation à l'oreille</li>
+        </ul>
+      </div>
+      <div class="temps">
+        <p class="temps-num">Temps 03</p>
+        <h3>Signer</h3>
+        <p>Tu remets ta couleur par-dessus. C'est là que ta prod arrête de sonner comme un exercice et redevient la tienne, tout en respectant les codes du style.</p>
+        <ul>
+          <li>Ta musicalité</li>
+          <li>Tes choix de sons</li>
+          <li>Ta patte reconnaissable</li>
+          <li>Une prod pour un artiste précis</li>
+        </ul>
+      </div>
+    </div>
+    <p class="methode-cle">
+      Tu n'apprends pas cinquante styles. Tu apprends à décoder n'importe lequel.
+    </p>
+  </section>
+
+  <!-- 05. DÉMONSTRATION VIDÉO -->
+  <section class="section section-bordee demo">
+    <div class="demo-fond">
+      <img src="studio.jpg" alt="">
+      <div class="demo-voile"></div>
+    </div>
+    <div class="wrap demo-contenu">
+      <div class="titre-bloc">
+        <p class="eyebrow">La preuve</p>
+        <h2>Une idée. Plusieurs styles.</h2>
+        <p class="lede">
+          Une même mélodie peut devenir une trap, un afro, une drill ou une house.
+          La différence ne vient pas des sons utilisés, elle vient des codes du style :
+          tempo, placement, basse, arrangement. C'est ça que je t'apprends à reproduire seul.
+        </p>
+      </div>
+      <div class="videos">
+        <div class="video-carte">
+          <video controls preload="none" playsinline poster="polyvalence-1.jpg">
+            <source src="polyvalence-1.mp4" type="video/mp4">
+            Ton navigateur ne peut pas lire cette vidéo.
+          </video>
+          <p class="video-legende"><b>Démo 01</b>Une mélodie, quatre directions complètement différentes.</p>
+        </div>
+        <div class="video-carte">
+          <video controls preload="none" playsinline poster="polyvalence-2.jpg">
+            <source src="polyvalence-2.mp4" type="video/mp4">
+            Ton navigateur ne peut pas lire cette vidéo.
+          </video>
+          <p class="video-legende"><b>Démo 02</b>Même point de départ, trois beats qui ne se ressemblent pas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. PREUVE CHIFFRÉE -->
+  <section class="wrap section">
+    <div class="preuves">
+      <div class="preuve"><b>20</b><span>ans sur FL Studio</span></div>
+      <div class="preuve"><b>53</b><span>crédits</span></div>
+      <div class="preuve"><b>1,4M</b><span>streams cumulés</span></div>
+      <div class="preuve"><b>10</b><span>placements Sirius XM</span></div>
+    </div>
+  </section>
+
+  <!-- 07. POUR QUI C'EST -->
+  <section class="wrap section section-bordee">
+    <div class="titre-bloc">
+      <p class="eyebrow">Pour qui c'est</p>
+      <h2>Tu es probablement au bon endroit si…</h2>
+    </div>
+    <ul class="checklist">
+      <li>Tu sais déjà produire sur FL Studio, tu n'en es plus à chercher où sont les boutons</li>
+      <li>Tu es à l'aise dans un ou deux styles, et beaucoup moins dès qu'on en sort</li>
+      <li>Tu as déjà refusé une demande parce que ce n'était pas ton style</li>
+      <li>Tu changes les sons, les plugins, les presets, et ta prod sonne quand même comme d'habitude</li>
+      <li>Tu as l'impression de repartir de zéro à chaque fois que tu changes de genre</li>
+      <li>Tu veux pouvoir répondre « envoie-moi ta référence » à n'importe quelle demande</li>
+    </ul>
+    <p class="pas-pour">
+      <b>Ce n'est pas pour toi si</b> tu cherches un raccourci sans travailler entre les sessions.
+      Compte au moins 30 minutes par jour de ton côté. Sans ça, tu paies des heures que tu ne rentabilises pas.
+    </p>
+  </section>
+
+  <!-- 08. PROBLÈMES -->
+  <section class="wrap section section-bordee" id="problemes">
+    <div class="titre-bloc">
+      <p class="eyebrow">Le diagnostic</p>
+      <h2>Qu'est-ce qui t'empêche de produire d'autres styles ?</h2>
+      <p class="lede">
+        Tu sais déjà produire. Mais quand tu sors de ton style habituel, tes repères disparaissent :
+        tu ne sais plus par où commencer, le groove ne sonne pas comme la référence, tes idées
+        retombent dans tes habitudes, ou la prod ne laisse pas la place à l'artiste.
+        Ce sont les quatre compétences qui font la polyvalence. Pendant l'appel découverte,
+        on identifie laquelle te bloque aujourd'hui. Tu n'as pas forcément besoin des quatre.
+      </p>
+    </div>
+    <div class="problemes">
+      <div class="probleme">
+        <div class="probleme-tete"><span class="probleme-num">01</span><span class="probleme-nom">Méthode</span></div>
+        <p class="probleme-competence">Savoir par où commencer, même quand le style est nouveau.</p>
+        <ul>
+          <li>« Je repars de zéro à chaque nouveau style. »</li>
+          <li>« Je ne sais jamais quoi poser en premier. »</li>
+          <li>« Je passe mon temps à chercher des tutos pour comprendre comment faire. »</li>
+        </ul>
+      </div>
+      <div class="probleme">
+        <div class="probleme-tete"><span class="probleme-num">02</span><span class="probleme-nom">Groove</span></div>
+        <p class="probleme-competence">Comprendre les codes rythmiques qui font qu'un style sonne comme lui.</p>
+        <ul>
+          <li>« Je sais faire de la trap, mais je suis perdu sur un afro ou une drill. »</li>
+          <li>« Mes drums ne sonnent jamais vraiment comme ma référence. »</li>
+          <li>« Mes 808 sont en clash avec mon kick. »</li>
+        </ul>
+      </div>
+      <div class="probleme">
+        <div class="probleme-tete"><span class="probleme-num">03</span><span class="probleme-nom">Musicalité</span></div>
+        <p class="probleme-competence">Créer dans un nouveau style sans retomber dans tes habitudes.</p>
+        <ul>
+          <li>« Peu importe le style, je finis toujours avec les mêmes mélodies. »</li>
+          <li>« Je bloque après quatre mesures. »</li>
+          <li>« Je sais reproduire le rythme, mais pas construire une vraie idée musicale. »</li>
+        </ul>
+      </div>
+      <div class="probleme">
+        <div class="probleme-tete"><span class="probleme-num">04</span><span class="probleme-nom">Rendu</span></div>
+        <p class="probleme-competence">Transformer ta prod en morceau sur lequel l'artiste peut réellement poser.</p>
+        <ul>
+          <li>« Ma prod est tellement remplie qu'il n'y a plus de place pour la voix. »</li>
+          <li>« Je ne sais pas comment arranger le morceau pour l'artiste. »</li>
+          <li>« Je sais qu'il manque quelque chose au mix, sans savoir quoi. »</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09. COMMENT ÇA MARCHE -->
+  <section class="wrap section section-bordee" id="deroulement">
+    <div class="titre-bloc">
+      <p class="eyebrow">Comment ça marche</p>
+      <h2>Trois étapes, pas plus</h2>
+    </div>
+    <div class="etapes">
+      <div class="etape">
+        <div class="etape-num">1</div>
+        <h3>L'appel découverte</h3>
+        <p>30 minutes en visio, offertes. Tu me montres ton setup, tu me fais écouter un son, et je te dis franchement où tu en es. Si je ne suis pas la bonne personne, je te le dis aussi.</p>
+      </div>
+      <div class="etape">
+        <div class="etape-num">2</div>
+        <h3>Le module qu'il te faut</h3>
+        <p>Je te dis lequel des quatre correspond à ton blocage réel, et dans quel ordre attaquer la suite. Tu repars avec un plan, que tu prennes le coaching ou non.</p>
+      </div>
+      <div class="etape">
+        <div class="etape-num">3</div>
+        <h3>Les sessions</h3>
+        <p>Deux heures en visio, sur tes projets à toi, avec partage d'écran dans les deux sens. Entre les sessions, tu as un exercice ciblé à faire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. LES MODULES -->
+  <section class="wrap section section-bordee" id="modules">
+    <div class="titre-bloc">
+      <p class="eyebrow">Ce que tu obtiens</p>
+      <h2>Quatre modules. Tu prends celui dont tu as besoin.</h2>
+      <p class="lede">
+        Les quatre compétences s'enchaînent : tu sais par où commencer, tu trouves le groove du
+        style, tu construis l'idée musicale, tu livres une prod exploitable. Chacune se travaille
+        sur tes propres morceaux. Tu peux en prendre une seule, ou faire le parcours entier.
+      </p>
+    </div>
+
+    <div class="modules">
+
+      <article class="module">
+        <div class="module-tete">
+          <p class="module-num">Module 01</p>
+          <h3>Méthode</h3>
+          <p class="module-promesse">La référence arrive. Tu sais quoi ouvrir et quoi poser en premier, sans repartir de zéro.</p>
+          <p class="module-meta">8 h · <b>4 sessions de 2 h</b></p>
+        </div>
+        <div class="module-corps">
+          <h4>Pour qui c'est</h4>
+          <ul class="pourqui">
+            <li>Ceux qui ouvrent FL Studio devant un style qu'ils ne maîtrisent pas et referment sans rien avoir posé</li>
+            <li>Ceux qui cherchent des tutos et des presets en espérant comprendre comment le style fonctionne</li>
+            <li>Ceux qui accumulent des projets à moitié finis parce qu'ils ne savent pas les faire évoluer une fois sortis de leur zone</li>
+          </ul>
+          <h4>Ce qu'on travaille</h4>
+          <ul class="contenu">
+            <li>Ton template de départ, construit pour ta façon de bosser</li>
+            <li>Navigation, raccourcis, organisation du projet</li>
+            <li>Une méthode pour aller au bout, à chaque fois</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="module">
+        <div class="module-tete">
+          <p class="module-num">Module 02</p>
+          <h3>Groove</h3>
+          <p class="module-promesse">Tu identifies ce qui fait le groove du style demandé, et tu le reproduis.</p>
+          <p class="module-meta">12 h · <b>6 sessions de 2 h</b></p>
+        </div>
+        <div class="module-corps">
+          <h4>Pour qui c'est</h4>
+          <ul class="pourqui">
+            <li>Ceux qui ne savent faire que de la trap et bloquent dès qu'on leur demande autre chose, donc laissent partir l'artiste chez un autre beatmaker</li>
+            <li>Ceux dont les drums sonnent presque comme la référence, sans jamais vraiment fonctionner</li>
+            <li>Ceux dont le kick et la basse ne coexistent pas, et qui perdent tout l'impact du morceau</li>
+          </ul>
+          <h4>Ce qu'on travaille</h4>
+          <ul class="contenu">
+            <li>Le placement rythmique style par style</li>
+            <li>Choisir et calibrer tes sons au lieu de subir les presets</li>
+            <li>Groove, variations, fills, humanisation</li>
+            <li>Relation kick et 808, sidechain, glide</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="module">
+        <div class="module-tete">
+          <p class="module-num">Module 03</p>
+          <h3>Musicalité</h3>
+          <p class="module-promesse">Tu construis une idée musicale qui colle au nouvel univers, sans perdre ta couleur.</p>
+          <p class="module-meta">12 h · <b>6 sessions de 2 h</b></p>
+        </div>
+        <div class="module-corps">
+          <h4>Pour qui c'est</h4>
+          <ul class="pourqui">
+            <li>Ceux qui savent poser le rythme du style, mais ne savent pas quoi mettre au-dessus</li>
+            <li>Ceux qui repartent d'une référence et finissent toujours par revenir à leurs habitudes</li>
+            <li>Ceux qui n'ont aucune base de théorie musicale et se sentent bloqués, comme s'ils n'avaient pas le droit de composer</li>
+          </ul>
+          <h4>Ce qu'on travaille</h4>
+          <ul class="contenu">
+            <li>Une méthode de composition intuitive, sans solfège</li>
+            <li>Accords, contre-mélodies, layering</li>
+            <li>Basslines mélodiques</li>
+            <li>Sampling, découpe et réutilisation</li>
+            <li>Adapter une idée musicale aux codes d'un style</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="module">
+        <div class="module-tete">
+          <p class="module-num">Module 04</p>
+          <h3>Rendu</h3>
+          <p class="module-promesse">Tu livres une prod exploitable, sur laquelle l'artiste sait où poser.</p>
+          <p class="module-meta">12 h · <b>6 sessions de 2 h</b></p>
+        </div>
+        <div class="module-corps">
+          <h4>Pour qui c'est</h4>
+          <ul class="pourqui">
+            <li>Ceux qui remplissent leur prod jusqu'à ce qu'il n'y ait plus un centimètre pour la voix, et se demandent pourquoi l'artiste ne pose pas</li>
+            <li>Ceux qui ne savent pas adapter l'arrangement au style et à l'artiste</li>
+            <li>Ceux qui envoient leurs prods en sachant qu'elles sont presque là, sans savoir ce qui manque</li>
+          </ul>
+          <h4>Ce qu'on travaille</h4>
+          <ul class="contenu">
+            <li>Structure et arrangement selon le style</li>
+            <li>Transitions, fills et variations</li>
+            <li>Laisser la place à la voix sans faire vide</li>
+            <li>Mixage de la prod, prêt pour l'enregistrement</li>
+            <li>Export et formats pour le studio</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 11. TÉMOIGNAGES -->
+  <section class="wrap section section-bordee">
+    <div class="titre-bloc">
+      <p class="eyebrow">Retours d'élèves</p>
+      <h2>Ce qu'ils en disent</h2>
+    </div>
+    <div class="temoins">
+      <blockquote class="temoin">
+        <q>« Je savais déjà utiliser FL Studio et toucher à plusieurs styles, mais je travaillais sans méthode. Mes drums ne sonnaient jamais comme il fallait et je butais systématiquement sur les mélodies. Aujourd'hui j'ai une façon de travailler, les bonnes sonorités, et je ne reste plus coincé sur une boucle de quatre mesures. »</q>
+        <footer><b>Lambert Bisson</b>Programme complet</footer>
+      </blockquote>
+      <blockquote class="temoin">
+        <q>« Je recommande vivement. Professionnel, très clair, et capable de s'adapter facilement à tes besoins. Je cherchais un coup de main pour produire de la house, et il m'a vraiment beaucoup aidé. »</q>
+        <footer><b>DJ Dall Ea</b>Programme complet</footer>
+      </blockquote>
+      <blockquote class="temoin">
+        <q>« Je n'avais jamais ouvert FL Studio avant de commencer. En quelques mois j'ai sorti plusieurs instrus, et pas dans un seul style : de la trap, du drill, et même de la deep house. Ce qui m'a débloqué, c'est d'avoir enfin une méthode au lieu d'enchaîner des tutos. »</q>
+        <footer><b>Richard Caron</b>Modules 1 à 3</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 12. BÉNÉFICES -->
+  <section class="wrap section section-bordee">
+    <div class="titre-bloc">
+      <p class="eyebrow">Ce qui change</p>
+      <h2>À la fin, tu n'as plus besoin de moi</h2>
+      <p class="lede">
+        Le but n'est pas que tu reviennes tous les mois. C'est que tu repartes avec une méthode
+        que tu peux reproduire seul, et même transmettre à quelqu'un d'autre.
+      </p>
+    </div>
+    <div class="benefice-fort">
+      <p class="contexte">La prochaine fois qu'un artiste te demande un style que tu ne connais pas</p>
+      <p class="avant">« Désolé, je ne fais pas ça. »</p>
+      <p class="apres">« Envoie-moi ta référence. »</p>
+    </div>
+    <div class="benefices">
+      <div class="benefice"><p>Tu sais décoder un style que tu n'as jamais produit, seul, en une écoute.</p></div>
+      <div class="benefice"><p>Tu finis tes morceaux au lieu d'accumuler des projets à moitié finis.</p></div>
+      <div class="benefice"><p>Tes drums et tes basses tiennent ensemble, sans bouillie dans le bas.</p></div>
+      <div class="benefice"><p>Tu composes sans passer par le solfège, et ça reste cohérent.</p></div>
+      <div class="benefice"><p>Tes prods laissent la place à la voix, donc les artistes posent dessus.</p></div>
+      <div class="benefice"><p>Tu sais quoi faire quand tu ouvres une session, à chaque fois.</p></div>
+    </div>
+  </section>
+
+  <!-- 13. À PROPOS -->
+  <section class="wrap section section-bordee" id="apropos">
+    <div class="titre-bloc">
+      <p class="eyebrow">Qui je suis</p>
+      <h2>Davis, Levitation Beats</h2>
+    </div>
+    <div class="apropos">
+      <div class="apropos-photo"><img src="davis.jpg" alt="Davis, producteur, Levitation Beats"></div>
+      <div>
+        <p>
+          Producteur et compositeur à Montréal. J'ai commencé sur Fruity Loops il y a vingt ans,
+          et j'ai passé les dix dernières années à produire pour des artistes plutôt qu'à faire des tutos.
+        </p>
+        <p>
+          Cinquante-trois crédits, plus d'un million et demi de streams cumulés, dix passages
+          sur Sirius XM en 2025. Je dirige OnTheStage Records, un label qui accompagne des artistes
+          de bout en bout, et j'ai quitté un poste d'ingénieur salarié fin 2025 pour faire ça à plein temps.
+        </p>
+        <p>
+          Ce que je transmets ne vient pas d'une formation théorique. Ça vient de vingt ans à devoir
+          livrer des prods qui tiennent, dans des styles que je ne maîtrisais pas forcément au départ.
+          C'est exactement ce que j'apprends aux gens que j'accompagne.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. BONUS -->
+  <section class="wrap section section-bordee">
+    <div class="bonus">
+      <p class="eyebrow">Inclus dans le programme complet</p>
+      <h3>Deux bonus que personne ne t'apprend</h3>
+      <p class="lede">Savoir produire ne suffit pas. Ces deux blocs sont offerts quand tu prends les quatre modules.</p>
+      <div class="bonus-liste">
+        <div>
+          <b>Monétisation</b>
+          <span>Vendre tes instrumentales, trouver des artistes, comprendre les droits et construire plusieurs sources de revenus.</span>
+        </div>
+        <div>
+          <b>Enregistrement de voix</b>
+          <span>Enregistrer proprement une voix sur FL Studio, pour ne plus dépendre de quelqu'un d'autre au moment de la maquette.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. TARIFS -->
+  <section class="wrap section section-bordee" id="tarifs">
+    <div class="titre-bloc">
+      <p class="eyebrow">Tarifs de lancement</p>
+      <h2>Le tarif de lancement, puis ça monte</h2>
+      <p class="lede">
+        Je démarre ce format d'accompagnement, donc les premières places sont à tarif réduit.
+        Le prix que tu paies à l'inscription reste le tien jusqu'à la fin de ton programme.
+      </p>
+    </div>
+
+    <div class="tarifs">
+      <div class="tarif">
+        <h3>Session à l'unité</h3>
+        <p class="tarif-volume">2 h · une seule séance</p>
+        <p class="tarif-prix">120 $ <em>US</em></p>
+        <p class="tarif-apres">Tarif normal 150 $ US</p>
+        <p class="tarif-desc">Un point précis à débloquer, ou l'envie de tester la méthode avant de t'engager.</p>
+        <a class="btn btn-fantome" href="#reserver">En parler</a>
+      </div>
+
+      <div class="tarif">
+        <h3>Un module</h3>
+        <p class="tarif-volume">12 h · 6 sessions de 2 h</p>
+        <p class="tarif-prix">650 $ <em>US</em></p>
+        <p class="tarif-apres">Module Méthode (8 h) à 450 $ US · tarif normal 900 $ US</p>
+        <p class="tarif-desc">Tu sais déjà où ça coince. On règle ce point-là et rien d'autre.</p>
+        <a class="btn btn-fantome" href="#reserver">Choisir mon module</a>
+      </div>
+
+      <div class="tarif tarif-vedette">
+        <span class="tarif-etiquette">Le plus complet</span>
+        <h3>Programme complet</h3>
+        <p class="tarif-volume">44 h · 11 semaines · 4 modules + bonus</p>
+        <p class="tarif-prix">2 100 $ <em>US</em></p>
+        <p class="tarif-apres">Ou 3 versements de 700 $ US · tarif normal 3 000 $ US</p>
+        <p class="tarif-desc">Le parcours entier, de la méthode jusqu'à la prod prête pour un artiste, bonus inclus.</p>
+        <a class="btn" href="#reserver">Réserver l'appel</a>
+      </div>
+    </div>
+
+    <div class="tarif-notes">
+      <div>
+        <b>Ton rythme</b>
+        Une ou deux sessions par semaine, à toi de voir. Un module de 12 h se boucle en 3 semaines à deux sessions, ou 6 semaines à une seule. Le parcours complet tient en 11 semaines, soit moins de 90 jours.
+      </div>
+      <div>
+        <b>Une date limite</b>
+        Chaque module a une échéance. C'est ce qui fait que tu le finis au lieu de garder tes heures pour plus tard.
+      </div>
+      <div>
+        <b>Paiement</b>
+        Tarifs en dollars US, ta banque convertit automatiquement. Réglé avant la première session. Une annulation à moins de 24 h est décomptée.
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. FAQ -->
+  <section class="wrap section section-bordee" id="faq">
+    <div class="titre-bloc">
+      <p class="eyebrow">Questions</p>
+      <h2>Ce qu'on me demande le plus</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Je produis déjà depuis des années, je vais apprendre quelque chose ?</summary>
+        <div class="faq-rep"><p>C'est le cas le plus fréquent. Les beatmakers qui viennent me voir savent produire, mais dans un seul style, et ils perdent des artistes à cause de ça. On ne repart pas de la base : on attaque directement le blocage identifié pendant l'appel, souvent Groove ou Musicalité.</p></div>
+      </details>
+      <details>
+        <summary>Ça marche pour quels styles ?</summary>
+        <div class="faq-rep"><p>Pour tous, parce que je ne t'apprends pas les styles un par un. Je t'apprends à décoder celui qu'on te demande. Cela dit, je suis plus à l'aise sur le rap, la trap, la drill, l'afro, le R&amp;B et les musiques urbaines en général. Si tu vises exclusivement du metal ou du jazz, je ne suis pas la bonne personne et je te le dirai à l'appel.</p></div>
+      </details>
+      <details>
+        <summary>Il faut quel logiciel ?</summary>
+        <div class="faq-rep"><p>FL Studio. C'est le DAW sur lequel je travaille depuis vingt ans et sur lequel j'enseigne. La méthode se transpose ailleurs, mais les sessions se font sur FL.</p></div>
+      </details>
+      <details>
+        <summary>Comment se passent les sessions ?</summary>
+        <div class="faq-rep"><p>En visio, avec partage d'écran et de son. Tu peux me montrer ton projet et je te guide en direct, ou je te montre ma façon de faire depuis mon écran. Prévois un casque ou des enceintes correctes.</p></div>
+      </details>
+      <details>
+        <summary>Pourquoi pas juste une formation vidéo à 300 $ ?</summary>
+        <div class="faq-rep"><p>Parce qu'une vidéo ne voit pas ce que tu fais. Elle te montre une méthode générale, pas la correction de ton projet à toi. Et la plupart des formations s'arrêtent à l'export, alors que le vrai sujet c'est de faire une prod sur laquelle un artiste peut poser.</p></div>
+      </details>
+      <details>
+        <summary>Je suis débutant complet, c'est pour moi ?</summary>
+        <div class="faq-rep"><p>Ce coaching est pensé pour des gens qui produisent déjà. Cela dit, j'ai accompagné des DJ et des musiciens qui venaient d'installer FL Studio, et ça a bien marché : on commence par le module Méthode et on construit à partir de là. Dis-le-moi à l'appel, je te dirai franchement si c'est le bon moment.</p></div>
+      </details>
+      <details>
+        <summary>Je peux payer en plusieurs fois ?</summary>
+        <div class="faq-rep"><p>Oui sur le programme complet, en trois versements. Pour un module seul, le paiement se fait en une fois avant la première session.</p></div>
+      </details>
+      <details>
+        <summary>Je suis hors du Canada, ça marche quand même ?</summary>
+        <div class="faq-rep"><p>Sans problème, j'accompagne déjà des gens en Europe. On cale les créneaux en tenant compte du décalage. Les tarifs sont en dollars US et ta banque fait la conversion.</p></div>
+      </details>
+      <details>
+        <summary>Et si je n'ai pas le temps entre les sessions ?</summary>
+        <div class="faq-rep"><p>Alors ce n'est pas le bon moment. Compte au moins 30 minutes par jour de ton côté pour que la méthode rentre. Sans ça, tu paies des sessions que tu ne rentabilises pas, et je préfère te le dire avant.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 17. CTA FINAL -->
+  <section class="wrap section section-bordee" id="reserver">
+    <div class="cta">
+      <p class="eyebrow">Prochaine étape</p>
+      <h2>On regarde ensemble où tu bloques</h2>
+      <p class="lede">
+        30 minutes en visio, offertes, sans engagement. Tu repars avec un diagnostic clair
+        et l'ordre dans lequel attaquer les choses, que tu prennes le coaching ou non.
+      </p>
+      <!-- Remplace ce lien par ton Calendly ou Cal.com -->
+      <a class="btn" href="mailto:djlaxbookings@gmail.com?subject=Appel%20d%C3%A9couverte%20coaching">Réserver mon appel découverte</a>
+      <p class="cta-note">Réponse sous 24 h · tarif de lancement en cours</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap pied">
+  <div class="pied-inner">
+    <span>© 2026 Levitation Beats · Montréal</span>
+    <div class="pied-liens">
+      <a href="https://www.instagram.com/levitationbeats" target="_blank" rel="noopener">Instagram</a>
+      <a href="/">levitationbeats.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ==================================================================
+     PATTERNS DU SÉQUENCEUR
+     ------------------------------------------------------------------
+     Chaque piste = une chaîne de 16 caractères, un par pas.
+        1 = case allumée      0 = case éteinte
+     La mesure se lit en 4 temps de 4 doubles croches :
+
+        pas   1 2 3 4 | 5 6 7 8 | 9 10 11 12 | 13 14 15 16
+        temps    1    |    2    |     3      |      4
+
+     Donc : temps 1 = pas 1 · temps 2 = pas 5 · temps 3 = pas 9 · temps 4 = pas 13
+     Un kick sur les temps 1 et 3          -> 1000000010000000
+     Une caisse claire sur les temps 2 et 4 -> 0000100000001000
+     Des hihats en croches                  -> 1010101010101010
+
+     Compte bien 16 caractères par ligne, sinon la fin du pattern est ignorée.
+     ================================================================== */
+  var MOTIFS = {
+    trap: {
+      bpm: "140 BPM",
+      pistes: [
+        ["Kick",  "1000001000100000"],
+        ["Clap",  "0000100000001000"],
+        ["Snare", "0000000010000010"],
+        ["Hihat", "1110111011101111"],
+        ["808",   "1000001000100000"]
+      ]
+    },
+    afro: {
+      bpm: "102 BPM",
+      pistes: [
+        ["Kick",  "1000000100100000"],
+        ["Clap",  "0000100000001000"],
+        ["Perc",  "0010010000100100"],
+        ["Hihat", "0010101000101010"],
+        ["808",   "1000000100100100"]
+      ]
+    },
+    drill: {
+      bpm: "142 BPM",
+      pistes: [
+        ["Kick",  "1001000000100000"],
+        ["Clap",  "0000100000001000"],
+        ["Snare", "0000000000000010"],
+        ["Hihat", "1011101110111011"],
+        ["808",   "1001000000100000"]
+      ]
+    },
+    rnb: {
+      bpm: "92 BPM",
+      pistes: [
+        ["Kick",  "1000000010010000"],
+        ["Snare", "0000100000001000"],
+        ["Hihat", "1010101010101010"],
+        ["Perc",  "0000001000000010"],
+        ["Basse", "1000000010010000"]
+      ]
+    },
+    house: {
+      bpm: "124 BPM",
+      pistes: [
+        ["Kick",  "1000100010001000"],
+        ["Clap",  "0000100000001000"],
+        ["Hihat", "0010001000100010"],
+        ["Perc",  "0000001000000010"],
+        ["Basse", "0010001000100010"]
+      ]
+    },
+    pop: {
+      bpm: "108 BPM",
+      pistes: [
+        ["Kick",  "1000000010000000"],
+        ["Clap",  "0000100000001000"],
+        ["Hihat", "1010101010101010"],
+        ["Perc",  "0000000000001010"],
+        ["Basse", "1000000010000000"]
+      ]
+    }
+  };
+
+  var VITESSE = 172;   /* ms par pas · plus grand = plus lent */
+  var ROTATION = 8500; /* ms avant de passer au style suivant */
+
+  var conteneur = document.getElementById('seq-lignes');
+  var etiquette = document.getElementById('seq-bpm');
+  var onglets = Array.prototype.slice.call(document.querySelectorAll('.seq-onglet'));
+  if(!conteneur) return;
+
+  var pos = 0, timer = null, autoTimer = null;
+  var ordre = ['trap','afro','drill','rnb','house','pop'], idx = 0;
+
+  var LIBELLES = {trap:'Trap', afro:'Afro', drill:'Drill', rnb:'R&B', house:'House', pop:'Pop'};
+
+  function dessiner(nom){
+    var d = MOTIFS[nom];
+    conteneur.innerHTML = '';
+    etiquette.textContent = LIBELLES[nom] + ' · ' + d.bpm + ' · mêmes sons';
+    d.pistes.forEach(function(piste){
+      var ligne = document.createElement('div');
+      ligne.className = 'seq-ligne';
+      var nomEl = document.createElement('span');
+      nomEl.className = 'seq-nom';
+      nomEl.textContent = piste[0];
+      var pasEl = document.createElement('div');
+      pasEl.className = 'seq-pas';
+      for(var i=0;i<16;i++){
+        var pas = document.createElement('div');
+        pas.className = 'pas' + (piste[1][i] === '1' ? ' on' : '');
+        pasEl.appendChild(pas);
+      }
+      ligne.appendChild(nomEl);
+      ligne.appendChild(pasEl);
+      conteneur.appendChild(ligne);
+    });
+  }
+
+  function choisir(nom){
+    pos = 0;
+    idx = ordre.indexOf(nom);
+    onglets.forEach(function(o){ o.setAttribute('aria-selected', String(o.getAttribute('data-style') === nom)); });
+    dessiner(nom);
+  }
+
+  function arreterAuto(){ clearInterval(autoTimer); autoTimer = null; }
+
+  onglets.forEach(function(o){
+    o.addEventListener('click', function(){
+      choisir(o.getAttribute('data-style'));
+      arreterAuto();
+    });
+  });
+
+  dessiner('trap');
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function tick(){
+    var lignes = conteneur.querySelectorAll('.seq-pas');
+    Array.prototype.forEach.call(lignes, function(l){
+      for(var i=0;i<l.children.length;i++){ l.children[i].classList.toggle('tete', i === pos); }
+    });
+    pos = (pos + 1) % 16;
+  }
+
+  function autoSuivant(){ idx = (idx + 1) % ordre.length; choisir(ordre[idx]); }
+
+  function demarrer(){
+    if(!timer) timer = setInterval(tick, VITESSE);
+    if(!autoTimer) autoTimer = setInterval(autoSuivant, ROTATION);
+  }
+  function arreter(){
+    clearInterval(timer); timer = null;
+    arreterAuto();
+    Array.prototype.forEach.call(conteneur.querySelectorAll('.pas'), function(p){ p.classList.remove('tete'); });
+  }
+
+  var seq = document.querySelector('.seq');
+  if('IntersectionObserver' in window && seq){
+    new IntersectionObserver(function(e){ e[0].isIntersecting ? demarrer() : arreter(); }, {threshold:.2}).observe(seq);
+  } else {
+    demarrer();
+  }
+
+  document.addEventListener('visibilitychange', function(){ document.hidden ? arreter() : demarrer(); });
+})();
+</script>
+
+</body>
+</html>
