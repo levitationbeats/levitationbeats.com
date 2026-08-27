@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paiement confirmé | Levitation Beats</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,400;0,700;0,900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CONFIRMATION APRÈS PAIEMENT · /coaching/merci-coaching.html
+   Page de redirection des 6 liens Stripe du coaching.
+   Ne pas confondre avec merci-paiement.html, qui appartient
+   au funnel Summer Camp.
+   ============================================================ */
+:root{
+  --noir:#0B0B0C; --surface:#141418; --ligne:#2A2A32;
+  --blanc:#FFFFFF; --gris:#9A9AA4; --rouge:#DA2028;
+  --display:"GONZI","Archivo Black",Impact,sans-serif;
+  --corps:"Lato",system-ui,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,monospace;
+  --pad:clamp(20px,5vw,48px);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--noir);color:var(--blanc);font-family:var(--corps);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+h1{font-size:clamp(30px,5.4vw,54px)}
+p{margin:0 0 16px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rouge);margin:0 0 16px}
+
+.entete{border-bottom:1px solid var(--ligne)}
+.entete-inner{display:flex;align-items:center;justify-content:center;padding-top:18px;padding-bottom:18px}
+.marque{font-family:var(--display);font-size:16px;text-transform:uppercase;text-decoration:none;color:var(--blanc)}
+.marque i{color:var(--rouge);font-style:normal}
+
+.intro{padding-top:clamp(48px,7vw,84px);padding-bottom:clamp(30px,4vw,44px);text-align:center}
+.coche{
+  width:56px;height:56px;border-radius:50%;border:2px solid var(--rouge);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 26px;
+  color:var(--rouge);font-size:28px;line-height:1;
+}
+.intro h1{margin-bottom:18px}
+.intro p{color:var(--gris);max-width:52ch;margin-left:auto;margin-right:auto}
+
+.etapes{display:grid;gap:2px;background:var(--ligne);border:1px solid var(--ligne);margin-bottom:clamp(30px,4vw,44px)}
+.etape{background:var(--noir);padding:24px 26px;display:grid;grid-template-columns:38px 1fr;gap:18px;align-items:start}
+.etape-num{font-family:var(--display);font-size:26px;line-height:1;color:var(--rouge)}
+.etape h2{font-size:18px;margin-bottom:8px}
+.etape p{color:var(--gris);font-size:15.5px;margin:0}
+
+.encart{border:1px solid var(--rouge);background:linear-gradient(180deg,rgba(218,32,40,.1),transparent);padding:clamp(22px,3vw,32px);margin-bottom:clamp(30px,4vw,44px)}
+.encart h2{font-size:19px;margin-bottom:12px}
+.encart p{margin:0;color:var(--gris);font-size:15.5px}
+.encart b{color:var(--blanc)}
+
+.pied{border-top:1px solid var(--ligne);padding-top:26px;padding-bottom:44px;color:var(--gris);font-size:14px;text-align:center}
+.pied a{color:var(--gris)}
+@media(max-width:560px){.etape{grid-template-columns:1fr;gap:8px}}
+</style>
+</head>
+<body>
+
+<header class="entete">
+  <div class="wrap entete-inner">
+    <a class="marque" href="https://levitationbeats.com">Levitation<i>.</i>Beats</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap intro">
+    <div class="coche" aria-hidden="true">✓</div>
+    <p class="eyebrow">Paiement confirmé</p>
+    <h1>C'est parti.</h1>
+    <p>
+      Ton paiement est passé et ta place est réservée. Stripe t'envoie le reçu par courriel
+      dans les prochaines minutes, à l'adresse que tu viens de saisir.
+    </p>
+  </section>
+
+  <section class="wrap">
+    <div class="etapes">
+      <div class="etape">
+        <div class="etape-num">1</div>
+        <div>
+          <h2>Je te contacte sous 24 h</h2>
+          <p>Je t'écris pour caler la date de la première session et le rythme qu'on avait évoqué. Si tu ne vois rien passer, vérifie tes indésirables avant de me relancer.</p>
+        </div>
+      </div>
+      <div class="etape">
+        <div class="etape-num">2</div>
+        <div>
+          <h2>Tu reçois tes drumkits et tes presets</h2>
+          <p>Je te les envoie dans le même message, avec le lien de téléchargement. Ils sont à toi, tu les gardes quoi qu'il arrive.</p>
+        </div>
+      </div>
+      <div class="etape">
+        <div class="etape-num">3</div>
+        <div>
+          <h2>Prépare deux ou trois de tes projets</h2>
+          <p>On travaille sur tes morceaux, pas sur des exercices. Choisis un projet fini, un projet bloqué, et une référence que tu aimerais savoir reproduire. Ça nous fait gagner une demi-heure dès la première session.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="encart">
+      <h2>La seule condition de ton côté</h2>
+      <p>
+        Compte <b>30 minutes par jour</b> entre les sessions pour appliquer ce qu'on voit ensemble.
+        C'est ce qui fait la différence entre un accompagnement qui change ta façon de produire
+        et une série de conversations agréables. Les sessions sont enregistrées, tu recevras
+        le replay de chacune.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap pied">
+  Une question ? Écris-moi à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a><br>
+  Levitation Beats · Montréal
+</footer>
+
+</body>
+</html>

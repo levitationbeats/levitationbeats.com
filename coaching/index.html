@@ -298,9 +298,9 @@ p{margin:0 0 18px}
 @media(max-width:760px){.bonus-liste{grid-template-columns:1fr}}
 
 /* ---------- tarifs ---------- */
-.tarifs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.tarifs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch}
 .tarif{border:1px solid var(--ligne);background:var(--surface);padding:30px 26px;display:flex;flex-direction:column}
-.tarif-vedette{border-color:var(--rouge);background:var(--surface-2);position:relative}
+.tarif-vedette{border-color:var(--rouge);background:var(--surface-2);position:relative;grid-column:1 / -1}
 .tarif-etiquette{position:absolute;top:-1px;right:-1px;background:var(--rouge);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px}
 .tarif h3{font-size:20px;margin-bottom:8px}
 .tarif-volume{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-bottom:22px}
@@ -309,7 +309,7 @@ p{margin:0 0 18px}
 .tarif-apres{font-size:13.5px;color:var(--gris);margin-bottom:22px}
 .tarif-desc{font-size:15.5px;color:var(--gris);margin-bottom:24px}
 .tarif .btn{margin-top:auto;text-align:center}
-@media(max-width:900px){.tarifs{grid-template-columns:1fr}}
+@media(max-width:760px){.tarifs{grid-template-columns:1fr}}
 .tarif-notes{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .tarif-notes div{border-top:1px solid var(--ligne);padding-top:14px;font-size:14.5px;color:var(--gris)}
 .tarif-notes b{color:var(--blanc);display:block;margin-bottom:5px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);font-weight:500}
@@ -385,7 +385,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <h1>Tu sais produire, mais toujours le même style ?</h1>
       <p class="hero-accroche">Apprends à en produire d'autres. Arrête de perdre des artistes.</p>
       <p class="lede">
-        Une méthode pour décoder et produire un style que tu ne maîtrises pas, sans repartir
+        Une méthode pour décoder et produire un genre que tu ne maîtrises pas, sans repartir
         de zéro à chaque fois. En tête à tête, sur tes propres morceaux.
       </p>
       <div class="hero-actions">
@@ -416,7 +416,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       Il va voir quelqu'un d'autre. Et tu viens de perdre une opportunité, pas parce que tu es
       mauvais, mais parce que ton champ de production est trop étroit.
       <b>Le problème n'est pas que tu ne sais pas produire. C'est que tu n'as pas encore de méthode
-      pour entrer dans un style que tu ne maîtrises pas.</b>
+      pour entrer dans un univers que tu ne connais pas.</b>
     </p>
   </section>
 
@@ -459,7 +459,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="temps">
         <p class="temps-num">Temps 01</p>
         <h3>Décoder</h3>
-        <p>Tu prends une référence dans le style demandé et tu identifies ce qui change vraiment. Pas au feeling : avec une grille de lecture que tu appliques à n'importe quel morceau, seul.</p>
+        <p>Tu prends la référence que l'artiste t'envoie et tu identifies ce qui change vraiment. Pas au feeling : avec une grille de lecture que tu appliques à n'importe quel morceau, seul.</p>
         <ul>
           <li>Tempo et grille rythmique</li>
           <li>Placement des drums</li>
@@ -482,7 +482,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="temps">
         <p class="temps-num">Temps 03</p>
         <h3>Signer</h3>
-        <p>Tu remets ta couleur par-dessus. C'est là que ta prod arrête de sonner comme un exercice et redevient la tienne, tout en respectant les codes du style.</p>
+        <p>Tu remets ta couleur par-dessus. C'est là que ta prod arrête de sonner comme un exercice et redevient la tienne, tout en respectant les codes du genre.</p>
         <ul>
           <li>Ta musicalité</li>
           <li>Tes choix de sons</li>
@@ -508,7 +508,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <h2>Une idée. Plusieurs styles.</h2>
         <p class="lede">
           Une même mélodie peut devenir une trap, un afro, une drill ou une house.
-          La différence ne vient pas des sons utilisés, elle vient des codes du style :
+          La différence ne vient pas des sons utilisés, elle vient des codes du genre :
           tempo, placement, basse, arrangement. C'est ça que je t'apprends à reproduire seul.
         </p>
       </div>
@@ -567,7 +567,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <p class="eyebrow">Le diagnostic</p>
       <h2>Qu'est-ce qui t'empêche de produire d'autres styles ?</h2>
       <p class="lede">
-        Tu sais déjà produire. Mais quand tu sors de ton style habituel, tes repères disparaissent :
+        Tu sais déjà produire. Mais quand tu sors de ta zone habituelle, tes repères disparaissent :
         tu ne sais plus par où commencer, le groove ne sonne pas comme la référence, tes idées
         retombent dans tes habitudes, ou la prod ne laisse pas la place à l'artiste.
         C'est en développant ces quatre compétences que tu peux sortir de ton style sans repartir de zéro. Pendant l'appel découverte,
@@ -579,7 +579,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <div class="probleme-tete"><span class="probleme-num">01</span><span class="probleme-nom">Méthode</span></div>
         <p class="probleme-competence">Savoir par où commencer, même quand le style est nouveau.</p>
         <ul>
-          <li>« Je repars de zéro à chaque nouveau style. »</li>
+          <li>« Je repars de zéro à chaque nouvelle demande. »</li>
           <li>« Je ne sais jamais quoi poser en premier. »</li>
           <li>« Je passe mon temps à chercher des tutos pour comprendre comment faire. »</li>
         </ul>
@@ -597,7 +597,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <div class="probleme-tete"><span class="probleme-num">03</span><span class="probleme-nom">Musicalité</span></div>
         <p class="probleme-competence">Créer dans un nouveau style sans retomber dans tes habitudes.</p>
         <ul>
-          <li>« Peu importe le style, je finis toujours avec les mêmes mélodies. »</li>
+          <li>« Peu importe le genre, je finis toujours avec les mêmes mélodies. »</li>
           <li>« Je bloque après quatre mesures. »</li>
           <li>« Je sais reproduire le rythme, mais pas construire une vraie idée musicale. »</li>
         </ul>
@@ -646,7 +646,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <h2>Quatre modules. Tu prends celui dont tu as besoin.</h2>
       <p class="lede">
         Les quatre compétences s'enchaînent : tu sais par où commencer, tu trouves le groove du
-        style, tu construis l'idée musicale, tu livres une prod exploitable. Chacune se travaille
+        genre, tu construis l'idée musicale, tu livres une prod exploitable. Chacune se travaille
         sur tes propres morceaux. Tu peux en prendre une seule, ou faire le parcours entier.
       </p>
     </div>
@@ -885,10 +885,19 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       </div>
 
       <div class="tarif">
-        <h3>Un module</h3>
+        <h3>Module Méthode</h3>
+        <p class="tarif-volume">8 h · 4 sessions de 2 h</p>
+        <p class="tarif-prix">450 $ <em>US</em></p>
+        <p class="tarif-apres">Tarif normal 800 $ US</p>
+        <p class="tarif-desc">Le module d'entrée, plus court que les autres. Replays, 2 drumkits et 1 pack de presets inclus.</p>
+        <a class="btn btn-fantome" href="#reserver">En parler</a>
+      </div>
+
+      <div class="tarif">
+        <h3>Groove, Musicalité ou Rendu</h3>
         <p class="tarif-volume">12 h · 6 sessions de 2 h</p>
         <p class="tarif-prix">650 $ <em>US</em></p>
-        <p class="tarif-apres">Ou 2 × 345 $ US · Module Méthode (8 h) à 450 $ US · tarif normal 900 $ US</p>
+        <p class="tarif-apres">Ou 2 × 345 $ US · tarif normal 900 $ US</p>
         <p class="tarif-desc">Tu sais déjà où ça coince. On règle ce point-là et rien d'autre. Replays, 2 drumkits et 1 pack de presets inclus.</p>
         <a class="btn btn-fantome" href="#reserver">Choisir mon module</a>
       </div>
@@ -907,7 +916,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
     <div class="tarif-notes">
       <div>
         <b>Ton rythme</b>
-        Une ou deux sessions par semaine, à toi de voir. Un module de 12 h se boucle en 3 semaines à deux sessions, ou 6 semaines à une seule. Le parcours complet tient en 11 semaines, soit moins de 90 jours.
+        Une ou deux sessions par semaine, à toi de voir. Méthode fait 8 h, les trois autres modules 12 h. À deux sessions par semaine, un module de 12 h se boucle en 3 semaines et le parcours complet en 11.
       </div>
       <div>
         <b>Une date limite</b>
