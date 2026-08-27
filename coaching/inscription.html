@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inscription | Levitation Beats</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,400;0,700;0,900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PAGE D'INSCRIPTION · levitationbeats.com/coaching/inscription
+   Non indexée, non liée depuis le site. Elle s'envoie à la main
+   pendant l'appel découverte, une fois le module identifié.
+   Les 6 liens Stripe sont en dur plus bas dans le HTML.
+   ============================================================ */
+:root{
+  --noir:#0B0B0C; --surface:#141418; --surface-2:#1C1C22; --ligne:#2A2A32;
+  --blanc:#FFFFFF; --gris:#9A9AA4; --rouge:#DA2028; --rouge-sombre:#8E1219;
+  --display:"GONZI","Archivo Black",Impact,sans-serif;
+  --corps:"Lato",system-ui,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,monospace;
+  --pad:clamp(20px,5vw,48px);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--noir);color:var(--blanc);
+  font-family:var(--corps);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,52px)}
+p{margin:0 0 16px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rouge);margin:0 0 16px}
+
+.entete{border-bottom:1px solid var(--ligne)}
+.entete-inner{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+.marque{font-family:var(--display);font-size:16px;text-transform:uppercase;text-decoration:none;color:var(--blanc)}
+.marque i{color:var(--rouge);font-style:normal}
+.entete span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+
+.intro{padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(28px,4vw,44px)}
+.intro h1{margin-bottom:18px;max-width:20ch}
+.intro p{color:var(--gris);max-width:62ch}
+
+/* ---------- offres ---------- */
+.offres{display:grid;gap:16px;padding-bottom:clamp(36px,5vw,56px)}
+.offre{
+  border:1px solid var(--ligne);background:var(--surface);
+  padding:clamp(22px,3vw,32px);
+  display:grid;grid-template-columns:1fr auto;gap:clamp(18px,3vw,36px);align-items:center;
+}
+.offre-vedette{border-color:var(--rouge);background:var(--surface-2)}
+.offre h3{font-size:clamp(18px,2.2vw,23px);margin-bottom:10px}
+.offre-volume{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin:0 0 12px}
+.offre-desc{font-size:15.5px;color:var(--gris);margin:0;max-width:52ch}
+.offre-droite{text-align:right;white-space:nowrap}
+.offre-prix{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);line-height:1;margin:0 0 4px}
+.offre-prix em{font-family:var(--corps);font-style:normal;font-size:14px;color:var(--gris)}
+.offre-note{font-size:13px;color:var(--gris);margin:0 0 16px}
+.btn{
+  display:inline-block;font-weight:900;font-size:13.5px;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;padding:13px 24px;
+  background:var(--rouge);color:var(--blanc);border:2px solid var(--rouge);
+  transition:background .16s,color .16s,transform .16s;
+}
+.btn:hover{background:transparent;color:var(--rouge);transform:translateY(-2px)}
+.btn-fantome{background:transparent;color:var(--blanc);border-color:rgba(255,255,255,.35)}
+.btn-fantome:hover{background:var(--blanc);color:var(--noir);border-color:var(--blanc)}
+@media(max-width:720px){
+  .offre{grid-template-columns:1fr;gap:20px}
+  .offre-droite{text-align:left}
+  .btn{display:block;text-align:center}
+}
+
+.separateur{border-top:1px solid var(--ligne);padding-top:clamp(30px,4vw,44px);padding-bottom:clamp(40px,6vw,64px)}
+.conditions{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 36px}
+.conditions div{border-top:1px solid var(--ligne);padding-top:14px}
+.conditions b{
+  display:block;font-family:var(--mono);font-size:11.5px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blanc);margin-bottom:8px;
+}
+.conditions span{color:var(--gris);font-size:14.5px}
+@media(max-width:760px){.conditions{grid-template-columns:1fr}}
+
+.pied{border-top:1px solid var(--ligne);padding-top:26px;padding-bottom:40px;color:var(--gris);font-size:13.5px}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--blanc);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="entete">
+  <div class="wrap entete-inner">
+    <a class="marque" href="https://levitationbeats.com">Levitation<i>.</i>Beats</a>
+    <span>Page d'inscription</span>
+  </div>
+</header>
+
+<main>
+  <section class="wrap intro">
+    <p class="eyebrow">Suite à notre appel</p>
+    <h1>Ton inscription au coaching</h1>
+    <p>
+      Choisis la formule dont on a parlé. Le paiement se règle avant la première session,
+      et on cale la date dans la foulée. Chaque formule inclut les replays, mes drumkits
+      et mes presets de mixage. Tarifs en dollars US, hors taxes.
+    </p>
+  </section>
+
+  <section class="wrap offres">
+
+    <!-- PROGRAMME COMPLET -->
+    <article class="offre offre-vedette">
+      <div>
+        <h3>Programme complet</h3>
+        <p class="offre-volume">44 h · 11 semaines · 4 modules + bonus</p>
+        <p class="offre-desc">Le parcours entier : Méthode, Groove, Musicalité et Rendu. Replays de toutes les sessions, 4 drumkits, 4 packs de presets de mixage, plus les bonus monétisation et enregistrement de voix.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">2 100 $ <em>US</em></p>
+        <p class="offre-note">en une fois</p>
+        <a class="btn" href="https://buy.stripe.com/eVq5kD3Id9BkePPaHHfQI00" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+    <article class="offre">
+      <div>
+        <h3>Programme complet, échelonné</h3>
+        <p class="offre-volume">44 h · 3 versements mensuels</p>
+        <p class="offre-desc">Même programme et mêmes bonus, réglé en trois fois. Les prélèvements s'arrêtent automatiquement après le troisième.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">3 × 750 $ <em>US</em></p>
+        <p class="offre-note">soit 2 250 $ US</p>
+        <a class="btn btn-fantome" href="https://buy.stripe.com/9B64gz7Yt00K6jj9DDfQI01" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+    <!-- MODULE -->
+    <article class="offre">
+      <div>
+        <h3>Un module</h3>
+        <p class="offre-volume">12 h · 6 sessions de 2 h</p>
+        <p class="offre-desc">Groove, Musicalité ou Rendu, celui qu'on a identifié pendant l'appel. Replays des sessions, 2 drumkits et 1 pack de presets de mixage inclus.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">650 $ <em>US</em></p>
+        <p class="offre-note">en une fois</p>
+        <a class="btn btn-fantome" href="https://buy.stripe.com/5kQfZh92x4h0bDD9DDfQI03" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+    <article class="offre">
+      <div>
+        <h3>Un module, échelonné</h3>
+        <p class="offre-volume">12 h · 2 versements mensuels</p>
+        <p class="offre-desc">Même module et mêmes bonus, réglé en deux fois. Le prélèvement s'arrête automatiquement après le second.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">2 × 345 $ <em>US</em></p>
+        <p class="offre-note">soit 690 $ US</p>
+        <a class="btn btn-fantome" href="https://buy.stripe.com/bJefZhemR7tc4bb4jjfQI02" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+    <!-- MÉTHODE -->
+    <article class="offre">
+      <div>
+        <h3>Module Méthode</h3>
+        <p class="offre-volume">8 h · 4 sessions de 2 h</p>
+        <p class="offre-desc">Le module d'entrée : template, workflow FL Studio et méthode pour attaquer un nouveau style. Replays des sessions, 2 drumkits et 1 pack de presets inclus.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">450 $ <em>US</em></p>
+        <p class="offre-note">en une fois</p>
+        <a class="btn btn-fantome" href="https://buy.stripe.com/cNiaEX92x7tcfTTdTTfQI04" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+    <!-- SESSION -->
+    <article class="offre">
+      <div>
+        <h3>Session à l'unité</h3>
+        <p class="offre-volume">2 h · une seule séance</p>
+        <p class="offre-desc">Un point précis à débloquer, sans engagement sur la suite. Replay de la session inclus.</p>
+      </div>
+      <div class="offre-droite">
+        <p class="offre-prix">120 $ <em>US</em></p>
+        <p class="offre-note">en une fois</p>
+        <a class="btn btn-fantome" href="https://buy.stripe.com/dRm28r3Id8xg0YZbLLfQI05" target="_blank" rel="noopener">Payer</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="wrap separateur">
+    <div class="conditions">
+      <div>
+        <b>Taxes</b>
+        <span>Tarifs hors taxes. La TPS et la TVQ sont ajoutées automatiquement pour les clients canadiens, selon la province.</span>
+      </div>
+      <div>
+        <b>Échelonnement</b>
+        <span>Les versements sont mensuels et s'arrêtent seuls au dernier. Les sessions s'arrêtent si un versement échoue.</span>
+      </div>
+      <div>
+        <b>Replays</b>
+        <span>Chaque session est enregistrée et le replay t'est envoyé après coup. Il reste entre nous.</span>
+      </div>
+      <div>
+        <b>Annulation</b>
+        <span>Une session annulée à moins de 24 h est décomptée. Chaque module a une date d'échéance fixée au départ.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap pied">
+  Levitation Beats · Montréal · Une question avant de payer, écris-moi.
+</footer>
+
+</body>
+</html>
