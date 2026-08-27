@@ -428,7 +428,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="seq-onglets" role="tablist" aria-label="Choisir un style">
         <button class="seq-onglet" type="button" role="tab" aria-selected="true" data-style="trap">Trap</button>
         <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="afro">Afro</button>
-        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="drill">Drill</button>
+        <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="boombap">Boombap</button>
         <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="rnb">R&amp;B</button>
         <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="house">House</button>
         <button class="seq-onglet" type="button" role="tab" aria-selected="false" data-style="pop">Pop</button>
@@ -1087,9 +1087,9 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
   if(!conteneur) return;
 
   var pos = 0, timer = null, autoTimer = null;
-  var ordre = ['trap','afro','drill','rnb','house','pop'], idx = 0;
+  var ordre = ['trap','afro','boombap','rnb','house','pop'], idx = 0;
 
-  var LIBELLES = {trap:'Trap', afro:'Afro', drill:'Drill', rnb:'R&B', house:'House', pop:'Pop'};
+  var LIBELLES = {trap:'Trap', afro:'Afro', boombap:'Boombap', rnb:'R&B', house:'House', pop:'Pop'};
 
   function dessiner(nom){
     var d = MOTIFS[nom];
