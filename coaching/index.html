@@ -770,7 +770,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <footer><b>DJ Dall Ea</b>Programme complet</footer>
       </blockquote>
       <blockquote class="temoin">
-        <q>« Je n'avais jamais ouvert FL Studio avant de commencer. En quelques mois j'ai sorti plusieurs instrus, et pas dans un seul style : de la trap, du drill, et même de la deep house. Ce qui m'a débloqué, c'est d'avoir enfin une méthode au lieu d'enchaîner des tutos. »</q>
+        <q>« Je n'avais jamais ouvert FL Studio avant de commencer. En quelques mois j'ai sorti plusieurs instrus, et pas dans un seul style : de la trap, de la drill, et même de la deep house. Ce qui m'a débloqué, c'est d'avoir enfin une méthode au lieu d'enchaîner des tutos. »</q>
         <footer><b>Richard Caron</b>Modules 1 à 3</footer>
       </blockquote>
     </div>
@@ -1094,7 +1094,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
   function dessiner(nom){
     var d = MOTIFS[nom];
     conteneur.innerHTML = '';
-    etiquette.textContent = LIBELLES[nom] + ' · ' + d.bpm + ' · mêmes sons';
+    etiquette.textContent = LIBELLES[nom] + ' · ' + d.bpm + ' ·';
     d.pistes.forEach(function(piste){
       var ligne = document.createElement('div');
       ligne.className = 'seq-ligne';
