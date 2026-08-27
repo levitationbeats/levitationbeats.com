@@ -298,18 +298,19 @@ p{margin:0 0 18px}
 @media(max-width:760px){.bonus-liste{grid-template-columns:1fr}}
 
 /* ---------- tarifs ---------- */
-.tarifs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch}
-.tarif{border:1px solid var(--ligne);background:var(--surface);padding:30px 26px;display:flex;flex-direction:column}
-.tarif-vedette{border-color:var(--rouge);background:var(--surface-2);position:relative;grid-column:1 / -1}
-.tarif-etiquette{position:absolute;top:-1px;right:-1px;background:var(--rouge);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px}
-.tarif h3{font-size:20px;margin-bottom:8px}
-.tarif-volume{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-bottom:22px}
-.tarif-prix{font-family:var(--display);font-size:clamp(34px,4.4vw,48px);line-height:1;margin-bottom:6px}
-.tarif-prix em{font-family:var(--corps);font-style:normal;font-size:15px;color:var(--gris);letter-spacing:0}
-.tarif-apres{font-size:13.5px;color:var(--gris);margin-bottom:22px}
-.tarif-desc{font-size:15.5px;color:var(--gris);margin-bottom:24px}
-.tarif .btn{margin-top:auto;text-align:center}
-@media(max-width:760px){.tarifs{grid-template-columns:1fr}}
+.tarifs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+.tarif{border:1px solid var(--ligne);background:var(--surface);padding:26px 20px;display:flex;flex-direction:column}
+.tarif-vedette{border-color:var(--rouge);background:var(--surface-2);position:relative}
+.tarif-etiquette{position:absolute;top:-1px;right:-1px;background:var(--rouge);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px}
+.tarif h3{font-size:17.5px;margin-bottom:8px;line-height:1.05}
+.tarif-volume{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin-bottom:18px;line-height:1.5}
+.tarif-prix{font-family:var(--display);font-size:clamp(28px,3.2vw,38px);line-height:1;margin-bottom:6px;white-space:nowrap}
+.tarif-prix em{font-family:var(--corps);font-style:normal;font-size:13px;color:var(--gris);letter-spacing:0}
+.tarif-apres{font-size:12.5px;color:var(--gris);margin-bottom:18px;line-height:1.45}
+.tarif-desc{font-size:14px;color:var(--gris);margin-bottom:22px;line-height:1.55}
+.tarif .btn{margin-top:auto;text-align:center;padding:13px 14px;font-size:12.5px;letter-spacing:.04em}
+@media(max-width:1000px){.tarifs{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(max-width:620px){.tarifs{grid-template-columns:1fr}}
 .tarif-notes{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .tarif-notes div{border-top:1px solid var(--ligne);padding-top:14px;font-size:14.5px;color:var(--gris)}
 .tarif-notes b{color:var(--blanc);display:block;margin-bottom:5px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);font-weight:500}
@@ -567,49 +568,27 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <p class="eyebrow">Le diagnostic</p>
       <h2>Qu'est-ce qui t'empêche de produire d'autres styles ?</h2>
       <p class="lede">
-        Tu sais déjà produire. Mais quand tu sors de ta zone habituelle, tes repères disparaissent :
-        tu ne sais plus par où commencer, le groove ne sonne pas comme la référence, tes idées
-        retombent dans tes habitudes, ou la prod ne laisse pas la place à l'artiste.
-        C'est en développant ces quatre compétences que tu peux sortir de ton style sans repartir de zéro. Pendant l'appel découverte,
-        on identifie laquelle te bloque aujourd'hui. Tu n'as pas forcément besoin des quatre.
+        Quand tu sors de ta zone habituelle, tes repères disparaissent. Le blocage se situe
+        toujours à un de ces quatre endroits. Pendant l'appel découverte, on identifie lequel
+        te concerne aujourd'hui.
       </p>
     </div>
     <div class="problemes">
       <div class="probleme">
         <div class="probleme-tete"><span class="probleme-num">01</span><span class="probleme-nom">Méthode</span></div>
         <p class="probleme-competence">Savoir par où commencer, même quand le style est nouveau.</p>
-        <ul>
-          <li>« Je repars de zéro à chaque nouvelle demande. »</li>
-          <li>« Je ne sais jamais quoi poser en premier. »</li>
-          <li>« Je passe mon temps à chercher des tutos pour comprendre comment faire. »</li>
-        </ul>
       </div>
       <div class="probleme">
         <div class="probleme-tete"><span class="probleme-num">02</span><span class="probleme-nom">Groove</span></div>
         <p class="probleme-competence">Comprendre les codes rythmiques qui font qu'un style sonne comme lui.</p>
-        <ul>
-          <li>« Je sais faire de la trap, mais je suis perdu sur un afro ou une drill. »</li>
-          <li>« Mes drums ne sonnent jamais vraiment comme ma référence. »</li>
-          <li>« Mes 808 sont en clash avec mon kick. »</li>
-        </ul>
       </div>
       <div class="probleme">
         <div class="probleme-tete"><span class="probleme-num">03</span><span class="probleme-nom">Musicalité</span></div>
         <p class="probleme-competence">Créer dans un nouveau style sans retomber dans tes habitudes.</p>
-        <ul>
-          <li>« Peu importe le genre, je finis toujours avec les mêmes mélodies. »</li>
-          <li>« Je bloque après quatre mesures. »</li>
-          <li>« Je sais reproduire le rythme, mais pas construire une vraie idée musicale. »</li>
-        </ul>
       </div>
       <div class="probleme">
         <div class="probleme-tete"><span class="probleme-num">04</span><span class="probleme-nom">Rendu</span></div>
         <p class="probleme-competence">Transformer ta prod en morceau sur lequel l'artiste peut réellement poser.</p>
-        <ul>
-          <li>« Ma prod est tellement remplie qu'il n'y a plus de place pour la voix. »</li>
-          <li>« Je ne sais pas comment arranger le morceau pour l'artiste. »</li>
-          <li>« Je sais qu'il manque quelque chose au mix, sans savoir quoi. »</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -624,17 +603,17 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="etape">
         <div class="etape-num">1</div>
         <h3>L'appel découverte</h3>
-        <p>30 minutes en visio, offertes. Tu me montres ton setup, tu me fais écouter un son, et je te dis franchement où tu en es. Si je ne suis pas la bonne personne, je te le dis aussi.</p>
+        <p>30 minutes en visio, offertes. On identifie ce qui te bloque et si je peux réellement t'aider. Si je ne suis pas la bonne personne, je te le dis.</p>
       </div>
       <div class="etape">
         <div class="etape-num">2</div>
         <h3>Le module qu'il te faut</h3>
-        <p>Je te dis lequel des quatre correspond à ton blocage réel, et dans quel ordre attaquer la suite. Tu repars avec un plan, que tu prennes le coaching ou non.</p>
+        <p>On choisit le module adapté à ton blocage et l'ordre pour la suite. Tu repars avec un plan, que tu prennes le coaching ou non.</p>
       </div>
       <div class="etape">
         <div class="etape-num">3</div>
         <h3>Les sessions</h3>
-        <p>Deux heures en visio, sur tes projets à toi, avec partage d'écran dans les deux sens. Chaque session est enregistrée et tu reçois le replay. Entre les sessions, tu as un exercice ciblé à faire.</p>
+        <p>Sessions de 2 h sur tes propres projets, enregistrées, avec un exercice ciblé entre chacune.</p>
       </div>
     </div>
   </section>
@@ -643,11 +622,11 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
   <section class="wrap section section-bordee" id="modules">
     <div class="titre-bloc">
       <p class="eyebrow">Ce que tu obtiens</p>
-      <h2>Quatre modules. Tu prends celui dont tu as besoin.</h2>
+      <h2>Concrètement, voici ce que tu vas savoir faire</h2>
       <p class="lede">
-        Les quatre compétences s'enchaînent : tu sais par où commencer, tu trouves le groove du
-        genre, tu construis l'idée musicale, tu livres une prod exploitable. Chacune se travaille
-        sur tes propres morceaux. Tu peux en prendre une seule, ou faire le parcours entier.
+        Un artiste t'envoie une référence que tu ne connais pas. Tu sais l'écouter, identifier
+        ses codes, monter le squelette, ajouter ta couleur et livrer une prod sur laquelle il
+        peut poser. Chaque module travaille une de ces étapes, sur tes propres morceaux.
       </p>
     </div>
 
@@ -665,14 +644,12 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
           <ul class="pourqui">
             <li>Ceux qui ouvrent FL Studio devant un style qu'ils ne maîtrisent pas et referment sans rien avoir posé</li>
             <li>Ceux qui cherchent des tutos et des presets en espérant comprendre comment le style fonctionne</li>
-            <li>Ceux qui accumulent des projets à moitié finis parce qu'ils ne savent pas les faire évoluer une fois sortis de leur zone</li>
           </ul>
           <h4>Ce qu'on travaille</h4>
           <ul class="contenu">
             <li>Ton template de départ, construit pour ta façon de bosser</li>
             <li>Navigation, raccourcis, organisation du projet</li>
             <li>Une méthode pour aller au bout, à chaque fois</li>
-            <li>Le replay de chaque session, à garder</li>
           </ul>
         </div>
       </article>
@@ -689,7 +666,6 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
           <ul class="pourqui">
             <li>Ceux qui ne savent faire que de la trap et bloquent dès qu'on leur demande autre chose, donc laissent partir l'artiste chez un autre beatmaker</li>
             <li>Ceux dont les drums sonnent presque comme la référence, sans jamais vraiment fonctionner</li>
-            <li>Ceux dont le kick et la basse ne coexistent pas, et qui perdent tout l'impact du morceau</li>
           </ul>
           <h4>Ce qu'on travaille</h4>
           <ul class="contenu">
@@ -713,7 +689,6 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
           <ul class="pourqui">
             <li>Ceux qui savent poser le rythme du style, mais ne savent pas quoi mettre au-dessus</li>
             <li>Ceux qui repartent d'une référence et finissent toujours par revenir à leurs habitudes</li>
-            <li>Ceux qui n'ont aucune base de théorie musicale et se sentent bloqués, comme s'ils n'avaient pas le droit de composer</li>
           </ul>
           <h4>Ce qu'on travaille</h4>
           <ul class="contenu">
@@ -738,7 +713,6 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
           <ul class="pourqui">
             <li>Ceux qui remplissent leur prod jusqu'à ce qu'il n'y ait plus un centimètre pour la voix, et se demandent pourquoi l'artiste ne pose pas</li>
             <li>Ceux qui ne savent pas adapter l'arrangement au style et à l'artiste</li>
-            <li>Ceux qui envoient leurs prods en sachant qu'elles sont presque là, sans savoir ce qui manque</li>
           </ul>
           <h4>Ce qu'on travaille</h4>
           <ul class="contenu">
@@ -798,7 +772,6 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="benefice"><p>Tu composes sans passer par le solfège, et ça reste cohérent.</p></div>
       <div class="benefice"><p>Tes prods laissent la place à la voix, donc les artistes posent dessus.</p></div>
       <div class="benefice"><p>Tu sais quoi faire quand tu ouvres une session, à chaque fois.</p></div>
-      <div class="benefice"><p>Tu gardes les replays, mes drumkits et mes presets de mixage.</p></div>
     </div>
   </section>
 
@@ -812,23 +785,18 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <div class="apropos-photo"><img src="davis.jpg" alt="Davis, producteur, Levitation Beats"></div>
       <div>
         <p>
-          Producteur et compositeur à Montréal. J'ai commencé sur Fruity Loops 4 il y a vingt ans.
-          Au début, mes prods ne ressemblaient pas à grand-chose, et je me suis perfectionné
-          jour après jour.
+          Producteur et compositeur à Montréal. Vingt ans sur FL Studio, plus de 50 placements,
+          un million et demi de streams cumulés, dix passages sur Sirius XM en 2025 et de la
+          musique placée dans des séries télévisées au Canada.
         </p>
         <p>
-          Depuis, j'ai produit pour des artistes, décroché plus de 50 placements, dépassé le million
-          et demi de streams cumulés, obtenu dix passages sur la radio Sirius XM en 2025 et placé
-          ma musique dans des séries télévisées au Canada.
+          C'est ce qui m'a permis de quitter mon travail fin 2025 pour faire de la musique à
+          plein temps et diriger OnTheStage Records.
         </p>
         <p>
-          C'est ce qui m'a permis de quitter mon travail fin 2025 pour faire de la musique à plein
-          temps et diriger OnTheStage Records, mon label qui accompagne les artistes de bout en bout.
-        </p>
-        <p>
-          Ce que je transmets ne vient pas d'une formation théorique. Ça vient de vingt ans à devoir
-          livrer des prods qui tiennent, dans des styles que je ne maîtrisais pas forcément au départ.
-          C'est exactement ce que j'apprends aux beatmakers que j'accompagne.
+          Ma méthode ne vient pas d'une formation théorique. Elle vient de vingt ans à devoir
+          livrer des prods qui tiennent, dans des genres que je ne maîtrisais pas forcément au
+          départ. C'est exactement ce que j'apprends aux beatmakers que j'accompagne.
         </p>
       </div>
     </div>
@@ -838,26 +806,23 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
   <section class="wrap section section-bordee">
     <div class="bonus">
       <p class="eyebrow">Inclus dans tous les modules</p>
-      <h3>Ce que tu gardes après le coaching</h3>
-      <p class="lede">
-        Les sessions se terminent, pas ce que tu en sors. Voici ce qui reste sur ton disque dur.
-      </p>
+      <h3>Tu repars avec plus que des heures de coaching</h3>
       <div class="bonus-liste">
         <div>
-          <b>Le replay de chaque session</b>
-          <span>Chaque session est enregistrée et tu reçois la vidéo. Tu peux revoir un réglage précis six mois plus tard sans me redemander.</span>
+          <b>Les replays</b>
+          <span>Chaque session est enregistrée, la vidéo est à toi.</span>
         </div>
         <div>
           <b>Mes drumkits</b>
-          <span>2 drumkits offerts avec un module, 4 avec le programme complet. Les sons que j'utilise sur mes propres prods.</span>
+          <span>2 avec un module, 4 avec le programme complet.</span>
         </div>
         <div>
           <b>Mes presets de mixage</b>
-          <span>1 pack avec un module, 4 avec le programme complet. Des chaînes de mix prêtes à poser sur tes pistes.</span>
+          <span>1 pack avec un module, 4 avec le programme complet.</span>
         </div>
         <div>
-          <b>Monétisation et enregistrement de voix</b>
-          <span>Programme complet uniquement. Vendre tes instrus, trouver des artistes, comprendre les droits, et enregistrer une voix proprement sur FL Studio.</span>
+          <b>Bonus du programme complet</b>
+          <span>Monétisation et enregistrement de voix sur FL Studio.</span>
         </div>
       </div>
     </div>
@@ -880,7 +845,7 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <p class="tarif-volume">2 h · une seule séance</p>
         <p class="tarif-prix">120 $ <em>US</em></p>
         <p class="tarif-apres">Tarif normal 150 $ US</p>
-        <p class="tarif-desc">Un point précis à débloquer, ou l'envie de tester la méthode avant de t'engager. Replay inclus.</p>
+        <p class="tarif-desc">Un point précis à débloquer, ou l'envie de tester la méthode avant de t'engager.</p>
         <a class="btn btn-fantome" href="#reserver">En parler</a>
       </div>
 
@@ -889,26 +854,26 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <p class="tarif-volume">8 h · 4 sessions de 2 h</p>
         <p class="tarif-prix">450 $ <em>US</em></p>
         <p class="tarif-apres">Tarif normal 800 $ US</p>
-        <p class="tarif-desc">Le module d'entrée, plus court que les autres. Replays, 2 drumkits et 1 pack de presets inclus.</p>
+        <p class="tarif-desc">Le module d'entrée, plus court que les autres. Drumkits et presets inclus.</p>
         <a class="btn btn-fantome" href="#reserver">En parler</a>
       </div>
 
       <div class="tarif">
-        <h3>Groove, Musicalité ou Rendu</h3>
+        <h3>Groove, Musicalité<br>ou Rendu</h3>
         <p class="tarif-volume">12 h · 6 sessions de 2 h</p>
         <p class="tarif-prix">650 $ <em>US</em></p>
         <p class="tarif-apres">Ou 2 × 345 $ US · tarif normal 900 $ US</p>
-        <p class="tarif-desc">Tu sais déjà où ça coince. On règle ce point-là et rien d'autre. Replays, 2 drumkits et 1 pack de presets inclus.</p>
+        <p class="tarif-desc">Tu sais déjà où ça coince. On règle ce point-là et rien d'autre. Drumkits et presets inclus.</p>
         <a class="btn btn-fantome" href="#reserver">Choisir mon module</a>
       </div>
 
       <div class="tarif tarif-vedette">
         <span class="tarif-etiquette">Le plus complet</span>
         <h3>Programme complet</h3>
-        <p class="tarif-volume">44 h · 11 semaines · 4 modules + bonus</p>
+        <p class="tarif-volume">44 h · 4 modules + bonus</p>
         <p class="tarif-prix">2 100 $ <em>US</em></p>
         <p class="tarif-apres">Ou 3 × 750 $ US · tarif normal 3 000 $ US</p>
-        <p class="tarif-desc">Le parcours entier, de la méthode jusqu'à la prod prête pour un artiste. Replays, 4 drumkits, 4 packs de presets et les deux bonus inclus.</p>
+        <p class="tarif-desc">Le parcours entier, jusqu'à la prod prête pour un artiste. Drumkits, presets et bonus inclus.</p>
         <a class="btn" href="#reserver">Réserver l'appel</a>
       </div>
     </div>
@@ -945,16 +910,8 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
         <div class="faq-rep"><p>Pour tous, parce que je ne t'apprends pas les styles un par un. Je t'apprends à décoder celui qu'on te demande. Cela dit, je suis plus à l'aise sur le rap, la trap, la drill, l'afro, le R&amp;B et les musiques urbaines en général. Si tu vises exclusivement du metal ou du jazz, je ne suis pas la bonne personne et je te le dirai à l'appel.</p></div>
       </details>
       <details>
-        <summary>Les sessions sont-elles enregistrées ?</summary>
-        <div class="faq-rep"><p>Oui, chaque session est enregistrée et tu reçois le replay après coup. C'est ce qui te permet de revoir un réglage précis des mois plus tard sans avoir à me le redemander. Je te préviens au début de la première session et l'enregistrement reste entre nous.</p></div>
-      </details>
-      <details>
         <summary>Il faut quel logiciel ?</summary>
         <div class="faq-rep"><p>FL Studio. C'est le DAW sur lequel je travaille depuis vingt ans et sur lequel j'enseigne. La méthode se transpose ailleurs, mais les sessions se font sur FL.</p></div>
-      </details>
-      <details>
-        <summary>Comment se passent les sessions ?</summary>
-        <div class="faq-rep"><p>En visio, avec partage d'écran et de son. Tu peux me montrer ton projet et je te guide en direct, ou je te montre ma façon de faire depuis mon écran. Prévois un casque ou des enceintes correctes.</p></div>
       </details>
       <details>
         <summary>Pourquoi pas juste une formation vidéo à 300 $ ?</summary>
@@ -971,10 +928,6 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
       <details>
         <summary>Je suis hors du Canada, ça marche quand même ?</summary>
         <div class="faq-rep"><p>Sans problème, j'accompagne déjà des gens en Europe. On cale les créneaux en tenant compte du décalage. Les tarifs sont en dollars US et ta banque fait la conversion.</p></div>
-      </details>
-      <details>
-        <summary>Et si je n'ai pas le temps entre les sessions ?</summary>
-        <div class="faq-rep"><p>Alors ce n'est pas le bon moment. Compte au moins 30 minutes par jour de ton côté pour que la méthode rentre. Sans ça, tu paies des sessions que tu ne rentabilises pas, et je préfère te le dire avant.</p></div>
       </details>
     </div>
   </section>
