@@ -288,15 +288,6 @@ p{margin:0 0 18px}
 .apropos-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
 @media(max-width:860px){.apropos{grid-template-columns:1fr}}
 
-/* ---------- bonus ---------- */
-.bonus{border:1px solid var(--rouge);background:linear-gradient(180deg,rgba(218,32,40,.09),transparent);padding:clamp(26px,3.4vw,42px)}
-.bonus h3{margin-bottom:16px}
-.bonus-liste{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:24px}
-.bonus-liste div{border-top:1px solid var(--ligne);padding-top:16px}
-.bonus-liste b{display:block;margin-bottom:6px}
-.bonus-liste span{color:var(--gris);font-size:15.5px}
-@media(max-width:760px){.bonus-liste{grid-template-columns:1fr}}
-
 /* ---------- tarifs ---------- */
 .tarifs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
 .tarif{border:1px solid var(--ligne);background:var(--surface);padding:26px 20px;display:flex;flex-direction:column}
@@ -841,6 +832,33 @@ a:focus-visible,.btn:focus-visible,.seq-onglet:focus-visible,summary:focus-visib
     </div>
   </section>
 
+<!-- BONUS -->
+  <section class="wrap section section-bordee">
+    <div class="bonus">
+      <p class="eyebrow">Inclus dans tous les modules</p>
+      <h3>Tu repars avec plus que des heures de coaching</h3>
+      <div class="bonus-liste">
+        <div>
+          <b>Les replays</b>
+          <span>Chaque session est enregistrée, la vidéo est à toi. Tu revois un réglage précis des mois plus tard sans me le redemander.</span>
+        </div>
+        <div>
+          <b>Mes drumkits</b>
+          <span>2 avec un module, 4 avec le programme complet. Les sons que j'utilise sur mes propres prods.</span>
+        </div>
+        <div>
+          <b>Mes presets de mixage</b>
+          <span>1 pack avec un module, 4 avec le programme complet. Des chaînes de mix prêtes à poser sur tes pistes.</span>
+        </div>
+        <div>
+          <b>Bonus du programme complet</b>
+          <span>Monétisation et enregistrement de voix sur FL Studio, offerts quand tu prends les quatre modules.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   
   <!-- 14. FAQ -->
   <section class="wrap section section-bordee" id="faq">
     <div class="titre-bloc">
