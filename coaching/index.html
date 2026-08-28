@@ -316,6 +316,15 @@ p{margin:0 0 18px}
 .tarif-notes b{color:var(--blanc);display:block;margin-bottom:5px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--mono);font-weight:500}
 @media(max-width:760px){.tarif-notes{grid-template-columns:1fr}}
 
+/* ---------- bonus ---------- */
+.bonus{border:1px solid var(--rouge);background:linear-gradient(180deg,rgba(218,32,40,.09),transparent);padding:clamp(26px,3.4vw,42px)}
+.bonus h3{margin-bottom:16px}
+.bonus-liste{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:24px}
+.bonus-liste div{border-top:1px solid var(--ligne);padding-top:16px}
+.bonus-liste b{display:block;margin-bottom:6px}
+.bonus-liste span{color:var(--gris);font-size:15.5px}
+@media(max-width:760px){.bonus-liste{grid-template-columns:1fr}}
+   
 /* ---------- faq ---------- */
 .faq{border-top:1px solid var(--ligne)}
 .faq details{border-bottom:1px solid var(--ligne)}
