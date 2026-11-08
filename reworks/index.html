@@ -121,7 +121,7 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;p
 /* Section sombre (vidéos) */
 .dark{background-color:var(--dark);background-image:linear-gradient(rgba(42,39,36,.8),rgba(42,39,36,.8)),var(--photo,none);background-size:cover;background-position:center;color:#F4EDE4}
 .dark .lead,.dark .vid figcaption{color:#CFC6BA}
-.vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:2rem;max-width:880px}
+.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem;margin-top:2rem}
 .vid-frame.has{border:0;background:#000}
 .vid{margin:0}
 .vid-frame{aspect-ratio:9/16;background:rgba(255,255,255,.05);border:2px dashed rgba(255,255,255,.25);border-radius:16px;display:grid;place-items:center;overflow:hidden;color:#CFC6BA;text-align:center;padding:1rem}
@@ -364,7 +364,9 @@ footer.site .wrap{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:spa
       <figure class="vid">
         <div class="vid-frame has"><video src="assets/rework-3.mp4" poster="assets/rework-3.jpg" controls playsinline preload="none"></video></div>
       </figure>
-      <!-- 4e vidéo : ajoute assets/rework-4.mp4 et rework-4.jpg, puis copie le bloc figure ci-dessus -->
+      <figure class="vid">
+        <div class="vid-frame has"><video src="assets/rework-4.mp4" poster="assets/rework-4.jpg" controls playsinline preload="none"></video></div>
+      </figure>
     </div>
   </div>
 </section>
