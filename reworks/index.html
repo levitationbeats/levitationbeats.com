@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REWORKS | Levitation Beats</title>
+<meta name="description" content="Tu as déjà une voix, une topline, une démo qui fonctionne ou une référence ? Je crée la prod officielle de ton morceau, originale et exclusive. 399 $US, taxes comprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F1EA; --surface:#FDFAF6; --ink:#1F1C19; --muted:#6A635A; --line:#E4DACD;
+  --red:#DA2028; --red-deep:#B5161D; --red-soft:#F7E4DD; --tint:#EFE6DB; --dark:#2A2724;
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --wrap:1120px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-variant-ligatures:none;font-feature-settings:"liga" 0,"clig" 0;margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video,iframe{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;font-stretch:125%}
+h1{font-weight:800;letter-spacing:-0.02em}
+h2{font-weight:800;font-size:clamp(1.35rem,2.6vw,2rem);margin-bottom:.7rem;text-transform:uppercase;letter-spacing:.005em}
+h3{font-weight:700;font-size:1.05rem;font-stretch:112%}
+p{margin:0 0 1rem;max-width:62ch}
+.wrap{width:min(var(--wrap),100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(3rem,7vw,5rem) 0}
+.lead{color:var(--muted);font-size:1.15rem}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+
+/* REWORKS écrit comme une marque */
+.rw{font-family:var(--display);font-weight:800;font-stretch:125%;letter-spacing:.05em;color:var(--red);white-space:nowrap}
+.hero .rw,.dark .rw,.proof .rw{color:#FF6A70}
+.own .rw{color:#fff}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.95rem 1.6rem;border-radius:3px;font-family:var(--body);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--red);background:var(--red);color:#fff;cursor:pointer;transition:background .2s,border-color .2s,color .2s;text-align:center}
+.btn:hover{background:var(--red-deep);border-color:var(--red-deep)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.small{padding:.6rem 1.1rem;font-size:.78rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+
+.promo{background:var(--red);color:#fff;text-align:center;padding:.65rem 1rem;font-weight:700;font-size:.98rem}
+.promo[hidden]{display:none}
+.promo a{color:#fff;text-underline-offset:3px}
+.js-price s,.promo-old{opacity:.65;font-weight:400}
+.amount small s{opacity:.8}
+
+/* Header + hero */
+header.top{position:absolute;top:0;left:0;right:0;z-index:2;color:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{font-family:var(--display);font-weight:800;font-size:1.05rem;font-stretch:125%;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+.brand span{color:#FF5A60}
+.hero{position:relative;overflow:hidden;color:#fff;padding:6.5rem 0 clamp(3rem,6vw,5rem);background:radial-gradient(110% 90% at 85% 5%,rgba(218,32,40,.3),transparent 55%),linear-gradient(160deg,#3B3531,#201D1A)}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,20,.5),rgba(26,23,20,.72))}
+.hero-inner{position:relative;z-index:1}
+.hero h1{font-weight:900;font-size:clamp(3rem,12.6vw,9.6rem);line-height:.92;letter-spacing:-0.035em;margin:0 0 clamp(1.4rem,3vw,2.4rem);color:#fff}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.tagline{font-family:var(--display);font-weight:700;font-stretch:112%;font-size:clamp(1.3rem,2.5vw,1.9rem);line-height:1.2;margin:0 0 1rem;max-width:none}
+.hero .lead{color:#E9E1D6;margin-bottom:1.6rem}
+.hero .btn.ghost{color:#fff;border-color:#fff}
+.hero .btn.ghost:hover{background:#fff;color:var(--ink)}
+.price-line{font-size:.98rem;color:#D9D0C4;margin:1.1rem 0 0}
+.price-line strong{color:#fff}
+.price-line a{color:#fff;text-underline-offset:3px;white-space:nowrap}
+
+/* Visuel concept : ta voix reste, la prod devient la tienne */
+.concept{background:rgba(253,250,246,.09);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:1.3rem}
+.wave-label{display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-size:.88rem;color:#D9D0C4;margin:.7rem 0 .3rem;max-width:none}
+.wave-label:first-child{margin-top:0}
+.wave-label b{color:#fff}
+.tag{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;padding:.12rem .55rem;border:1px solid rgba(255,255,255,.3);border-radius:999px;color:#D9D0C4;white-space:nowrap}
+.tag.mine{border-color:#FF6A70;background:rgba(218,32,40,.4);color:#fff}
+.tag svg{width:.8rem;height:.8rem}
+.wave{display:flex;align-items:center;gap:2px;height:34px}
+.wave i{flex:1;height:calc(var(--h) * 100%);border-radius:2px;transform:scaleY(0);transform-origin:center;animation:grow .45s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i) * 13ms + var(--base))}
+.wave.voice i{background:rgba(255,255,255,.9)}
+.wave.beat i{background:rgba(255,255,255,.3)}
+.wave.mine i{background:var(--red)}
+.wave.beat{height:24px}
+.wave.mine{height:58px}
+#wV1{--base:0s}#wBeat{--base:.35s}#wV2{--base:1.5s}#wMine{--base:1.9s}
+.arrow{display:flex;align-items:center;gap:.8rem;margin:1.1rem 0 .6rem;opacity:0;animation:fade .5s 1.2s forwards}
+.arrow::before,.arrow::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.3)}
+.rw-chip{font-family:var(--display);font-weight:800;font-stretch:125%;letter-spacing:.07em;font-size:.82rem;background:var(--red);color:#fff;padding:.4rem .9rem;border-radius:3px}
+@keyframes grow{to{transform:scaleY(1)}}
+@keyframes fade{to{opacity:1}}
+
+/* Lecteur avant / après du hero */
+.abp{background:rgba(253,250,246,.1);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:1.2rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.abp[hidden]{display:none}
+.abp-tabs{display:grid;grid-template-columns:1fr 1fr;background:rgba(0,0,0,.32);border-radius:6px;padding:3px;margin-bottom:1.1rem}
+.abp-tabs button{border:0;background:transparent;color:#D9D0C4;font:700 .85rem var(--body);padding:.7rem .4rem;border-radius:4px;cursor:pointer;transition:.25s}
+.abp-tabs button.on{background:#fff;color:var(--ink)}
+.abp-tabs button.on .rw{color:var(--red)}
+.abp-wave{height:170px;cursor:pointer}
+.abp-bars{display:flex;align-items:center;gap:2px;height:100%}
+.abp-bars i{flex:1;height:calc(var(--h) * 100%);border-radius:2px;background:rgba(255,255,255,.26);transition:height .45s cubic-bezier(.2,.8,.2,1),background .3s,box-shadow .3s}
+.abp-bars i.p{background:rgba(255,255,255,.95)}
+.abp-bars.live i{transition:height .06s linear,background .3s}
+.abp-wave[data-m=b] .abp-bars i{background:rgba(218,32,40,.4)}
+.abp-wave[data-m=b] .abp-bars i.p{background:var(--red);box-shadow:0 0 12px rgba(218,32,40,.65)}
+.abp-foot{display:flex;align-items:center;gap:.8rem;margin-top:1rem;font-size:.92rem;color:#F1E9DE}
+.abp-play{width:2.8rem;height:2.8rem;border-radius:50%;background:var(--red);border:0;position:relative;flex:none;cursor:pointer;transition:background .2s}
+.abp-play:hover{background:var(--red-deep)}
+.abp-play::after{content:"";position:absolute;left:1.08rem;top:.82rem;border-left:.85rem solid #fff;border-top:.62rem solid transparent;border-bottom:.62rem solid transparent}
+.abp-play.on::after{left:.92rem;top:.9rem;width:.28rem;height:1rem;border:0;background:#fff;box-shadow:.5rem 0 0 #fff}
+.abp-time{margin-left:auto;opacity:.75;font-variant-numeric:tabular-nums}
+.abp-hint{margin:.7rem 0 0;font-size:.78rem;color:#D9D0C4;max-width:none}
+
+/* Situations */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:2rem}
+.who-grid > div{padding:0 1.6rem;border-left:2px solid var(--red)}
+.who-grid p{color:var(--muted);margin:.5rem 0 0}
+
+/* Section sombre (vidéos) */
+.dark{background-color:var(--dark);background-image:linear-gradient(rgba(42,39,36,.8),rgba(42,39,36,.8)),var(--photo,none);background-size:cover;background-position:center;color:#F4EDE4}
+.dark .lead,.dark .vid figcaption{color:#CFC6BA}
+.vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:2rem;max-width:880px}
+.vid-frame.has{border:0;background:#000}
+.vid{margin:0}
+.vid-frame{aspect-ratio:9/16;background:rgba(255,255,255,.05);border:2px dashed rgba(255,255,255,.25);border-radius:16px;display:grid;place-items:center;overflow:hidden;color:#CFC6BA;text-align:center;padding:1rem}
+.vid-frame video{width:100%;height:100%;object-fit:cover}
+.vid figcaption{font-size:.95rem;margin-top:.6rem}
+
+/* Avant / après */
+.examples{background:var(--surface);border-block:1px solid var(--line)}
+.ex{margin-top:2.2rem}
+.ex h3{margin-bottom:.9rem}
+.ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.ex-pair figure{margin:0}
+.ex-pair figcaption{font-size:.95rem;color:var(--muted);margin-top:.6rem}
+.ex-pair figcaption b{color:var(--ink)}
+.ex-pair .after figcaption b{color:var(--red)}
+.ex iframe{width:100%;height:166px;border:0;border-radius:10px;background:var(--paper)}
+
+/* Lecteurs SoundCloud chargés au clic */
+.sc{height:166px}
+.sc button{width:100%;height:100%;border:1px solid var(--line);border-radius:10px;background:var(--paper);display:flex;align-items:center;justify-content:center;gap:.9rem;font:700 .95rem var(--body);color:var(--ink);cursor:pointer;transition:border-color .2s}
+.sc button:hover{border-color:var(--red)}
+.sc .play{width:3rem;height:3rem;border-radius:50%;background:var(--red);position:relative;flex:none}
+.sc .play::after{content:"";position:absolute;left:1.2rem;top:.95rem;border-left:.95rem solid #fff;border-top:.55rem solid transparent;border-bottom:.55rem solid transparent}
+
+/* Barre fixe sur mobile */
+.sticky-cta{display:none}
+@media (max-width:700px){
+  .sticky-cta{display:flex;position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:20;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+  .sticky-cta[hidden]{display:none}
+  footer.site{padding-bottom:5.5rem}
+}
+
+/* Exclusivité */
+.own{background:var(--red);color:#fff;padding:clamp(3rem,7vw,5rem) 0}
+.own h2{font-size:clamp(1.6rem,4vw,3rem);max-width:20ch;margin-bottom:1rem}
+.own p{font-size:1.15rem;max-width:52ch;margin:0}
+
+/* Listes */
+.checks{list-style:none;margin:0;padding:0}
+.checks li{position:relative;padding:.55rem 0 .55rem 2rem;border-bottom:1px solid var(--line)}
+.checks li:last-child{border-bottom:0}
+.checks li::before{content:"";position:absolute;left:0;top:.95rem;width:1.05rem;height:.55rem;border-left:3px solid var(--red);border-bottom:3px solid var(--red);transform:rotate(-45deg) scale(.9)}
+.incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2rem}
+.incl-grid h3{margin-bottom:.8rem}
+.note-line{margin-top:1.4rem;color:var(--muted);font-size:.98rem}
+
+/* Étapes */
+.steps{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem 1.8rem;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;margin-bottom:.9rem}
+.steps h3{margin-bottom:.35rem;font-size:1.05rem}
+.steps p{color:var(--muted);font-size:.98rem;margin:0}
+.callout{margin-top:2.6rem;padding:1.6rem;background:var(--tint);border-radius:8px;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.callout p{margin:0;font-weight:700;max-width:36ch}
+.callout .slot-note{flex-basis:100%;max-width:none;font-weight:400;font-size:.92rem;color:var(--muted)}
+.slot-note a,.price-panel .note a,.form-note a{color:inherit;text-underline-offset:3px}
+
+/* Preuve */
+.proof{background-color:var(--dark);background-image:linear-gradient(rgba(42,39,36,.84),rgba(42,39,36,.84)),var(--photo,none);background-size:cover;background-position:center;color:#fff}
+.proof-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.proof p{color:#E4DBCF}
+.proof p.about-key{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.15rem;line-height:1.3;color:#fff;max-width:none;margin:1.2rem 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 1.5rem;margin-top:1.8rem}
+.stats div{border-top:2px solid var(--red);padding-top:.9rem}
+.stats b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05}
+.stats span{color:#C3C8D0;font-size:.95rem}
+.photo{position:relative;margin:0;overflow:hidden;border-radius:6px;background:var(--tint);border:2px dashed #D9CDBE;min-height:180px}
+.photo::before{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem;color:var(--muted);font-size:.9rem}
+.photo img{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+.proof .photo{background:rgba(255,255,255,.06);border:0;aspect-ratio:4/5;border-radius:6px}
+.proof .photo::before{color:#CFC6BA}
+
+/* Témoignages */
+.quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;margin-top:2rem}
+.quote{margin:0;padding:1.6rem;background:var(--surface);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;gap:1rem}
+.quote[hidden]{display:none}
+.quote-head{display:flex;align-items:center;gap:.9rem}
+.avatar{position:relative;width:3.4rem;height:3.4rem;flex:none;border-radius:50%;overflow:hidden;background:var(--tint);border:2px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--muted)}
+.avatar::before{content:attr(data-initials)}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.quote-head b{display:block;font-size:1rem}
+.quote-head span:not(.avatar){display:block;color:var(--muted);font-size:.9rem}
+.quote p{font-size:1.02rem;max-width:none;margin:0}
+
+/* Prix */
+.pricing{background:var(--tint)}
+.price-panel{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:clamp(1.6rem,4vw,2.8rem);max-width:900px}
+.amount{font-family:var(--display);font-weight:800;font-stretch:125%;font-size:clamp(2.8rem,7vw,4.6rem);line-height:1;letter-spacing:-0.03em;color:var(--red)}
+.amount small{display:block;font-family:var(--body);font-weight:400;font-stretch:100%;font-size:1rem;letter-spacing:0;color:var(--muted);margin-top:.5rem}
+.price-panel .checks li{padding-block:.4rem}
+.price-panel .cta-row{margin-top:1.2rem}
+.price-panel .note{font-size:.92rem;color:var(--muted);margin:.8rem 0 0}
+
+/* Conditions */
+.terms{background:var(--surface);border-block:1px solid var(--line)}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 3rem;margin-top:2rem}
+.terms-grid h3{margin-bottom:.4rem}
+.terms-grid .checks li{padding-block:.4rem}
+.terms .cta-row{margin-top:2rem}
+
+/* FAQ */
+.faq{max-width:780px;margin-top:1.8rem}
+details{border-bottom:1px solid var(--line);padding:1rem 0}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--red);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:.7rem 0 0;color:var(--muted)}
+
+/* Formulaire Google */
+.form-wrap{max-width:720px}
+.gform{display:grid;gap:1.1rem;margin-top:1.6rem}
+.gform label{display:grid;gap:.35rem;font-weight:700;font-size:.98rem}
+.gform label span{font-weight:400;color:var(--muted)}
+.gform input,.gform textarea{font:inherit;padding:.8rem .95rem;border:1.5px solid #D9CDBE;border-radius:6px;background:var(--surface);color:var(--ink);width:100%}
+.gform input:focus,.gform textarea:focus{outline:3px solid var(--red-soft);border-color:var(--red)}
+.gform textarea{min-height:110px;resize:vertical}
+.gform .btn{justify-self:start}
+.gform .btn[disabled]{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-status{margin:0;padding:1rem 1.2rem;border-radius:6px;background:var(--tint);font-weight:700;max-width:none}
+.form-status[hidden]{display:none}
+.form-note{font-size:.92rem;color:var(--muted);margin:1rem 0 0}
+
+footer.site{padding:2.2rem 0;background:var(--dark);color:#CFC6BA;font-size:.95rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between}
+
+@media (max-width:900px){
+  .hero-grid,.incl-grid,.proof-grid,.terms-grid{grid-template-columns:1fr}
+  .who-grid{grid-template-columns:1fr;gap:1.6rem}
+  .steps{grid-template-columns:1fr 1fr}
+  .vids{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .price-panel{grid-template-columns:1fr}
+  .proof .photo{max-width:320px}
+}
+@media (max-width:620px){
+  .ex-pair{grid-template-columns:1fr}
+  .vids{gap:.8rem}
+  .steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wave i{animation:none;transform:none}
+  .arrow{animation:none;opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- BANDEAU PROMO : s'affiche tout seul du 23 octobre au 5 novembre 2026 (dates réglées dans le script en bas de page) -->
+<div class="promo" id="promo" hidden>Offre anniversaire&nbsp;: 263&nbsp;$US au lieu de 399&nbsp;$US, jusqu'au 5 novembre. <a href="#formulaire">Envoyer mon projet</a></div>
+
+<main>
+
+<!-- HERO : lecteur avant/après (assets/avant.mp3, assets/apres.mp3, assets/ab-data.js). Sans ces fichiers, la carte waveform s'affiche à la place -->
+<section class="hero">
+  <div class="hero-shade"></div>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/">Levitation <span>Beats</span></a>
+      <a class="btn small" href="#formulaire">Envoyer mon projet</a>
+    </div>
+  </header>
+  <div class="wrap hero-inner">
+    <h1>REWORKS</h1>
+    <div class="hero-grid">
+      <div>
+        <p class="tagline">Ton idée existe déjà.<br>Je crée la prod qui n'est qu'à toi.</p>
+        <p class="lead">Tu as déjà une voix, une topline, une démo qui fonctionne ou une référence.<br>Je crée la prod officielle de ton morceau&nbsp;: originale, exclusive, construite avec ton univers.</p>
+        <div class="cta-row">
+          <a class="btn" href="#formulaire">Envoyer mon projet</a>
+          <a class="btn ghost" href="#videos">Voir des exemples</a>
+        </div>
+        <p class="price-line"><strong class="js-price">399&nbsp;$US</strong>, taxes comprises. Paiement unique, après validation de ton projet. <a class="js-call-link" href="#">Une question&nbsp;? Parlons-en 30 min.</a></p>
+      </div>
+
+      <div class="abp" id="abHero" hidden>
+        <div class="abp-tabs" role="tablist">
+          <button type="button" class="on" data-m="a" role="tab">Beat de départ</button>
+          <button type="button" data-m="b" role="tab">Ta prod <b class="rw">REWORKS</b></button>
+        </div>
+        <div class="abp-wave" id="abWave" data-m="a" aria-label="Forme d'onde, clique pour avancer dans l'extrait"><div class="abp-bars" id="abBars"></div></div>
+        <div class="abp-foot">
+          <button type="button" class="abp-play" id="abPlay" aria-label="Écouter l'extrait"></button>
+          <span id="abLab">Écouter le beat de départ</span>
+          <span class="abp-time" id="abTime">0:00</span>
+        </div>
+        <p class="abp-hint">Extrait de 30 secondes. Clique sur les deux onglets pendant l'écoute.</p>
+      </div>
+
+      <div class="concept" aria-hidden="true">
+        <p class="wave-label"><b>Ta voix</b></p>
+        <div class="wave voice" id="wV1"></div>
+        <p class="wave-label"><b>Le type beat</b><span class="tag">dispo pour tout le monde</span></p>
+        <div class="wave beat" id="wBeat"></div>
+        <div class="arrow"><span class="rw-chip">REWORKS</span></div>
+        <p class="wave-label"><b>Ta voix</b></p>
+        <div class="wave voice" id="wV2"></div>
+        <p class="wave-label"><b>Ta prod</b><span class="tag mine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>rien qu'à toi</span></p>
+        <div class="wave mine" id="wMine"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATIONS -->
+<section>
+  <div class="wrap">
+    <h2>Tu es au bon endroit si…</h2>
+    <div class="who-grid">
+      <div>
+        <h3>Tu as posé sur un type beat</h3>
+        <p>Le morceau fonctionne, mais la prod n'est pas à toi&nbsp;: elle a été vendue, ou tu ne peux pas sortir ton titre comme tu le voudrais.</p>
+      </div>
+      <div>
+        <h3>Ta prise finale est déjà enregistrée</h3>
+        <p>Tu as ta voix définitive. Je rebâtis une production originale autour de ce que tu as déjà créé.</p>
+      </div>
+      <div>
+        <h3>Tu as une topline ou une référence</h3>
+        <p>Tu sais ce que tu veux faire ressentir, mais tu n'as pas encore trouvé la prod qui transforme cette idée en vrai morceau.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDÉOS MP4 (photo de fond optionnelle : assets/studio-bg.jpg) -->
+<section id="videos" class="dark" style="--photo:url('assets/studio-bg.jpg')">
+  <div class="wrap">
+    <h2>Écoute le résultat</h2>
+    <p class="lead">Des projets où la production est construite autour de l'idée de départ.</p>
+    <div class="vids">
+      <figure class="vid">
+        <div class="vid-frame has"><video src="assets/rework-1.mp4" poster="assets/rework-1.jpg" controls playsinline preload="none"></video></div>
+      </figure>
+      <figure class="vid">
+        <div class="vid-frame has"><video src="assets/rework-2.mp4" poster="assets/rework-2.jpg" controls playsinline preload="none"></video></div>
+      </figure>
+      <figure class="vid">
+        <div class="vid-frame has"><video src="assets/rework-3.mp4" poster="assets/rework-3.jpg" controls playsinline preload="none"></video></div>
+      </figure>
+      <!-- 4e vidéo : ajoute assets/rework-4.mp4 et rework-4.jpg, puis copie le bloc figure ci-dessus -->
+    </div>
+  </div>
+</section>
+
+<!-- AVANT / APRÈS : lecteurs SoundCloud chargés au clic (confidentialité et rapidité) -->
+<section class="examples" id="exemples">
+  <div class="wrap">
+    <h2>Quand la prod devient la tienne</h2>
+    <p class="lead">Même point de départ. Nouvelle identité <b class="rw">REWORKS</b>.</p>
+    <div class="ex">
+      <div class="ex-pair">
+        <figure class="before">
+          <div class="sc" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2306230061%3Fsecret_token%3Ds-oEQPHGsbcZb&amp;color=%23DA2028&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_teaser=false&amp;show_playcount=false" data-title="Le beat de départ"><button type="button"><span class="play" aria-hidden="true"></span>Écouter le beat de départ</button></div>
+          <figcaption><b>Avant.</b> Le beat de départ.</figcaption>
+        </figure>
+        <figure class="after">
+          <div class="sc" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2306231822%3Fsecret_token%3Ds-qQCf6Tud1Cp&amp;color=%23DA2028&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;show_teaser=false&amp;show_playcount=false" data-title="La nouvelle prod REWORKS"><button type="button"><span class="play" aria-hidden="true"></span>Écouter la nouvelle prod</button></div>
+          <figcaption><b>Après.</b> La nouvelle prod <b class="rw">REWORKS</b>.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXCLUSIVITÉ -->
+<section class="own">
+  <div class="wrap">
+    <h2>Cette prod n'existe que pour toi.</h2>
+    <p>La production créée pour ton projet n'est pas un beat de catalogue et n'est jamais revendue à un autre artiste.</p>
+  </div>
+</section>
+
+<!-- CE QUE TU REÇOIS -->
+<section>
+  <div class="wrap">
+    <h2>Ce que tu reçois</h2>
+    <div class="incl-grid">
+      <div>
+        <h3>La prod</h3>
+        <ul class="checks">
+          <li>Prod 100&nbsp;% originale, ton univers mélangé au mien</li>
+          <li>Structure conservée ou retravaillée, selon ce que demande ton morceau</li>
+          <li>Mix de la prod inclus</li>
+          <li>Premix de l'ensemble du morceau avec ta voix, pour valider le résultat</li>
+          <li>2 tours de retouches</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Les fichiers et les droits</h3>
+        <ul class="checks">
+          <li>WAV, MP3 et pistes séparées</li>
+          <li>Exclusivité totale</li>
+          <li>Droits d'auteur-compositeur 50/50, et master 100&nbsp;% à toi</li>
+          <li>Crédit «&nbsp;Prod. Levitation Beats&nbsp;» sur chaque sortie</li>
+          <li>Contrat de licence livré avec tes fichiers</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note-line">Le mix et master final du morceau complet n'est pas inclus.</p>
+  </div>
+</section>
+
+<!-- COMMENT ÇA SE PASSE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Comment ça se passe</h2>
+    <ol class="steps">
+      <li>
+        <h3>Tu m'envoies ton projet</h3>
+        <p>Acapella, démo, topline ou référence, et ce que tu veux garder ou changer.</p>
+      </li>
+      <li>
+        <h3>Je l'écoute et je te réponds</h3>
+        <p>Sous 48&nbsp;h. Si ça t'aide, on prend 30 minutes pour en parler avant que tu paies.</p>
+      </li>
+      <li>
+        <h3>Tu valides et tu paies</h3>
+        <p><span class="js-price">399&nbsp;$US</span>, en un seul paiement, après mon feu vert.</p>
+      </li>
+      <li>
+        <h3>Je produis</h3>
+        <p>7 à 10 jours ouvrables, puis tu reçois une première version complète du morceau.</p>
+      </li>
+      <li>
+        <h3>On affine</h3>
+        <p>2 tours de retouches inclus.</p>
+      </li>
+      <li>
+        <h3>Je livre</h3>
+        <p>Tes fichiers, tes pistes séparées et ton contrat de licence.</p>
+      </li>
+    </ol>
+    <div class="callout">
+      <p>Pas sûr que <b class="rw">REWORKS</b> soit adapté à ton projet&nbsp;? Envoie-le ou parlons-en : on voit ensemble ce que je peux faire pour ton morceau, et si je suis la bonne personne pour toi.</p>
+      <div class="cta-row">
+        <a class="btn" href="#formulaire">Envoyer mon projet</a>
+        <a class="btn ghost js-call-link" href="#">Parler de mon projet, 30 min</a>
+      </div>
+      <p class="slot-note">Aucun créneau qui te convient ? Écris-moi tes disponibilités à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>, je te recontacte sous 48&nbsp;h.</p>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS : portrait assets/davis.jpg, photo de fond optionnelle assets/studio-console.jpg -->
+<section class="proof" id="apropos" style="--photo:url('assets/studio-console.jpg')">
+  <div class="wrap proof-grid">
+    <div>
+      <h2>Je ne remplace pas ton idée.<br>Je la rends meilleure.</h2>
+      <p>Je suis Davis, producteur et compositeur à Montréal, derrière Levitation Beats et le label OnTheStage Records.</p>
+      <p class="about-key">Personnaliser une instru avec ton univers et le mien<br>c'est ce que je fais de mieux.</p>
+      <p>Avec <b class="rw">REWORKS</b>, je pars de ce que tu as déjà&nbsp;: une voix, une topline, une émotion. Je trouve la prod qui en fait un vrai morceau.</p>
+      <div class="stats">
+        <div><b>+50</b><span>prods placées</span></div>
+        <div><b>+1&nbsp;M</b><span>de streams cumulés</span></div>
+        <div><b>+10</b><span>sons diffusés sur Sirius&nbsp;XM, radio satellite nord-américaine</span></div>
+        <div><b>20 ans</b><span>de composition et de production</span></div>
+      </div>
+      <p style="margin-top:1.4rem;margin-bottom:0">Placements en radio, en plateformes de streaming et en séries télévisées au Canada.</p>
+    </div>
+    <figure class="photo" data-label="Portrait à ajouter (assets/davis.jpg)"><img src="assets/davis.jpg" alt="Davis, producteur et compositeur à Montréal" width="800" height="1000" loading="lazy" onerror="this.remove()"></figure>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES : initiales pour le moment (pour ajouter une photo, mets &lt;img src="assets/nom.jpg"&gt; dans le cercle) -->
+<section>
+  <div class="wrap">
+    <h2>Ce qu'ils en disent</h2>
+    <div class="quotes">
+      <blockquote class="quote">
+        <div class="quote-head">
+          <span class="avatar" data-initials="R"></span>
+          <div><b>Ruby</b><span>Rap</span></div>
+        </div>
+        <p>«&nbsp;"Balenciaga" avec Levi, c'était un vrai level up. Il a capté direct la vibe du son et l'a transformée en quelque chose de beaucoup plus fort, plus pro, plus moi. Franchement, ça change tout quand quelqu'un comprend ta vision comme ça.&nbsp;»</p>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="quote-head">
+          <span class="avatar" data-initials="D"></span>
+          <div><b>Davidson Cruz</b><span>Reggaeton</span></div>
+        </div>
+        <p>«&nbsp;J'avais ma topline et une référence de beat, avec l'envie d'un reggaeton. Il a capté l'ambiance tout de suite et m'a rendu une prod qui sonne comme ce que j'avais en tête, mais avec une vraie identité.&nbsp;»</p>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="quote-head">
+          <span class="avatar" data-initials="A"></span>
+          <div><b>Amira Liza</b><span>Bouyon</span></div>
+        </div>
+        <p>«&nbsp;J'avais posé mes voix définitives sur un type beat bouyon. Je voulais le refaire avec ma signature. Il a gardé l'esprit du beat et en a fait une prod qui est vraiment la mienne. Mes voix sont à leur place.&nbsp;»</p>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="quote-head">
+          <span class="avatar" data-initials="Y"></span>
+          <div><b>Ya Cetidon</b><span>Afro</span></div>
+        </div>
+        <p>«&nbsp;Ma base, c'était une simple référence. Je voulais des instrumentales afro pour la fête. Il a compris l'énergie que je cherchais et m'a sorti des prods qui donnent envie de danser.&nbsp;»</p>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="quote-head">
+          <span class="avatar" data-initials="L"></span>
+          <div><b>Lucky Charmz</b><span>Rap</span></div>
+        </div>
+        <p>«&nbsp;Je suis parti d'un morceau de référence qui existe déjà. Il a refait une toute nouvelle production à partir de ça, avec l'énergie que je cherchais et un son qui est vraiment à moi.&nbsp;»</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PRIX -->
+<section class="pricing" id="prix">
+  <div class="wrap">
+    <h2>Un prix, un paiement</h2>
+    <p class="lead">Pas d'option, pas de surprise.</p>
+    <div class="price-panel">
+      <div class="amount"><span class="js-price">399&nbsp;$US</span><small class="js-price-note">taxes comprises, paiement unique</small></div>
+      <div>
+        <ul class="checks">
+          <li>Aucun paiement avant mon feu vert</li>
+          <li>Livraison sous 7 à 10 jours ouvrables</li>
+          <li>2 tours de retouches inclus, aucun frais caché</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="#formulaire">Envoyer mon projet</a>
+          <a class="btn ghost js-call-link" href="#">Parler de mon projet, 30 min</a>
+        </div>
+        <p class="note">Aucun créneau qui te convient ? Écris-moi tes disponibilités à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>, je te recontacte sous 48&nbsp;h.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="terms" id="conditions">
+  <div class="wrap">
+    <h2>Les conditions de <b class="rw">REWORKS</b></h2>
+    <p class="lead">Tout est écrit ici avant que tu paies.</p>
+    <div class="terms-grid">
+      <div>
+        <h3>Ce qui est inclus</h3>
+        <ul class="checks">
+          <li>Prod exclusive pour ton projet</li>
+          <li>Mix de la prod</li>
+          <li>Premix de l'ensemble du morceau avec ta voix</li>
+          <li>WAV, MP3 et pistes séparées</li>
+          <li>2 tours de retouches</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce qui n'est pas inclus</h3>
+        <ul class="checks">
+          <li>Le mix et master final du morceau complet</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Exclusivité et droits</h3>
+        <ul class="checks">
+          <li>La prod n'est jamais revendue à un autre artiste</li>
+          <li>Droits d'auteur-compositeur 50/50&nbsp;: 50&nbsp;% pour toi (paroles et mélodie vocale, hors ajouts faits pendant la production), 50&nbsp;% pour moi (composition instrumentale)</li>
+          <li>Tu détiens 100&nbsp;% du master, je ne perçois aucune redevance dessus</li>
+          <li>Chacun déclare sa part auprès de sa société de gestion : toi dans ton pays de résidence, moi auprès de la SOCAN</li>
+          <li>Crédit «&nbsp;Prod. Levitation Beats&nbsp;» sur chaque sortie</li>
+          <li>Contrat de licence livré avec tes fichiers</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Délais, paiement et remboursement</h3>
+        <ul class="checks">
+          <li>Paiement uniquement après validation de ton projet</li>
+          <li>Livraison sous 7 à 10 jours ouvrables, à partir du paiement et de la réception de tes fichiers</li>
+          <li>Si je ne peux pas mener ta prod à son terme&nbsp;: remboursement intégral</li>
+          <li>Prod qui ne te convient pas après les 2 tours de retouches&nbsp;: remboursement de 50&nbsp;% du prix, le reste rémunère le travail fourni</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn ghost" href="assets/contrat-type-reworks.pdf" target="_blank" rel="noopener">Voir le contrat type</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Qu'est-ce que je dois t'envoyer&nbsp;?</summary>
+        <p>Ton acapella, ta démo posée sur un type beat, ta topline, ou une référence avec une idée assez précise de la direction. Plus j'ai de matière, mieux je comprends ton morceau.</p>
+      </details>
+      <details>
+        <summary>Ma voix doit-elle être définitive&nbsp;?</summary>
+        <p>Non. Une démo ou une topline suffit pour démarrer. Avec ta prise finale, j'adapte la prod plus précisément à ta voix.</p>
+      </details>
+      <details>
+        <summary>La prod est-elle vraiment exclusive&nbsp;?</summary>
+        <p>Oui, à 100&nbsp;%. Elle est créée pour ton projet et n'est jamais revendue à un autre artiste.</p>
+      </details>
+      <details>
+        <summary>Le mix et le master sont-ils inclus&nbsp;?</summary>
+        <p>Le mix de la prod est inclus, avec un premix de l'ensemble du morceau avec ta voix. Le mix et master final du morceau complet n'est pas inclus.</p>
+      </details>
+      <details>
+        <summary>Comment sont répartis les droits&nbsp;?</summary>
+        <p>Les droits d'auteur-compositeur de la chanson sont partagés 50/50&nbsp;: 50&nbsp;% pour toi, pour tes paroles et ta mélodie vocale (hors ajouts faits pendant la production), et 50&nbsp;% pour moi, pour la composition instrumentale. Tu détiens 100&nbsp;% du master et je ne perçois aucune redevance dessus. Chacun déclare sa part auprès de sa société de gestion des auteurs-compositeurs : toi dans ton pays de résidence, moi auprès de la SOCAN.</p>
+      </details>
+      <details>
+        <summary>Quand est-ce que je reçois le contrat&nbsp;?</summary>
+        <p>Avec tes fichiers, à la livraison. Les conditions sont acceptées au paiement, et tu peux consulter le contrat type avant de payer, dans la section des conditions.</p>
+      </details>
+      <details>
+        <summary>Combien de temps ça prend&nbsp;?</summary>
+        <p>7 à 10 jours ouvrables à partir du paiement et de la réception de tes fichiers, selon la complexité du projet.</p>
+      </details>
+      <details>
+        <summary>Combien de retouches sont incluses&nbsp;?</summary>
+        <p>2 tours de retouches. Chaque tour regroupe tous tes retours en une seule fois, pour avancer vite.</p>
+      </details>
+      <details>
+        <summary>Et si le résultat ne me convient pas&nbsp;?</summary>
+        <p>Si je ne peux pas mener ta prod à son terme, tu es remboursé en totalité. Si, après les 2 tours de retouches, elle ne te convient pas, tu peux demander par écrit, dans les 7 jours suivant la livraison, le remboursement de 50&nbsp;% du prix. Le reste rémunère le travail fourni, et les droits sur la prod me reviennent. Tous les détails sont dans le contrat type.</p>
+      </details>
+      <details>
+        <summary>Et si je ne sais pas si mon projet correspond&nbsp;?</summary>
+        <p>Envoie-le, ou prenons 30 minutes pour en parler. Je regarde ton projet avant que tu paies, et si <b class="rw">REWORKS</b> n'est pas adapté, je te le dis.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE : formulaire du site qui envoie directement dans ton Google Form (pas de barre de défilement) -->
+<section id="formulaire" style="padding-top:0">
+  <div class="wrap form-wrap">
+    <h2>Envoie ton projet</h2>
+    <p class="lead">Dis-moi où tu en es. Je lis chaque demande personnellement et je te réponds sous 48 h.</p>
+    <form class="gform" id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLScbhFnWiiDRQ_tCXy7MGsSqQIpIHE_-EBCNDXBKbRX8fSIlLQ/formResponse" method="POST">
+      <label>Nom ou nom d'artiste
+        <input type="text" name="entry.1869070843" required autocomplete="name">
+      </label>
+      <label>Instagram
+        <input type="text" name="entry.328929996" placeholder="@toncompte" required>
+      </label>
+      <label>E-mail
+        <input type="email" name="entry.1915998564" required autocomplete="email">
+      </label>
+      <label>Lien vers ton acapella ou ta démo <span>(optionnel)</span>
+        <input type="url" name="entry.260330509" placeholder="https://">
+      </label>
+      <label>Qu'est-ce que tu veux faire avec ce morceau ?
+        <textarea name="entry.1678956332" required></textarea>
+      </label>
+      <label>Qu'est-ce que tu veux conserver ou changer ?
+        <textarea name="entry.1174748790" required></textarea>
+      </label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" type="submit">Envoyer mon projet</button>
+      <p class="form-status" id="formStatus" role="status" hidden></p>
+    </form>
+    <p class="form-note">Aucun paiement à cette étape. Une question ? Écris-moi à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<a class="btn sticky-cta" id="stickyCta" href="#formulaire" hidden>Envoyer mon projet</a>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Levitation Beats, OnTheStage Records, Montréal (QC)</span>
+    <span><a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a> · <a href="https://www.instagram.com/levitationbeats/">@levitationbeats</a></span>
+  </div>
+</footer>
+
+<script>
+// Configuration à compléter
+var PROMO = {
+  start: Date.parse("2026-10-23T04:00:00Z"),   // 23 octobre 2026, 00 h à Montréal
+  end:   Date.parse("2026-11-06T03:59:00Z"),   // 5 novembre 2026, 23 h 59 (heure de Stripe, UTC-4)
+  price: "263", oldPrice: "399"
+};
+var REWORKS = {
+  calendarUrl: "https://calendar.app.google/MbhMuzNFHVKXQhK56"    // page de rendez-vous de 30 min (Google Agenda)
+};
+(function(){
+  var calls = document.querySelectorAll('.js-call-link');
+  for (var i = 0; i < calls.length; i++){
+    if (REWORKS.calendarUrl){ calls[i].href = REWORKS.calendarUrl; calls[i].target = '_blank'; calls[i].rel = 'noopener'; }
+  }
+
+  // Lecteurs SoundCloud : chargés seulement au clic
+  document.querySelectorAll('.sc').forEach(function(box){
+    box.querySelector('button').addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = box.getAttribute('data-src').replace('auto_play=false', 'auto_play=true');
+      f.title = box.getAttribute('data-title'); f.allow = 'autoplay'; f.setAttribute('scrolling', 'no');
+      f.style.cssText = 'width:100%;height:166px;border:0;border-radius:10px';
+      box.replaceWith(f);
+    });
+  });
+
+  // Barre fixe mobile : visible hors du hero et du formulaire
+  var sticky = document.getElementById('stickyCta');
+  if (sticky && 'IntersectionObserver' in window){
+    var seen = { hero: true, form: false };
+    var upd = function(){ sticky.hidden = seen.hero || seen.form; };
+    new IntersectionObserver(function(e){ seen.hero = e[0].isIntersecting; upd(); }).observe(document.querySelector('.hero'));
+    new IntersectionObserver(function(e){ seen.form = e[0].isIntersecting; upd(); }).observe(document.getElementById('formulaire'));
+  }
+
+  // Lecteur avant / après : actif seulement si les fichiers audio et les données existent
+  (function(){
+    var box = document.getElementById('abHero'), concept = document.querySelector('.concept');
+    if (!box) return;
+    var sc = document.createElement('script');
+    sc.src = 'assets/ab-data.js';
+    sc.onerror = function(){ if (location.protocol === 'file:') startDemo(); else box.hidden = true; };
+    sc.onload = function(){ if (window.AB_DATA && window.AB_DATA.a && window.AB_DATA.b) start(window.AB_DATA); };
+    document.head.appendChild(sc);
+
+
+    // Mode aperçu (ouverture locale uniquement, sans fichiers audio) : sons de démo synthétisés
+    function makeEngine(){
+      var Eng=(function(){
+        var ctx,master,an,gains={},timer,step=0,next=0,run=false,sec=60/92/4,noise,owner=null,ownerStop=null;
+        var L=['voice','kick','snare','hat','bass','pad','arp'];
+        var ROOT=[45,41,48,43];
+        var CH=[[57,60,64],[53,57,60],[60,64,67],[55,59,62]];
+        var MEL=[[[0,64,4],[4,67,2],[6,64,2],[8,62,4],[12,60,4]],[[0,65,4],[4,69,4],[8,67,4],[12,65,4]],[[0,67,4],[4,64,2],[6,67,2],[8,72,4],[12,67,4]],[[0,66,4],[4,67,4],[8,62,4],[12,59,4]]];
+        var ARP=[0,2,4,2,0,3,4,2,1,3,5,3,0,2,4,5];
+        var SCALE=[69,72,74,76,79,81];
+        function f(m){return 440*Math.pow(2,(m-69)/12);}
+        function init(){
+          if(ctx)return;
+          ctx=new (window.AudioContext||window.webkitAudioContext)();
+          master=ctx.createGain();master.gain.value=.45;
+          an=ctx.createAnalyser();an.fftSize=256;an.smoothingTimeConstant=.8;
+          master.connect(an);an.connect(ctx.destination);
+          L.forEach(function(l){gains[l]=ctx.createGain();gains[l].gain.value=0;gains[l].connect(master);});
+          var n=ctx.sampleRate/2;noise=ctx.createBuffer(1,n,ctx.sampleRate);var d=noise.getChannelData(0);for(var i=0;i<n;i++)d[i]=Math.random()*2-1;
+        }
+        function env(g,t,a,dcy,v){g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(v,t+a);g.gain.exponentialRampToValueAtTime(0.0001,t+a+dcy);}
+        function kick(t){var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(42,t+.14);env(g,t,.003,.38,1);o.connect(g);g.connect(gains.kick);o.start(t);o.stop(t+.45);}
+        function nz(t,hp,dur,v,out){var s=ctx.createBufferSource();s.buffer=noise;var fl=ctx.createBiquadFilter();fl.type='highpass';fl.frequency.value=hp;var g=ctx.createGain();env(g,t,.002,dur,v);s.connect(fl);fl.connect(g);g.connect(out);s.start(t);s.stop(t+dur+.05);}
+        function snare(t){nz(t,1500,.16,.55,gains.snare);var o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=190;env(g,t,.002,.1,.35);o.connect(g);g.connect(gains.snare);o.start(t);o.stop(t+.15);}
+        function hat(t,op){nz(t,7000,op?.18:.045,op?.14:.1,gains.hat);}
+        function bass(t,fr,dur){var o=ctx.createOscillator(),fl=ctx.createBiquadFilter(),g=ctx.createGain();o.type='sawtooth';o.frequency.value=fr;fl.type='lowpass';fl.frequency.value=420;g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(.7,t+.01);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(fl);fl.connect(g);g.connect(gains.bass);o.start(t);o.stop(t+dur+.05);}
+        function pad(t,ns,dur,side){ns.forEach(function(m){[-6,6].forEach(function(dt){var o=ctx.createOscillator(),fl=ctx.createBiquadFilter(),g=ctx.createGain(),p=ctx.createStereoPanner?ctx.createStereoPanner():null;o.type='sawtooth';o.frequency.value=f(m);o.detune.value=dt;fl.type='lowpass';fl.frequency.value=1500;g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(.09,t+.3);g.gain.linearRampToValueAtTime(.0001,t+dur);o.connect(fl);fl.connect(g);if(p){p.pan.value=dt<0?-.6:.6;g.connect(p);p.connect(gains.pad);}else g.connect(gains.pad);o.start(t);o.stop(t+dur+.05);});});}
+        function arp(t,m,side){var o=ctx.createOscillator(),g=ctx.createGain(),p=ctx.createStereoPanner?ctx.createStereoPanner():null;o.type='triangle';o.frequency.value=f(m);env(g,t,.004,.2,.22);o.connect(g);if(p){p.pan.value=side;g.connect(p);p.connect(gains.arp);}else g.connect(gains.arp);o.start(t);o.stop(t+.3);}
+        function voice(t,m,dur){var o=ctx.createOscillator(),o2=ctx.createOscillator(),lfo=ctx.createOscillator(),lg=ctx.createGain(),g=ctx.createGain(),fl=ctx.createBiquadFilter();o.type='sawtooth';o2.type='sine';o.frequency.value=f(m);o2.frequency.value=f(m)*2;lfo.frequency.value=5.2;lg.gain.value=5;lfo.connect(lg);lg.connect(o.frequency);lg.connect(o2.frequency);fl.type='bandpass';fl.frequency.value=900;fl.Q.value=1.2;g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(.32,t+.05);g.gain.setValueAtTime(.32,t+dur-.08);g.gain.linearRampToValueAtTime(.0001,t+dur);o.connect(fl);o2.connect(fl);fl.connect(g);g.connect(gains.voice);o.start(t);o2.start(t);lfo.start(t);o.stop(t+dur+.05);o2.stop(t+dur+.05);lfo.stop(t+dur+.05);}
+        function play(s,t){
+          var bar=Math.floor(s/16)%4,st=s%16;
+          if(st===0||st===7||st===10)kick(t);
+          if(st===4||st===12)snare(t);
+          if(st%2===0)hat(t,st===14);
+          if([0,3,6,8,11,14].indexOf(st)>-1)bass(t,f(ROOT[bar]+12)/2*(st===6||st===14?2:1),sec*2.4);
+          if(st===0)pad(t,CH[bar],sec*16,0);
+          arp(t,SCALE[ARP[st]%6],(st%2?-.5:.5));
+          MEL[bar].forEach(function(n){if(n[0]===st)voice(t,n[1],sec*n[2]*.95);});
+        }
+        function tick(){while(next<ctx.currentTime+.14){play(step%64,next);next+=sec;step++;}}
+        function set(list){L.forEach(function(l){gains[l].gain.setTargetAtTime(list.indexOf(l)>-1?1:0,ctx.currentTime,.04);});}
+        function stop(){if(!run)return;run=false;clearInterval(timer);L.forEach(function(l){gains[l].gain.setTargetAtTime(0,ctx.currentTime,.06);});var s=ownerStop;owner=null;ownerStop=null;if(s)s();}
+        function start(id,list,onStop){
+          init();if(ctx.state==='suspended')ctx.resume();
+          if(run&&owner!==id)stop();
+          owner=id;ownerStop=onStop||null;set(list);
+          if(!run){run=true;step=0;next=ctx.currentTime+.08;tick();timer=setInterval(tick,25);}
+        }
+        function bins(){var a=new Uint8Array(an.frequencyBinCount);an.getByteFrequencyData(a);return a;}
+        return {start:start,set:set,stop:stop,bins:bins,isRun:function(){return run;},owner:function(){return owner;}};
+      })();
+      return Eng;
+    }
+    function startDemo(){
+      var Eng = makeEngine(), AB = ['voice','kick','snare','hat'], FULL = ['voice','kick','snare','hat','bass','pad','arp'];
+      box.hidden = false; if (concept) concept.hidden = true;
+      var wave = document.getElementById('abWave'), barsEl = document.getElementById('abBars'),
+          play = document.getElementById('abPlay'), lab = document.getElementById('abLab'), time = document.getElementById('abTime'),
+          hint = box.querySelector('.abp-hint');
+      hint.textContent = "APERÇU : sons de démo synthétisés. Tes vrais extraits les remplaceront. Clique sur les deux onglets pendant l'écoute.";
+      var N = 44, mode = 'a', html = ''; for (var i = 0; i < N; i++) html += '<i class="p"></i>';
+      barsEl.innerHTML = html; var els = barsEl.children, t0 = 0;
+      function apply(){
+        wave.setAttribute('data-m', mode);
+        lab.textContent = (Eng.isRun() ? 'Tu écoutes ' : 'Écouter ') + (mode === 'a' ? 'le beat de départ' : 'la prod REWORKS');
+        [].forEach.call(box.querySelectorAll('.abp-tabs button'), function(b){ b.classList.toggle('on', b.getAttribute('data-m') === mode); });
+      }
+      play.addEventListener('click', function(){
+        if (Eng.isRun()){ Eng.stop(); play.classList.remove('on'); apply(); return; }
+        t0 = Date.now(); Eng.start('hero', mode === 'a' ? AB : FULL, function(){ play.classList.remove('on'); apply(); });
+        play.classList.add('on'); apply();
+      });
+      [].forEach.call(box.querySelectorAll('.abp-tabs button'), function(b){
+        b.addEventListener('click', function(){ mode = b.getAttribute('data-m'); if (Eng.isRun()) Eng.set(mode === 'a' ? AB : FULL); apply(); });
+      });
+      (function tick(){
+        var on = Eng.isRun(), bn = on ? Eng.bins() : null;
+        for (var i = 0; i < N; i++){
+          var v = on ? bn[2 + i * 2] / 255 : .16 + .08 * Math.sin(Date.now() / 600 + i);
+          var h = mode === 'a' ? (.06 + v * .34) : (.1 + Math.min(1, v * 1.35) * .9);
+          els[i].style.setProperty('--h', h.toFixed(3));
+        }
+        if (on){ var t = Math.floor((Date.now() - t0) / 1000); time.textContent = Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2); }
+        requestAnimationFrame(tick);
+      })();
+      apply();
+    }
+
+    function start(D){
+      box.hidden = false; if (concept) concept.hidden = true;
+      var wave = document.getElementById('abWave'), barsEl = document.getElementById('abBars'),
+          play = document.getElementById('abPlay'), lab = document.getElementById('abLab'), time = document.getElementById('abTime');
+      var A = new Audio('assets/avant.mp3'), B = new Audio('assets/apres.mp3');
+      A.preload = B.preload = 'metadata'; A.loop = B.loop = true;
+      var mode = 'a', playing = false, N = Math.min(D.a.length, D.b.length), els = [];
+      var html = ''; for (var i = 0; i < N; i++) html += '<i></i>';
+      barsEl.innerHTML = html; els = barsEl.children;
+      function heights(){
+        var d = mode === 'a' ? D.a : D.b;
+        for (var i = 0; i < N; i++) els[i].style.setProperty('--h', Math.max(.07, Math.min(1, d[i])).toFixed(3));
+      }
+      function cur(){ return mode === 'a' ? A : B; }
+      function other(){ return mode === 'a' ? B : A; }
+      function apply(){
+        A.muted = mode !== 'a'; B.muted = mode !== 'b';
+        wave.setAttribute('data-m', mode); heights();
+        lab.textContent = (playing ? 'Tu écoutes ' : 'Écouter ') + (mode === 'a' ? 'le beat de départ' : 'la prod REWORKS');
+        [].forEach.call(box.querySelectorAll('.abp-tabs button'), function(b){ b.classList.toggle('on', b.getAttribute('data-m') === mode); });
+      }
+      function sync(){ var c = cur(), o = other(); if (Math.abs(o.currentTime - c.currentTime) > .15) o.currentTime = c.currentTime; }
+      function toggle(){
+        if (playing){ A.pause(); B.pause(); playing = false; play.classList.remove('on'); apply(); return; }
+        sync(); apply();
+        var p = [A.play(), B.play()];
+        playing = true; play.classList.add('on'); apply();
+        Promise.all(p.map(function(x){ return x && x.catch ? x.catch(function(){ playing = false; play.classList.remove('on'); apply(); }) : x; }));
+      }
+      play.addEventListener('click', toggle);
+      [].forEach.call(box.querySelectorAll('.abp-tabs button'), function(b){
+        b.addEventListener('click', function(){ mode = b.getAttribute('data-m'); sync(); apply(); });
+      });
+      wave.addEventListener('click', function(e){
+        var r = wave.getBoundingClientRect(), f = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), d = A.duration || D.dur || 30;
+        A.currentTime = B.currentTime = f * d;
+      });
+      setInterval(function(){ if (playing) sync(); }, 600);
+      (function tick(){
+        var c = cur(), d = c.duration || D.dur || 30, f = d ? c.currentTime / d : 0, k = Math.floor(f * N);
+        for (var i = 0; i < N; i++){ var on = i < k; if (els[i].classList.contains('p') !== on) els[i].classList.toggle('p', on); }
+        var t = Math.floor(c.currentTime || 0); time.textContent = Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2);
+        requestAnimationFrame(tick);
+      })();
+      apply();
+    }
+  })();
+
+  // Offre anniversaire : affichage automatique pendant les 2 semaines
+  var now = Date.now();
+  if (now >= PROMO.start && now <= PROMO.end){
+    var nb = '\u00a0';
+    document.getElementById('promo').hidden = false;
+    var prices = document.querySelectorAll('.js-price');
+    for (var q = 0; q < prices.length; q++){
+      prices[q].innerHTML = PROMO.price + nb + '$US <s class="promo-old">' + PROMO.oldPrice + nb + '$US</s>';
+    }
+    var notes = document.querySelectorAll('.js-price-note');
+    for (var r = 0; r < notes.length; r++){
+      notes[r].textContent = 'offre anniversaire jusqu\'au 5 novembre, taxes comprises, paiement unique';
+    }
+  }
+
+  // Envoi du formulaire vers le Google Form, sans quitter la page
+  var form = document.getElementById('projectForm'), status = document.getElementById('formStatus');
+  if (form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var btn = form.querySelector('button[type=submit]');
+      if (form.elements['website'].value){ return; }
+      btn.disabled = true; btn.textContent = 'Envoi en cours...';
+      var data = new FormData(form); data.delete('website');
+      fetch(form.action, { method: 'POST', mode: 'no-cors', body: data }).then(function(){
+        form.reset();
+        form.querySelectorAll('label, button').forEach(function(el){ el.style.display = 'none'; });
+        status.textContent = 'Merci, j\'ai bien reçu ton projet. Je te réponds sous 48 h.';
+        status.hidden = false;
+      }).catch(function(){
+        btn.disabled = false; btn.textContent = 'Envoyer mon projet';
+        status.innerHTML = 'L\'envoi n\'a pas marché. Écris-moi directement à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>.';
+        status.hidden = false;
+      });
+    });
+  }
+
+  var hv = document.querySelector('.hero-media');
+  if (hv && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ hv.removeAttribute('autoplay'); hv.pause(); }
+
+  // Visuel du hero : ta voix reste, la prod devient la tienne
+  var N = 56, seed = 11;
+  function rnd(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  function bars(id, arr){
+    var el = document.getElementById(id), h = '';
+    for (var k = 0; k < arr.length; k++){
+      h += '<i style="--h:' + Math.max(.1, Math.min(1, arr[k])).toFixed(2) + ';--i:' + k + '"></i>';
+    }
+    el.innerHTML = h;
+  }
+  var voice = [], beat = [], mine = [];
+  for (var n = 0; n < N; n++){
+    var talk = .35 + .5 * Math.abs(Math.sin(n * .55)) * (.6 + .4 * rnd());
+    if (n % 14 > 10) talk *= .35;
+    voice.push(talk);
+    beat.push(.22 + rnd() * .28);
+    var env = n < 7 ? .55 : n < 22 ? .75 : n < 36 ? 1 : n < 48 ? .82 : .62;
+    mine.push(env * (n % 4 === 0 ? 1 : .9) * (.92 + rnd() * .08));
+  }
+  bars('wV1', voice); bars('wBeat', beat); bars('wV2', voice); bars('wMine', mine);
+})();
+</script>
+</body>
+</html>

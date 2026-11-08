@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Paiement REWORKS | Levitation Beats</title>
+<noscript><meta http-equiv="refresh" content="1;url=https://buy.stripe.com/00w14n3Id28S233177fQI0c"></noscript>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F7F1EA;color:#1F1C19;font-family:"Lato","Helvetica Neue",Arial,sans-serif;text-align:center;padding:1.5rem}
+  a{color:#DA2028;font-weight:700}
+</style>
+</head>
+<body>
+  <p>Redirection vers le paiement sécurisé...<br>Si rien ne se passe, <a id="lien" href="https://buy.stripe.com/00w14n3Id28S233177fQI0c">clique ici</a>.</p>
+  <script>
+    // Lien de paiement Stripe : pour le changer, modifie uniquement cette adresse
+    var url = "https://buy.stripe.com/00w14n3Id28S233177fQI0c";
+    // Offre anniversaire : le code ANNIV34 est appliqué tout seul du 23 octobre au 5 novembre 2026
+    var now = Date.now();
+    if (now >= Date.parse("2026-10-23T04:00:00Z") && now <= Date.parse("2026-11-06T03:59:00Z")) {
+      url += "?prefilled_promo_code=ANNIV34";
+    }
+    document.getElementById("lien").href = url;
+    window.location.replace(url);
+  </script>
+</body>
+</html>
