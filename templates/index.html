@@ -28,7 +28,7 @@
     <h1>Templates<br><span>FL Studio</span></h1>
     <p class="tag">Ouvre. Enregistre. Produis.<br>Sans repartir de zéro.</p>
     <p class="lead">Des projets FL Studio prêts à l'emploi pour enregistrer tes voix et démarrer tes beats. Et PreviewMaker, l'outil gratuit pour envoyer tes instrumentales aux artistes.</p>
-    <div class="cta"><a class="btn" href="#offres">Choisir mon template</a><a class="btn ghost" href="#previewmaker">PreviewMaker gratuit</a></div>
+    <div class="cta"><a class="btn" href="#offres">Choisir mon template</a><a class="btn ghost" href="../previewmaker/">PreviewMaker gratuit</a></div>
   </div>
 </header>
 
@@ -84,44 +84,10 @@
 
 <section class="dark" id="previewmaker">
   <div class="wrap">
-    <div class="cols one" id="pmCols">
-      <div>
-        <h2>PreviewMaker</h2>
-        <p class="tagline">Make previews. Send opportunities.</p>
-        <p>Envoyer une prod entière à un artiste, c'est la donner. Envoyer un extrait taggé, c'est ouvrir la conversation.</p>
-        <p>PreviewMaker transforme tes prods en extraits prêts à envoyer, directement dans ton navigateur.</p>
-        <ul class="feat">
-          <li><b>Ton tag calé sur le BPM</b>, au même moment musical sur chaque prod.</li>
-          <li><b>Départ de l'extrait réglable</b>, avec fade in et fade out.</li>
-          <li><b>Qualité jusqu'à 320 kb/s</b>, ou un mode léger pour l'e-mail.</li>
-          <li><b>Poids affiché avant l'export</b>, et protection contre la saturation.</li>
-          <li><b>Un seul fichier</b>, sur Windows et Mac, même hors connexion.</li>
-        </ul>
-      </div>
-      <figure class="shot" id="shot" hidden><img id="shotImg" alt="Capture d'écran de PreviewMaker" width="1200" height="800"></figure>
-    </div>
-    <div class="video" id="demo" hidden></div>
-
-    <div class="ways">
-      <div class="box free">
-        <h3>Télécharger PreviewMaker gratuitement</h3>
-        <p>Laisse ton adresse e-mail : tu reçois l'outil par e-mail, en quelques minutes.</p>
-        <form class="pm-form" id="pmForm" novalidate>
-          <label class="lbl" for="pmEmail">Ton adresse e-mail</label>
-          <input type="email" id="pmEmail" name="email" placeholder="ton@email.com" autocomplete="email" required>
-          <input type="text" id="pmSite" class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <label class="chk"><input type="checkbox" id="pmMkt"><span>Je veux aussi recevoir les actualités de Levitation Beats (facultatif, désinscription possible à tout moment).</span></label>
-          <button class="btn" type="submit" id="pmBtn">Recevoir PreviewMaker</button>
-          <p class="msg" id="pmMsg" role="status" aria-live="polite"></p>
-        </form>
-        <p class="fine">Gratuit, sans paiement. Un envoi par adresse e-mail.</p>
-      </div>
-      <div class="box">
-        <h3>Avec le pack complet</h3>
-        <p>PreviewMaker est aussi livré avec le Pack complet, dans le même e-mail que les deux templates.</p>
-        <a class="btn ghost" href="#offres">Voir le pack complet</a>
-      </div>
-    </div>
+    <h2>PreviewMaker, l'outil gratuit</h2>
+    <p>Prépare des extraits taggés de tes prods et envoie-les aux artistes.<br>Gratuit, directement dans ton navigateur.</p>
+    <a class="btn" href="../previewmaker/">Découvrir PreviewMaker</a>
+    <p class="fine">Il est aussi livré avec le Pack complet.</p>
   </div>
 </section>
 
@@ -162,8 +128,6 @@
 <script>
 (function(){
   /* ===== RÉGLAGES FACILES À MODIFIER ===== */
-  var WEBAPP    = "https://script.google.com/macros/s/AKfycbzyWQ7XQxXf2kltaADPZ6SbnAC8kQd3iHwqKhaouiD7ki5P4AbQRaCZ-9YCeB025G1EgA/exec";  // adresse du formulaire PreviewMaker gratuit
-  var DEMO_VIDEO = '';  // vidéo de démo PreviewMaker : colle ici l'adresse d'intégration YouTube, ex. https://www.youtube.com/embed/XXXXXXXXXXX
   var PROMO_START = Date.parse('2026-11-01T00:00:00Z');
   var PROMO_END   = Date.parse('2027-01-05T04:59:59Z');   // 4 janvier 2027, 23 h 59 (heure de Montréal)
   var OFFERS = {
@@ -180,31 +144,6 @@
     var o = OFFERS[k], p = document.querySelector('[data-price="' + k + '"]'), a = document.querySelector('[data-buy="' + k + '"]');
     if (p) { p.querySelector('.now').textContent = (on ? o.promo : o.reg) + ' $US'; p.querySelector('.was').textContent = o.reg + ' $US'; p.className = 'price' + (on ? ' on' : ''); }
     if (a && on) a.href = a.href.split('?')[0] + '?prefilled_promo_code=' + encodeURIComponent(o.code);
-  });
-
-  /* ===== PREVIEWMAKER : capture d'écran et vidéo (s'affichent seulement si elles existent) ===== */
-  var img = document.getElementById('shotImg'), fig = document.getElementById('shot'), cols = document.getElementById('pmCols');
-  var essais = ['assets/previewmaker.png', 'assets/previewmaker.jpg'], n = 0;
-  img.onload = function(){ fig.hidden = false; cols.className = 'cols'; };
-  img.onerror = function(){ n++; if (n < essais.length) img.src = essais[n]; };
-  img.src = essais[0];
-  if (DEMO_VIDEO) { var d = document.getElementById('demo'); d.innerHTML = '<iframe src="' + DEMO_VIDEO + '" title="Démo de PreviewMaker" allowfullscreen loading="lazy"></iframe>'; d.hidden = false; }
-
-  /* ===== PREVIEWMAKER GRATUIT : formulaire ===== */
-  var form = document.getElementById('pmForm'), msg = document.getElementById('pmMsg'), btn = document.getElementById('pmBtn');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var email = document.getElementById('pmEmail').value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "Cette adresse e-mail n'a pas l'air valide."; return; }
-    btn.disabled = true; msg.textContent = 'Envoi en cours...';
-    var data = new URLSearchParams();
-    data.set('email', email);
-    data.set('marketing', document.getElementById('pmMkt').checked ? 'oui' : 'non');
-    data.set('site', document.getElementById('pmSite').value);
-    fetch(WEBAPP, { method: 'POST', mode: 'no-cors', body: data })
-      .then(function(){ msg.textContent = "C'est noté ! Si cette adresse n'a pas déjà reçu PreviewMaker, il arrive par e-mail dans quelques minutes. Pense à vérifier tes spams."; form.reset(); })
-      .catch(function(){ msg.textContent = "Un souci technique. Réessaie dans un instant ou écris-moi à levitation.beats@gmail.com."; })
-      .then(function(){ btn.disabled = false; });
   });
 })();
 </script>
