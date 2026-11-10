@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PreviewMaker, l'outil gratuit pour envoyer tes prods | Levitation Beats</title>
+<meta name="description" content="PreviewMaker crée des extraits taggés de tes prods, prêts à envoyer aux artistes. Gratuit, dans ton navigateur, sur Windows et Mac.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{--paper:#F7F1EA;--surface:#FDFAF6;--ink:#1F1C19;--muted:#6A635A;--line:#E4DACD;--red:#DA2028;--red-deep:#B5161D;--red-soft:#F7E4DD;--tint:#EFE6DB;--dark:#2A2724;--display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;--wrap:1080px}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}.wrap{width:min(var(--wrap),100% - 2.8rem);margin-inline:auto}h1,h2,h3{font-family:var(--display);line-height:1.1}h1{font-weight:900;letter-spacing:-.03em;text-transform:uppercase}h2{font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);text-transform:uppercase;margin-bottom:.8rem}h3{font-weight:800;font-size:1.15rem;font-stretch:110%}p{margin:0 0 1rem;max-width:64ch}a{color:var(--red)}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.95rem 1.6rem;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--red);background:var(--red);color:#fff;transition:.15s}.btn:hover{background:var(--red-deep);border-color:var(--red-deep)}.btn.ghost{background:transparent;color:#fff;border-color:#fff}.btn.ghost:hover{background:#fff;color:var(--ink)}.btn.block{width:100%}.top{position:absolute;inset:0 0 auto 0;padding:1.2rem 0;z-index:3}.top .wrap{display:flex;justify-content:space-between;align-items:center}.logo{font-family:var(--display);font-weight:800;color:#fff;letter-spacing:.06em;text-transform:uppercase;font-size:.95rem;text-decoration:none}.logo b{color:#FF4A52;font-weight:800}.hero{background:radial-gradient(1100px 520px at 88% -10%,rgba(218,32,40,.42),transparent 60%),var(--dark);color:#fff;padding:7.5rem 0 4rem;position:relative}.hero h1{font-size:clamp(2.6rem,9.5vw,7rem);line-height:.92;margin-bottom:1.4rem}.hero h1 span{color:var(--red)}.hero .tag{font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2;margin-bottom:1.4rem;max-width:30ch}.hero p.lead{color:#E7DED2;max-width:54ch}.hero .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}section{padding:clamp(3rem,6vw,4.6rem) 0}.lead2{color:var(--muted)}.fine{font-size:.82rem;color:var(--muted);margin-top:.8rem}.dark{background:var(--dark);color:#fff}.dark h2{color:#fff}.dark p{color:#E7DED2}.feat{list-style:none}.feat li{padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16);font-size:.98rem}.feat li b{color:#fff}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.6rem}.step{border-top:3px solid var(--red);padding-top:.9rem}.step b{font-family:var(--display);font-size:2rem;color:var(--red);display:block}details{border-top:1px solid var(--line);padding:1rem 0}details:last-of-type{border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}summary::after{content:"+";color:var(--red);font-size:1.3rem;line-height:1}details[open] summary::after{content:"\2212"}details p{margin:.7rem 0 0;color:var(--muted)}footer{background:var(--ink);color:#CFC6BA;padding:2rem 0;font-size:.88rem}footer a{color:#fff}@media (max-width:860px){.steps{grid-template-columns:1fr}.hero{padding-top:6.5rem}}.shot{margin:0;border:1px solid rgba(255,255,255,.2);border-radius:6px;overflow:hidden;background:#1F1C19}.shot img{display:block;width:100%;height:auto}
+.video{margin-top:2rem;position:relative;padding-top:56.25%;border-radius:6px;overflow:hidden;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ways{display:grid;gap:1.2rem}.box{border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:1.5rem}.box.free{border:2px solid var(--red)}
+.box h3{color:#fff;margin-bottom:.5rem}.box p{font-size:.95rem}
+.pm-form label.lbl{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E7DED2;margin-bottom:.35rem}
+.pm-form input[type=email]{width:100%;padding:.85rem 1rem;border-radius:3px;border:1px solid #CDBFAE;font:inherit;font-size:1rem;margin-bottom:.8rem;background:#fff;color:var(--ink)}
+.pm-form .chk{display:flex;gap:.55rem;align-items:flex-start;font-size:.85rem;color:#E7DED2;margin:.2rem 0 1rem}.pm-form .chk input{margin-top:.25rem;accent-color:var(--red)}
+.pm-form .btn{width:100%;cursor:pointer}.pm-form .btn:disabled{opacity:.6;cursor:wait}.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.msg{margin:.9rem 0 0;font-size:.9rem;color:#fff;min-height:1.2em}.dark .fine{color:#CFC6BA}
+.pm-hero h1{font-size:clamp(2.4rem,9vw,6.2rem)}.pm-hero h1 span{color:var(--red)}.pm-hero .by{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#D9D0C4;margin:.2rem 0 1.2rem}.pm-hero .by b{color:var(--red)}
+.pm-hero .tag{max-width:none}.pm-hero .lead{margin-bottom:1.6rem}
+.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}.pm-two.one{grid-template-columns:1fr}
+@media (max-width:860px){.pm-two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero pm-hero" id="top">
+  <div class="top"><div class="wrap"><a class="logo" href="https://levitationbeats.com/">Levitation <b>Beats</b></a><a class="btn ghost" href="#telecharger">Télécharger</a></div></div>
+  <div class="wrap">
+    <h1>Preview<span>Maker</span></h1>
+    <div class="by">by Levitation <b>Beats</b></div>
+    <p class="tag">Make previews.<br>Send opportunities.</p>
+    <p class="lead">Envoyer une prod entière à un artiste, c'est la donner. Envoyer un extrait taggé, c'est ouvrir la conversation.<br>PreviewMaker prépare tes extraits directement dans ton navigateur. Gratuit.</p>
+    <div class="cta"><a class="btn" href="#telecharger">Télécharger gratuitement</a></div>
+  </div>
+</header>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="pm-two one" id="pmCols">
+      <div>
+        <h2>Ce que fait PreviewMaker</h2>
+        <ul class="feat">
+          <li><b>Ton tag calé sur le BPM</b>, au même moment musical sur chaque prod.</li>
+          <li><b>Départ de l'extrait réglable</b>, avec fade in et fade out.</li>
+          <li><b>Qualité jusqu'à 320 kb/s</b>, ou un mode léger pour l'e-mail.</li>
+          <li><b>Poids affiché avant l'export</b>, et protection contre la saturation.</li>
+          <li><b>Plusieurs prods d'un coup</b>, exportées dans un seul ZIP.</li>
+          <li><b>Un seul fichier</b>, sur Windows et Mac, même hors connexion.</li>
+        </ul>
+      </div>
+      <figure class="shot" id="shot" hidden><img id="shotImg" alt="Capture d'écran de PreviewMaker" width="1200" height="800"></figure>
+    </div>
+    <div class="video" id="demo" hidden></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Comment ça marche</h2>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Tu glisses tes prods</h3><p>MP3, WAV, AIFF, FLAC ou M4A, plusieurs fichiers à la fois.</p></div>
+      <div class="step"><b>2</b><h3>Tu règles et tu ajoutes ton tag</h3><p>Durée, départ, fondus, qualité. Le tag se pose sur les mesures.</p></div>
+      <div class="step"><b>3</b><h3>Tu télécharges</h3><p>Tes extraits sont prêts, en ZIP ou un par un, à envoyer aux artistes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="telecharger">
+  <div class="wrap">
+    <div class="ways" style="grid-template-columns:minmax(0,560px)">
+      <div class="box free">
+        <h3>Télécharger PreviewMaker gratuitement</h3>
+        <p>Laisse ton adresse e-mail : tu reçois l'outil par e-mail, en quelques instants.<br>Pense à vérifier tes spams.</p>
+        <form class="pm-form" id="pmForm" novalidate>
+          <label class="lbl" for="pmEmail">Ton adresse e-mail</label>
+          <input type="email" id="pmEmail" name="email" placeholder="ton@email.com" autocomplete="email" required>
+          <input type="text" id="pmSite" class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="chk"><input type="checkbox" id="pmMkt"><span>Je veux aussi recevoir les actualités de Levitation Beats (facultatif, désinscription possible à tout moment).</span></label>
+          <button class="btn" type="submit" id="pmBtn">Recevoir PreviewMaker</button>
+          <p class="msg" id="pmMsg" role="status" aria-live="polite"></p>
+        </form>
+        <p class="fine">Gratuit, sans paiement. Un envoi par adresse e-mail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions fréquentes</h2>
+    <details><summary>PreviewMaker est-il vraiment gratuit ?</summary><p>Oui. Tu le reçois par e-mail en laissant ton adresse, sans payer. Un envoi par adresse e-mail.</p></details>
+    <details><summary>Faut-il installer quelque chose ?</summary><p>Non. C'est un fichier à ouvrir dans ton navigateur (Chrome, Edge, Safari ou Firefox récents), sur Windows ou Mac.</p></details>
+    <details><summary>Mes fichiers sont-ils envoyés sur un serveur ?</summary><p>Non. Tout se passe sur ton ordinateur : tes prods ne quittent pas ta machine. L'outil marche aussi hors connexion.</p></details>
+    <details><summary>Pourquoi faut-il une adresse e-mail ?</summary><p>Pour t'envoyer l'outil. La case des actualités est facultative et séparée : si tu la coches, tu peux recevoir mes nouveautés, avec une désinscription possible à tout moment.</p></details>
+    <details><summary>Je n'ai rien reçu, que faire ?</summary><p>Regarde dans tes spams et dans l'onglet Promotions. Si tu ne vois rien au bout de quelques minutes, écris-moi à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>.</p></details>
+    <details><summary>Puis-je traiter plusieurs prods en même temps ?</summary><p>Oui. Glisse plusieurs fichiers, règle une fois, et télécharge tous les extraits dans un ZIP.</p></details>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2>Et pour aller plus loin</h2>
+    <p>Je propose aussi des templates FL Studio pour enregistrer des voix et démarrer des beats.</p>
+    <a class="btn ghost" href="../templates/">Voir les templates</a>
+  </div>
+</section>
+
+<footer><div class="wrap">Levitation Beats, Montréal. Contact : <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a></div></footer>
+
+<script>
+(function(){
+  /* ===== RÉGLAGES FACILES À MODIFIER ===== */
+  var WEBAPP    = "https://script.google.com/macros/s/AKfycbzyWQ7XQxXf2kltaADPZ6SbnAC8kQd3iHwqKhaouiD7ki5P4AbQRaCZ-9YCeB025G1EgA/exec";  // adresse du formulaire
+  var DEMO_VIDEO = '';  // vidéo de démo : colle ici l'adresse d'intégration YouTube, ex. https://www.youtube.com/embed/XXXXXXXXXXX
+
+  /* ===== Capture d'écran et vidéo (s'affichent seulement si elles existent) ===== */
+  var img = document.getElementById('shotImg'), fig = document.getElementById('shot'), cols = document.getElementById('pmCols');
+  var essais = ['../templates/assets/previewmaker.png', '../templates/assets/previewmaker.jpg'], n = 0;
+  img.onload = function(){ fig.hidden = false; cols.className = 'pm-two'; };
+  img.onerror = function(){ n++; if (n < essais.length) img.src = essais[n]; };
+  img.src = essais[0];
+  if (DEMO_VIDEO) { var d = document.getElementById('demo'); d.innerHTML = '<iframe src="' + DEMO_VIDEO + '" title="Démo de PreviewMaker" allowfullscreen loading="lazy"></iframe>'; d.hidden = false; }
+
+  /* ===== Formulaire de téléchargement gratuit ===== */
+  var form = document.getElementById('pmForm'), msg = document.getElementById('pmMsg'), btn = document.getElementById('pmBtn');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('pmEmail').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "Cette adresse e-mail n'a pas l'air valide."; return; }
+    btn.disabled = true; msg.textContent = 'Envoi en cours...';
+    var data = new URLSearchParams();
+    data.set('email', email);
+    data.set('marketing', document.getElementById('pmMkt').checked ? 'oui' : 'non');
+    data.set('site', document.getElementById('pmSite').value);
+    fetch(WEBAPP, { method: 'POST', mode: 'no-cors', body: data })
+      .then(function(){ msg.textContent = "C'est noté ! Si cette adresse n'a pas déjà reçu PreviewMaker, il arrive par e-mail dans quelques instants. Pense à vérifier tes spams."; form.reset(); })
+      .catch(function(){ msg.textContent = "Un souci technique. Réessaie dans un instant ou écris-moi à levitation.beats@gmail.com."; })
+      .then(function(){ btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
