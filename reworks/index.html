@@ -714,14 +714,27 @@ var REWORKS = {
     if (REWORKS.calendarUrl){ calls[i].href = REWORKS.calendarUrl; calls[i].target = '_blank'; calls[i].rel = 'noopener'; }
   }
 
+  // Un seul son à la fois : lancer une vidéo, un exemple SoundCloud ou le lecteur avant/après arrête les autres
+  var scLoaded = [];
+  function stopVideos(except){ document.querySelectorAll('video').forEach(function(v){ if (v !== except && !v.paused) v.pause(); }); }
+  function stopSC(){ scLoaded.forEach(function(o){ if (o.f.parentNode) o.f.replaceWith(o.box); }); scLoaded = []; }
+  window.__rwStopOthers = function(source, el){
+    stopVideos(el);
+    if (source !== 'sc') stopSC();
+    if (source !== 'ab' && window.__rwStopAB) window.__rwStopAB();
+  };
+  document.addEventListener('play', function(e){ if (e.target && e.target.tagName === 'VIDEO') window.__rwStopOthers('video', e.target); }, true);
+
   // Lecteurs SoundCloud : chargés seulement au clic
   document.querySelectorAll('.sc').forEach(function(box){
     box.querySelector('button').addEventListener('click', function(){
+      window.__rwStopOthers('sc'); stopSC();
       var f = document.createElement('iframe');
       f.src = box.getAttribute('data-src').replace('auto_play=false', 'auto_play=true');
       f.title = box.getAttribute('data-title'); f.allow = 'autoplay'; f.setAttribute('scrolling', 'no');
       f.style.cssText = 'width:100%;height:166px;border:0;border-radius:10px';
       box.replaceWith(f);
+      scLoaded.push({ box: box, f: f });
     });
   });
 
@@ -857,12 +870,14 @@ var REWORKS = {
       function sync(){ var c = cur(), o = other(); if (Math.abs(o.currentTime - c.currentTime) > .15) o.currentTime = c.currentTime; }
       function toggle(){
         if (playing){ A.pause(); B.pause(); playing = false; play.classList.remove('on'); apply(); return; }
+        if (window.__rwStopOthers) window.__rwStopOthers('ab');
         sync(); apply();
         var p = [A.play(), B.play()];
         playing = true; play.classList.add('on'); apply();
         Promise.all(p.map(function(x){ return x && x.catch ? x.catch(function(){ playing = false; play.classList.remove('on'); apply(); }) : x; }));
       }
       play.addEventListener('click', toggle);
+      window.__rwStopAB = function(){ if (playing) toggle(); };
       [].forEach.call(box.querySelectorAll('.abp-tabs button'), function(b){
         b.addEventListener('click', function(){ mode = b.getAttribute('data-m'); sync(); apply(); });
       });
