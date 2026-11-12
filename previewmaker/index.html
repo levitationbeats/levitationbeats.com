@@ -93,7 +93,7 @@
     <details><summary>Faut-il installer quelque chose ?</summary><p>Non. C'est un fichier à ouvrir dans ton navigateur (Chrome, Edge, Safari ou Firefox récents), sur Windows ou Mac.</p></details>
     <details><summary>Mes fichiers sont-ils envoyés sur un serveur ?</summary><p>Non. Tout se passe sur ton ordinateur : tes prods ne quittent pas ta machine. L'outil marche aussi hors connexion.</p></details>
     <details><summary>Pourquoi faut-il une adresse e-mail ?</summary><p>Pour t'envoyer l'outil. La case des actualités est facultative et séparée : si tu la coches, tu peux recevoir mes nouveautés, avec une désinscription possible à tout moment.</p></details>
-    <details><summary>Je n'ai rien reçu, que faire ?</summary><p>Regarde dans tes spams et dans l'onglet Promotions. Si tu ne vois rien au bout de quelques minutes, écris-moi à <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a>.</p></details>
+    <details><summary>Je n'ai rien reçu, que faire ?</summary><p>Regarde dans tes spams et dans l'onglet Promotions. Si tu ne vois rien au bout de quelques minutes, écris-moi à <a href="mailto:levitation.beatstore@gmail.com">levitation.beatstore@gmail.com</a>.</p></details>
     <details><summary>Puis-je traiter plusieurs prods en même temps ?</summary><p>Oui. Glisse plusieurs fichiers, règle une fois, et télécharge tous les extraits dans un ZIP.</p></details>
   </div>
 </section>
@@ -106,12 +106,12 @@
   </div>
 </section>
 
-<footer><div class="wrap">Levitation Beats, Montréal. Contact : <a href="mailto:levitation.beats@gmail.com">levitation.beats@gmail.com</a></div></footer>
+<footer><div class="wrap">Levitation Beats, Montréal. Contact : <a href="mailto:levitation.beatstore@gmail.com">levitation.beatstore@gmail.com</a></div></footer>
 
 <script>
 (function(){
   /* ===== RÉGLAGES FACILES À MODIFIER ===== */
-  var WEBAPP    = "https://script.google.com/macros/s/AKfycbzyWQ7XQxXf2kltaADPZ6SbnAC8kQd3iHwqKhaouiD7ki5P4AbQRaCZ-9YCeB025G1EgA/exec";  // adresse du formulaire
+  var WEBAPP    = "https://script.google.com/macros/s/AKfycbzcotYhBqs8ftlhRESdvJjXzjtWN-HvvOUCzfuyE7AVvOeFa3Yk-7MwzXs-Wqafnsah/exec";  // adresse du formulaire
   var DEMO_VIDEO = '';  // vidéo de démo : colle ici l'adresse d'intégration YouTube, ex. https://www.youtube.com/embed/XXXXXXXXXXX
 
   /* ===== Capture d'écran et vidéo (s'affichent seulement si elles existent) ===== */
@@ -135,7 +135,7 @@
     data.set('site', document.getElementById('pmSite').value);
     fetch(WEBAPP, { method: 'POST', mode: 'no-cors', body: data })
       .then(function(){ msg.textContent = "C'est noté ! Si cette adresse n'a pas déjà reçu PreviewMaker, il arrive par e-mail dans quelques instants. Pense à vérifier tes spams."; form.reset(); })
-      .catch(function(){ msg.textContent = "Un souci technique. Réessaie dans un instant ou écris-moi à levitation.beats@gmail.com."; })
+      .catch(function(){ msg.textContent = "Un souci technique. Réessaie dans un instant ou écris-moi à levitation.beatstore@gmail.com."; })
       .then(function(){ btn.disabled = false; });
   });
 })();
