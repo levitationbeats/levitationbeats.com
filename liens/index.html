@@ -42,21 +42,21 @@ h1{margin:0;font-family:var(--display);font-weight:800;font-stretch:125%;font-si
 h1 span{color:var(--red-light)}
 .tag{margin:.7rem auto 0;max-width:23rem;color:var(--muted);font-size:1rem}
 
-/* Deux tuiles : REWORKS et Beatstore */
+/* Deux tuiles : REWORKS et ACCESS */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.85rem}
 .tile{position:relative;display:block;overflow:hidden;border-radius:14px;min-height:22rem;background:#000;isolation:isolate}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.tile.rw img{object-position:38% 100%;opacity:.9}
-.tile.bs img{object-position:50% 100%;opacity:.55}
-.tile::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,24,21,.93) 0%,rgba(27,24,21,.86) 55%,rgba(27,24,21,.3) 100%)}
+.tile.rw img{object-position:50% 78%}
+.tile.bs img{object-position:50% 78%}
+.tile::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,17,15,.9) 0%,rgba(20,17,15,.66) 38%,rgba(20,17,15,.12) 62%,rgba(20,17,15,.5) 100%)}
 .tile .in{display:flex;flex-direction:column;justify-content:flex-start;min-height:22rem;padding:1rem}
-.tile h2{margin:0 0 .45rem;font-family:var(--display);font-weight:800;font-stretch:125%;font-size:1rem;letter-spacing:.02em;line-height:1.1}
+.tile h2{margin:0 0 .85rem;font-family:var(--display);font-weight:800;font-stretch:125%;font-size:clamp(1rem,4.9vw,1.4rem);letter-spacing:.05em;line-height:1;color:#F7F1EA;white-space:nowrap;text-transform:uppercase}.tile h2::after{content:"";display:block;width:2.2rem;height:3px;margin-top:.55rem;border-radius:2px;background:var(--red)}
 .tile p{margin:0 0 .9rem;font-size:.9rem;line-height:1.4;color:#EFE6DB}
 .tile p span{display:block}
 .tile p span+span{margin-top:.45rem}
 .tile .go{margin-top:auto;align-self:flex-start;background:var(--red);color:#fff;font-weight:700;font-size:.9rem;padding:.65rem .9rem;border-radius:8px;transition:background .15s}
-.tile.rw:hover .go,.tile.rw:active .go{background:var(--red-deep)}
-.soon{margin-top:auto;align-self:flex-start;border:1px solid rgba(255,255,255,.4);color:var(--text);font-weight:700;font-size:.76rem;padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
+.tile .go{background:#F7F1EA;color:var(--red-deep)}.tile.rw:hover .go,.tile.rw:active .go{background:#fff}
+.soon{margin-top:auto;align-self:flex-start;border:1px solid rgba(247,241,234,.6);background:rgba(20,17,15,.6);color:#F7F1EA;font-weight:700;font-size:.76rem;padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
 
 /* Autres liens */
 .list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
@@ -85,7 +85,7 @@ h1 span{color:var(--red-light)}
 
   <div class="split">
     <a class="tile rw" href="https://levitationbeats.com/reworks/?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=liens">
-      <img src="tuile-reworks.jpg" alt="" width="800" height="533">
+      <img src="tuile-reworks.jpg" alt="" width="640" height="960">
       <div class="in">
         <h2>REWORKS</h2>
         <p><span>Tu as déjà une voix ou une démo&nbsp;?</span><span>Je crée la prod officielle de ton morceau, originale et exclusive.</span></p>
@@ -93,10 +93,10 @@ h1 span{color:var(--red-light)}
       </div>
     </a>
     <div class="tile bs">
-      <img src="tuile-beatstore.jpg" alt="" width="560" height="700">
+      <img src="tuile-beatstore.jpg" alt="" width="640" height="960">
       <div class="in">
-        <h2>BEATSTORE</h2>
-        <p>Mes prods à écouter et à acheter.</p>
+        <h2>ACCESS</h2>
+        <p>Trouve la prod qui te correspond.</p>
         <span class="soon">Bientôt disponible</span>
       </div>
     </div>
