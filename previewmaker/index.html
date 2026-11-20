@@ -18,7 +18,7 @@
 .msg{margin:.9rem 0 0;font-size:.9rem;color:#fff;min-height:1.2em}.dark .fine{color:#CFC6BA}
 .pm-hero h1{font-size:clamp(2.4rem,9vw,6.2rem)}.pm-hero h1 span{color:var(--red)}.pm-hero .by{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#D9D0C4;margin:.2rem 0 1.2rem}.pm-hero .by b{color:var(--red)}
 .pm-hero .tag{max-width:none}.pm-hero .lead{margin-bottom:1.6rem}
-.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}.pm-two.one{grid-template-columns:1fr}
+.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}.pm-two.one{grid-template-columns:1fr}.pm-vid{max-width:340px;width:100%;margin-inline:auto}.pm-vid video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#000}
 @media (max-width:860px){.pm-two{grid-template-columns:1fr}}
 </style>
 </head>
@@ -37,7 +37,7 @@
 
 <section class="dark">
   <div class="wrap">
-    <div class="pm-two one" id="pmCols">
+    <div class="pm-two" id="pmCols">
       <div>
         <h2>Ce que fait PreviewMaker</h2>
         <ul class="feat">
@@ -49,7 +49,7 @@
           <li><b>Un seul fichier</b>, sur Windows et Mac, même hors connexion.</li>
         </ul>
       </div>
-      <figure class="shot" id="shot" hidden><img id="shotImg" alt="Capture d'écran de PreviewMaker" width="1200" height="800"></figure>
+      <figure class="shot pm-vid"><video src="assets/demo.mp4" poster="assets/demo.jpg" controls playsinline preload="metadata" width="720" height="1280" aria-label="Démo de PreviewMaker"></video></figure>
     </div>
     <div class="video" id="demo" hidden></div>
   </div>
@@ -114,12 +114,6 @@
   var WEBAPP    = "https://script.google.com/macros/s/AKfycbzcotYhBqs8ftlhRESdvJjXzjtWN-HvvOUCzfuyE7AVvOeFa3Yk-7MwzXs-Wqafnsah/exec";  // adresse du formulaire
   var DEMO_VIDEO = '';  // vidéo de démo : colle ici l'adresse d'intégration YouTube, ex. https://www.youtube.com/embed/XXXXXXXXXXX
 
-  /* ===== Capture d'écran et vidéo (s'affichent seulement si elles existent) ===== */
-  var img = document.getElementById('shotImg'), fig = document.getElementById('shot'), cols = document.getElementById('pmCols');
-  var essais = ['../templates/assets/previewmaker.png', '../templates/assets/previewmaker.jpg'], n = 0;
-  img.onload = function(){ fig.hidden = false; cols.className = 'pm-two'; };
-  img.onerror = function(){ n++; if (n < essais.length) img.src = essais[n]; };
-  img.src = essais[0];
   if (DEMO_VIDEO) { var d = document.getElementById('demo'); d.innerHTML = '<iframe src="' + DEMO_VIDEO + '" title="Démo de PreviewMaker" allowfullscreen loading="lazy"></iframe>'; d.hidden = false; }
 
   /* ===== Formulaire de téléchargement gratuit ===== */
