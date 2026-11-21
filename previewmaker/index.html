@@ -18,7 +18,7 @@
 .msg{margin:.9rem 0 0;font-size:.9rem;color:#fff;min-height:1.2em}.dark .fine{color:#CFC6BA}
 .pm-hero h1{font-size:clamp(2.4rem,9vw,6.2rem)}.pm-hero h1 span{color:var(--red)}.pm-hero .by{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#D9D0C4;margin:.2rem 0 1.2rem}.pm-hero .by b{color:var(--red)}
 .pm-hero .tag{max-width:none}.pm-hero .lead{margin-bottom:1.6rem}
-.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}.pm-two.one{grid-template-columns:1fr}.pm-vid{max-width:340px;width:100%;margin-inline:auto}.pm-vid video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#000}
+.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}.pm-two.one{grid-template-columns:1fr}.pm-vid{max-width:340px;width:100%;margin-inline:auto;position:relative;z-index:2}.pm-vid video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#000}
 @media (max-width:860px){.pm-two{grid-template-columns:1fr}}
 </style>
 </head>
@@ -31,7 +31,7 @@
     <div class="by">by Levitation <b>Beats</b></div>
     <p class="tag">Make previews.<br>Send opportunities.</p>
     <p class="lead">Envoyer une prod entière à un artiste, c'est la donner. Envoyer un extrait taggé, c'est ouvrir la conversation.<br>PreviewMaker prépare tes extraits directement dans ton navigateur. Gratuit.</p>
-    <div class="cta"><a class="btn" href="#telecharger">Télécharger gratuitement</a></div>
+    <div class="cta"><a class="btn" id="pmBtnTop" href="#telecharger">Télécharger gratuitement</a></div>
   </div>
 </header>
 
@@ -114,6 +114,15 @@
   var WEBAPP    = "https://script.google.com/macros/s/AKfycbzcotYhBqs8ftlhRESdvJjXzjtWN-HvvOUCzfuyE7AVvOeFa3Yk-7MwzXs-Wqafnsah/exec";  // adresse du formulaire
   var DEMO_VIDEO = '';  // vidéo de démo : colle ici l'adresse d'intégration YouTube, ex. https://www.youtube.com/embed/XXXXXXXXXXX
 
+  /* Sur grand écran, le haut de la vidéo se cale sur le bouton « Télécharger gratuitement » */
+  var vid = document.querySelector('.pm-vid'), topBtn = document.getElementById('pmBtnTop');
+  function calerVideo(){
+    vid.style.marginTop = '';
+    if (window.innerWidth <= 860) return;
+    var dy = vid.getBoundingClientRect().top - topBtn.getBoundingClientRect().top;
+    if (dy > 0) vid.style.marginTop = (-dy) + 'px';
+  }
+  calerVideo(); window.addEventListener('resize', calerVideo); window.addEventListener('load', calerVideo);
   if (DEMO_VIDEO) { var d = document.getElementById('demo'); d.innerHTML = '<iframe src="' + DEMO_VIDEO + '" title="Démo de PreviewMaker" allowfullscreen loading="lazy"></iframe>'; d.hidden = false; }
 
   /* ===== Formulaire de téléchargement gratuit ===== */
